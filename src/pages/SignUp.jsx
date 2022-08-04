@@ -1,9 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 import Header from '../partials/Header';
 
 function SignUp() {
+
+  const { register, handleSubmit, formState : {errors} } = useForm({
+    mode : "onSubmit",
+    shouldUseNativeValidation : true,
+  })
+
+  const onSubmit = (data) => {
+    console.log(JSON.stringify(data));
+  }
+
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
 
@@ -24,23 +35,26 @@ function SignUp() {
 
               {/* Form */}
               <div className="max-w-sm mx-auto">
-                <form>
+                <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="name">Name <span className="text-red-600">*</span></label>
-                      <input id="name" type="text" className="form-input w-full text-gray-800" placeholder="Enter your name" required />
+                      <input id="name" type="text" className="form-input w-full text-gray-800" placeholder="Enter your name" required {...register('customerName', {required: true})} />
+                      {errors.customerName && <span className="text-red-600 mt-1">Digite seu nome completo</span>}
                     </div>
                   </div>
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="email">Email <span className="text-red-600">*</span></label>
-                      <input id="email" type="email" className="form-input w-full text-gray-800" placeholder="Enter your email address" required />
+                      <input id="email" type="email" className="form-input w-full text-gray-800" placeholder="Enter your email address" required {...register('customerEmailSignUp', {required: true})} />
+                      {errors.customerEmailSignUp && <span className="text-red-600 mt-1">Digite seu e-mail</span>}
                     </div>
                   </div>
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="password">Password <span className="text-red-600">*</span></label>
-                      <input id="password" type="password" className="form-input w-full text-gray-800" placeholder="Enter your password" required />
+                      <input id="password" type="password" className="form-input w-full text-gray-800" placeholder="Enter your password" required {...register('customerPasswordSignUp', {required: true})} />
+                      {errors.customerPasswordSignUp && <span className="text-red-600 mt-1">Digite sua senha</span>}
                     </div>
                   </div>
                   <div className="flex flex-wrap -mx-3 mt-6">
