@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 function NavHeader() {
     return (
         <>
@@ -11,11 +13,15 @@ function NavHeader() {
                     <li>História</li>
                     <li>Sobre</li>
                     </nav>
-                    <div className="pl-20  pr-4 text-2xl ">
-                        <button className="border border-white p-2 rounded-lg">Login</button>
+                    <div className="pl-20 pr-4 text-2xl ">
+                        <Link href='/login'>
+                        <a className="border border-white p-2 rounded-lg decoration-none">Login</a>
+                        </Link>
                     </div>
                     <div className="pl-4 text-2xl">
-                        <button className="border border-white p-2 rounded-lg">Cadastro</button>
+                        <Link href='/cadastro'>
+                        <button className="border border-white p-2 rounded-lg decoration-none">Cadastro</button>
+                        </Link>
                     </div>
                 </div>
             </div>
