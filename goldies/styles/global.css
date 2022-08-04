@@ -8,5 +8,5 @@
 
 
 body{
-    @apply bg-black
+    @apply min-w-[100vh] min-h-screen
 }
