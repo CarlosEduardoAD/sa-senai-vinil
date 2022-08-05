@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ToggleButton from "../utils/ToggleButton";
 
-function Header() {
+function Header(props) {
   const [top, setTop] = useState(true);
 
   // detect whether user has scrolled the page down by 10px
@@ -15,9 +16,8 @@ function Header() {
 
   return (
     <header
-      className={`fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${
-        !top && "bg-white backdrop-blur-sm shadow-lg"
-      }`}
+      className={`fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top && "dark:bg-neutral-800 bg-white backdrop-blur-sm shadow-lg"
+        }`}
     >
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -77,8 +77,8 @@ function Header() {
                 ></line>
               </svg>
             </Link>{" "}
-          </div>
 
+          </div>
           {/* Site navigation */}
           <nav className="flex flex-grow">
             <ul className="flex flex-grow justify-end flex-wrap items-center">
@@ -87,15 +87,16 @@ function Header() {
                   to="/signin"
                   className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out"
                 >
-                  Sign in
+                  {props.firstButton}
                 </Link>
               </li>
               <li>
                 <Link
                   to="/signup"
-                  className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3"
+                  className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3 dark:bg-blue-800"
+
                 >
-                  <span>Sign up</span>
+                  <span>{props.secondButton}</span>
                   <svg
                     className="w-3 h-3 fill-current text-gray-400 flex-shrink-0 ml-2 -mr-1"
                     viewBox="0 0 12 12"
@@ -108,6 +109,9 @@ function Header() {
                   </svg>
                 </Link>
               </li>
+              <li><div className="flex flex-wrap px-4 font-medium text-gray-600 hover:text-gray-900 flex items-center transition duration-150 ease-in-out sm:mt-0">
+                <ToggleButton></ToggleButton>
+              </div></li>
             </ul>
           </nav>
         </div>

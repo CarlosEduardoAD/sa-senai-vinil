@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import Modal from "../utils/Modal";
-
+import ToggleButton from "../utils/ToggleButton";
+import UseDarkMode from "../utils/UseDarkMode";
 import HeroImage from "../images/hero-image.png";
+import Goldies from "../images/Goldies.png"
 
 function HeroHome() {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
+  const [colorTheme, setTheme] = UseDarkMode()
 
   return (
-    <section className="relative">
+    <section className="relative dark:bg-[#151617]">
       {/* Illustration behind hero content */}
       <div
         className="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none"
@@ -39,7 +42,7 @@ function HeroHome() {
         </svg>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl sm:max-w-full mx-auto px-4 sm:px-6">
         {/* Hero content */}
         <div className="pt-32 pb-12 md:pt-40 md:pb-20">
           {/* Section header */}
@@ -48,8 +51,8 @@ function HeroHome() {
               className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4"
               data-aos="zoom-y-out"
             >
-              O "velho" aqui é o{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-teal-250">
+             <span className="dark:text-white"> O "velho" aqui é o{" "}</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-teal-250 dark:from-blue-700 dark:to-indigo-900">
                 NOVO
               </span>
             </h1>
@@ -58,6 +61,7 @@ function HeroHome() {
                 className="text-xl text-gray-600 mb-8"
                 data-aos="zoom-y-out"
                 data-aos-delay="150"
+                className='dark:text-white'
               >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
                 culpa nisi necessitatibus eos at, possimus, sit doloribus
@@ -79,10 +83,10 @@ function HeroHome() {
               data-aos="zoom-y-out"
               data-aos-delay="450"
             >
-              <div className="flex flex-col justify-center">
+              <div className={`flex flex-col justify-center`}>
                 <img
                   className="mx-auto"
-                  src={HeroImage}
+                  src={Goldies}
                   width="768"
                   height="432"
                   alt="Hero"
