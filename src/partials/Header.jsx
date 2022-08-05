@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header(props) {
   const [top, setTop] = useState(true);
 
   // detect whether user has scrolled the page down by 10px
@@ -87,7 +87,7 @@ function Header() {
                   to="/signin"
                   className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out"
                 >
-                  Sign in
+                  {props.firstButton}
                 </Link>
               </li>
               <li>
@@ -95,7 +95,7 @@ function Header() {
                   to="/signup"
                   className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3"
                 >
-                  <span>Sign up</span>
+                  <span>{props.secondButton}</span>
                   <svg
                     className="w-3 h-3 fill-current text-gray-400 flex-shrink-0 ml-2 -mr-1"
                     viewBox="0 0 12 12"
