@@ -10,7 +10,7 @@ function HeroHome() {
   const [colorTheme, setTheme] = UseDarkMode()
 
   return (
-    <section className="relative dark:bg-black">
+    <section className="relative dark:bg-[#151617]">
       {/* Illustration behind hero content */}
       <div
         className="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none"
@@ -42,7 +42,7 @@ function HeroHome() {
         </svg>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl sm:max-w-full mx-auto px-4 sm:px-6">
         {/* Hero content */}
         <div className="pt-32 pb-12 md:pt-40 md:pb-20">
           {/* Section header */}

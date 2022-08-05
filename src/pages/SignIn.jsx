@@ -19,11 +19,11 @@ function SignIn() {
       {/*  Page content */}
       <main className="flex-grow">
         <section className="bg-gradient-to-b from-gray-100 to-white">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="max-w-6xl sm:max-w-full dark:bg-[#151617] mx-auto px-4 sm:px-6">
             <div className="pt-32 pb-12 md:pt-40 md:pb-20">
               {/* Page header */}
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-                <h1 className="h1">
+                <h1 className="h1 dark:text-white">
                   Welcome back. We exist to make entrepreneurism easier.
                 </h1>
               </div>
@@ -34,7 +34,7 @@ function SignIn() {
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <label
-                        className="block text-gray-800 text-sm font-medium mb-1"
+                        className="block text-gray-800 text-sm font-medium mb-1 dark:text-white"
                         htmlFor="email"
                       >
                         Email
@@ -42,7 +42,7 @@ function SignIn() {
                       <input
                         id="email"
                         type="email"
-                        className="form-input w-full text-gray-800"
+                        className="form-input w-full text-gray-800 dark:bg-neutral-700 dark:border-none dark:text-white"
                         placeholder="Enter your email address"
                         required
                         {...register('customerEmail', {required : true})}
@@ -54,7 +54,7 @@ function SignIn() {
                     <div className="w-full px-3">
                       <div className="flex justify-between">
                         <label
-                          className="block text-gray-800 text-sm font-medium mb-1"
+                          className="block text-gray-800 text-sm font-medium mb-1 dark:text-white"
                           htmlFor="password"
                         >
                           Password
@@ -69,7 +69,7 @@ function SignIn() {
                       <input
                         id="password"
                         type="password"
-                        className="form-input w-full text-gray-800"
+                        className="form-input w-full text-gray-800 dark:text-white dark:bg-neutral-700 dark:border-none"
                         placeholder="Enter your password"
                         required
                         {...register('customerPassword', {required : true})}

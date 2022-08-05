@@ -16,7 +16,7 @@ function Header(props) {
 
   return (
     <header
-      className={`fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top && "dark:bg-neutral-900 bg-white backdrop-blur-sm shadow-lg"
+      className={`fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top && "dark:bg-neutral-800 bg-white backdrop-blur-sm shadow-lg"
         }`}
     >
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
@@ -82,9 +82,6 @@ function Header(props) {
           {/* Site navigation */}
           <nav className="flex flex-grow">
             <ul className="flex flex-grow justify-end flex-wrap items-center">
-              <li><div className="font-medium text-gray-600 hover:text-gray-900 px-24 py-5 flex items-center transition duration-150 ease-in-out">
-                <ToggleButton></ToggleButton>
-              </div></li>
               <li>
                 <Link
                   to="/signin"
@@ -96,7 +93,8 @@ function Header(props) {
               <li>
                 <Link
                   to="/signup"
-                  className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3"
+                  className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3 dark:bg-blue-800"
+
                 >
                   <span>{props.secondButton}</span>
                   <svg
@@ -111,6 +109,9 @@ function Header(props) {
                   </svg>
                 </Link>
               </li>
+              <li><div className="flex flex-wrap px-4 font-medium text-gray-600 hover:text-gray-900 flex items-center transition duration-150 ease-in-out sm:mt-0">
+                <ToggleButton></ToggleButton>
+              </div></li>
             </ul>
           </nav>
         </div>
