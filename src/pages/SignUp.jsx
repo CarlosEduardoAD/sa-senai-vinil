@@ -19,7 +19,7 @@ function SignUp() {
     <div className="flex flex-col min-h-screen overflow-hidden">
 
       {/*  Site header */}
-      <Header />
+      <Header  firstButton='Sign Up' secondButton='Sign In' />
 
       {/*  Page content */}
       <main className="flex-grow">
