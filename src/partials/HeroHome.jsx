@@ -7,7 +7,7 @@ import Goldies from "../images/Goldies.png"
 
 function HeroHome() {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
-  const [colorTheme, setTheme] = UseDarkMode()
+
 
   return (
     <section className="relative dark:bg-[#151617]">
@@ -30,9 +30,9 @@ function HeroHome() {
               y2="100%"
               id="illustration-01"
             >
-              <stop stopColor="#FFF" offset="0%" />
-              <stop stopColor="#EAEAEA" offset="77.402%" />
-              <stop stopColor="#DFDFDF" offset="100%" />
+              <stop stopColor="#1d4ed8" offset="0%" />
+              <stop stopColor="#3b82f6" offset="77.402%" />
+              <stop stopColor="#93c5fd" offset="100%" />
             </linearGradient>
           </defs>
           <g fill="url(#illustration-01)" fillRule="evenodd">
@@ -58,10 +58,9 @@ function HeroHome() {
             </h1>
             <div className="max-w-3xl mx-auto">
               <p
-                className="text-xl text-gray-600 mb-8"
+                className="text-xl text-gray-600 mb-8 dark:text-white"
                 data-aos="zoom-y-out"
                 data-aos-delay="150"
-                className='dark:text-white'
               >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
                 culpa nisi necessitatibus eos at, possimus, sit doloribus
