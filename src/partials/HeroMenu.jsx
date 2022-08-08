@@ -13,7 +13,7 @@ function HeroHome() {
                 className='flex flex-grow flex-col sm:max-w-full min-h-screen dark:bg-[#151617]'>
                 <div className='flex flex-col items-center justify-center '>
                     <h1 className='text-center dark:text-white text-neutral-800 font-bold pt-24 text-4xl'>Seja bem vindo {" "}<span
-                    className='opacity-40
+                        className='opacity-40
                     text-black
                     dark:text-white 
                     hover:opacity-100
@@ -24,11 +24,22 @@ function HeroHome() {
                     transition-all
                     duration-900'
                     >{nome}</span></h1>
+                    <p className='text-white pt-12 font-inter font-bold text-3xl'>Últimas compras</p>
                     <div className='flex flex-col md:grid md:grid-cols-3 md:grid-flow-row gap-12 pt-24 dark:text-white pr-4 pl-4'>
                         <div className='p-20 bg-blue-600 rounded-md max-w-sm mx-auto md:p-22'>Aoba</div>
                         <div className='p-20 bg-blue-600 rounded-md max-w-sm x-auto md:p-22'>Aoba</div>
                         <div className='p-20 bg-blue-600 rounded-md max-w-sm mx-auto md:p-22'>Aoba</div>
                     </div>
+                </div>
+                <div className='pt-16 flex items-center justify-center font-inter dark:text-white text-center'>
+                    <p className='font-bold text-3xl'>Discos na moda</p>
+                </div>
+                <div className='flex flex-col flex-wrap items-center justify-center'>
+                <div className='flex flex-col md:grid md:grid-cols-3 md:grid-flow-row gap-12 pt-24 dark:text-white pr-4 pl-4 pb-12'>
+                    <div className='p-20 bg-blue-600 rounded-md max-w-sm mx-auto md:p-22'>Aoba</div>
+                    <div className='p-20 bg-blue-600 rounded-md max-w-sm mx-auto md:p-22'>Aoba</div>
+                    <div className='p-20 bg-blue-600 rounded-md max-w-sm mx-auto md:p-22'>Aoba</div>
+                </div>
                 </div>
             </main>
         </section>
