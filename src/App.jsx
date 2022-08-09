@@ -15,6 +15,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ResetPassword from './pages/ResetPassword';
 import Menu from './pages/Menu';
+import Cart from "./pages/Cart"
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/menu" element={<Menu />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </>
   );

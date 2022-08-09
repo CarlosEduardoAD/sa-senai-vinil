@@ -14,7 +14,7 @@ function SignIn() {
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       {/*  Site header */}
-      <Header firstButton='Sign Up' secondButton='Sign In'/>
+      <Header firstButton='Sign Up' secondButton='Enter'/>
 
       {/*  Page content */}
       <main className="flex-grow">
@@ -82,7 +82,7 @@ function SignIn() {
                     <div className="w-full px-3">
                       <div className="flex justify-between">
                         <label className="flex items-center">
-                          <input type="checkbox" className="form-checkbox" />
+                          <input type="checkbox" className="form-checkbox bg-neutral-500 dark:bg-white" />
                           <span className="text-gray-600 ml-2">
                             Keep me signed in
                           </span>
