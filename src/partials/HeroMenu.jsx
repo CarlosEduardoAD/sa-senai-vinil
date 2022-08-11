@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import {MagnifyingGlass} from "phosphor-react"
 import Button from '@mui/material/Button';
-
 
 function HeroHome() {
     let nome = "{Nome de usuário}";
