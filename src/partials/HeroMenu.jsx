@@ -2,13 +2,10 @@ import { useState } from 'react';
 import {MagnifyingGlass} from "phosphor-react"
 import Button from '@mui/material/Button';
 
+
 function HeroHome() {
     let nome = "{Nome de usuário}";
-    const [open, setOpen] = useState(false);
 
-    const openDrawer = () => {
-        setOpen(true);
-    }
     return (
         <section className="relative">
             <main
@@ -17,7 +14,7 @@ function HeroHome() {
                     <h1 className='text-center dark:text-white text-neutral-800 font-bold pt-24 text-4xl'>Seja bem vindo {" "}<span
                         className='opacity-40
                     text-black
-                    dark:text-white 
+                    dark:text-white
                     hover:opacity-100
                     hover:text-amber-500
                     dark:hover:text-blue-700
