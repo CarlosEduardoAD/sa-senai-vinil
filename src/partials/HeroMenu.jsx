@@ -12,8 +12,9 @@ function HeroHome() {
                 className='flex flex-grow flex-col sm:max-w-full min-h-screen dark:bg-[#151617]'>
                 <div className='flex flex-col items-center justify-center '>
                     <h1 className='text-center dark:text-white text-neutral-800 font-bold pt-24 text-4xl'>Seja bem vindo {" "}<span
-                        className='opacity-40
-                    text-black
+                        className='
+                    opacity-50
+                    text-neutral-900
                     dark:text-white
                     hover:opacity-100
                     hover:text-amber-500
