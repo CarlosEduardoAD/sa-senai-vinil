@@ -15,16 +15,6 @@ function HeroCart() {
 
   return (
     <>
-<<<<<<< HEAD
-    <div className="dark:bg-[#151617] max-w-6xl xs:max-w-ful min-h-screen">
-      <button className="absolute dark:text-white text-black p-4">
-        <Link to="/menu">Voltar</Link>
-      </button>
-      <section className="flex flex-row items-center justify-center flex-wrap md:gap-12 -space-y-[300px] xs:space-y-0 pt-20">
-        <div className="pl-4 pr-4 md:pl-0 md:pr-0">
-          <img
-            className="rounded-lg max-w-full h-auto w-[500px] "
-=======
     <div className="dark:bg-[#151617] max-w-full min-h-screen">
       <button className="absolute dark:text-white text-black p-4">
         <Link to="/menu">Voltar</Link>
@@ -33,7 +23,6 @@ function HeroCart() {
         <div className="pr-4 pl-4">
           <img
             className="rounded-lg max-w-full h-auto w-[600px] "
->>>>>>> main
             src={img}
             alt=""
           />
