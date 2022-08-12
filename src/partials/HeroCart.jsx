@@ -15,14 +15,14 @@ function HeroCart() {
 
   return (
     <>
-    <div className="dark:bg-[#151617] max-w-6xl xs:max-w-full min-h-screen">
+    <div className="dark:bg-[#151617] max-w-full min-h-screen">
       <button className="absolute dark:text-white text-black p-4">
         <Link to="/menu">Voltar</Link>
       </button>
-      <section className="flex flex-row items-center justify-center flex-wrap md:gap-12 -space-y-[300px] xs:space-y-0 pt-40">
+      <section className="flex flex-row items-center justify-center flex-wrap md:gap-12 -space-y-[300px] xs:space-y-0 pt-32">
         <div className="pr-4 pl-4">
           <img
-            className="rounded-lg max-w-full h-auto w-[750px] "
+            className="rounded-lg max-w-full h-auto w-[600px] "
             src={img}
             alt=""
           />

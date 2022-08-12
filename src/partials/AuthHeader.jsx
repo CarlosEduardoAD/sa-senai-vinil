@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import ToggleButton from "../utils/ToggleButton";
+import { Hamburguer } from "../utils/Hamburguer";
 
 function Header(props) {
   const [top, setTop] = useState(true);
@@ -109,9 +110,10 @@ function Header(props) {
                   </svg>
                 </Link>
               </li>
-              <li><div className="flex flex-wrap px-4 font-medium text-gray-600 hover:text-gray-900 flex items-center transition duration-150 ease-in-out sm:mt-0">
+              <li><div className="hidden md:flex flex-wrap px-4 font-medium text-gray-600 hover:text-gray-900 flex items-center transition duration-150 ease-in-out sm:mt-0">
                 <ToggleButton></ToggleButton>
               </div></li>
+              <li><div className="flex md:hidden"><Hamburguer/></div></li>
             </ul>
           </nav>
         </div>

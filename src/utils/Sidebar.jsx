@@ -10,7 +10,7 @@ export function Sidebar() {
 
   return (
     <>
-    <div className="fixed bottom-0 ml-4 p-2">
+    <div className="fixed bottom-0 ml-4 p-2 z-10">
       <button onClick={() => handleClick()} className='bg-black text-white rounded-full '><Hamburger size={20} toggled={active} toggle={setActive} /></button></div>
       {active ? <div className={`z-10 w-[300px] fixed h-full bg-neutral-300 dark:bg-black top-0 left-0  ease-in-out transition-all duration-400`}> <div className="flex items-start top-0 justify-start absolute"><button className="text-white  ml-1 p-2 rounded-full" onClick={() => handleClick()}><Hamburger size={24} toggled={active} toggle={setActive} /></button></div></div> : <div></div>}
 

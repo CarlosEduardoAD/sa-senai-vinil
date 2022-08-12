@@ -1,5 +1,6 @@
 import {MagnifyingGlass} from "phosphor-react"
 import Button from '@mui/material/Button';
+import { Sidebar } from "../utils/Sidebar"
 
 function HeroHome() {
     let nome = "{Nome de usuário}";
@@ -34,6 +35,7 @@ function HeroHome() {
                 <div className='pt-16 flex items-center justify-center font-inter dark:text-white text-center'>
                     <p className='font-bold text-3xl'>Discos na moda</p>
                 </div>
+                <div className="z-10"><Sidebar></Sidebar></div>
                 <div className='flex flex-col flex-wrap items-center justify-center'>
                 <div className='flex flex-col md:grid md:grid-cols-3 md:grid-flow-row gap-12 pt-24 dark:text-white pr-4 pl-4 pb-12'>
                     <div className='p-20 bg-blue-600 rounded-md max-w-sm mx-auto md:p-22'>Aoba</div>

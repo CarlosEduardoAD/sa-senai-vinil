@@ -1,6 +1,7 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ToggleButton from "../utils/ToggleButton";
+import { Hamburguer } from "../utils/Hamburguer";
 
 function Header(props) {
   const [top, setTop] = useState(true);
@@ -81,11 +82,11 @@ function Header(props) {
           </div>
           {/* Site navigation */}
           <nav className="flex flex-grow">
-            <ul className="flex flex-grow justify-end flex-wrap items-center">
+            <ul className="flex flex-grow justify-end items-center">
               <li>
                 <Link
                   to="/signin"
-                  className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out"
+                  className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out text-sm md:text-lg"
                 >
                   {props.firstButton}
                 </Link>
@@ -96,7 +97,7 @@ function Header(props) {
                   className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3 dark:bg-blue-800"
 
                 >
-                  <span>{props.secondButton}</span>
+                  <span className="text-sm md:text-lg">{props.secondButton}</span>
                   <svg
                     className="w-3 h-3 fill-current text-gray-400 flex-shrink-0 ml-2 -mr-1"
                     viewBox="0 0 12 12"
@@ -109,9 +110,10 @@ function Header(props) {
                   </svg>
                 </Link>
               </li>
-              <li><div className="flex flex-wrap px-4 font-medium text-gray-600 hover:text-gray-900 flex items-center transition duration-150 ease-in-out sm:mt-0">
+              <li><div className="hidden md:flex px-4 font-medium text-gray-600 hover:text-gray-900 flex items-center transition duration-150 ease-in-out sm:mt-0">
                 <ToggleButton></ToggleButton>
               </div></li>
+              <li><div className="flex md:hidden"><Hamburguer/></div></li>
             </ul>
           </nav>
         </div>
