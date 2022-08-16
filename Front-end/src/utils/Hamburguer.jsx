@@ -4,6 +4,7 @@ import ToggleButton from './ToggleButton';
 
 export function Hamburguer() {
 
+    const [isOpen, setOpen] = useState()
     let [isOpen, setOpen] = useState()
 
     const handleClick = () => {
