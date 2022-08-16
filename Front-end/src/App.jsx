@@ -16,6 +16,7 @@ import SignUp from './pages/SignUp';
 import ResetPassword from './pages/ResetPassword';
 import Menu from './pages/Menu';
 import Cart from "./pages/Cart"
+import Payment from "./pages/Payment"
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
     </>
   );
