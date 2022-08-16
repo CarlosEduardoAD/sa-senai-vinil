@@ -46,7 +46,7 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/payment" element={<Payment />} />
+        <Route path="/buy" element={<Payment />} />
       </Routes>
     </>
   );
