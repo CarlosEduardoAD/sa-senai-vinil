@@ -24,7 +24,7 @@ function HeroHome() {
                     duration-900'
                     >{nome}</span></h1>
                     <p className='text-white pt-12 font-inter font-bold text-3xl text-black dark:text-white'>Últimas compras</p>
-                    <div className='pt-12 flex items-center justify-center gap-2 flex-wrap'><input className='md:w-[350px] w-[200px] h-[30px] rounded-lg border-2 border-neutral-300 dark:border-neutral-800 focus:outline-0 dark:bg-neutral-700 dark:text-white pl-2 text-mg'></input>
+                    <div className='pt-12 flex items-center justify-center gap-2 flex-wrap'><input className='md:w-[350px] w-[200px] h-[30px] rounded-lg border-2 border-neutral-700 dark:border-neutral-300 focus:outline-0 dark:bg-[#151617] dark:text-white pl-2 text-mg'></input>
                     <Button className='bg-blue-700 '><MagnifyingGlass size={24}/></Button></div>
                     <div className='flex flex-col md:grid md:grid-cols-3 md:grid-flow-row gap-12 pt-24 dark:text-white pr-4 pl-4'>
                         <div className='p-20 bg-blue-600 rounded-md max-w-sm mx-auto md:p-22'>Aoba</div>
