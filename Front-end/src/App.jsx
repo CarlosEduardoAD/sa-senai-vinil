@@ -17,6 +17,7 @@ import ResetPassword from './pages/ResetPassword';
 import Menu from './pages/Menu';
 import Cart from "./pages/Cart"
 import Payment from "./pages/Payment"
+import NotFoundPage from './pages/404';
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/buy" element={<Payment />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
