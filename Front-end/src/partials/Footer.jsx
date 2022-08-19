@@ -68,14 +68,14 @@ function Footer() {
             <div className="text-sm text-gray-600">
               <Link
                 to="#"
-                className="text-gray-600 hover:text-gray-900 hover:underline transition duration-150 ease-in-out"
+                className="text-gray-600 dark:text-neutral-300 hover:text-gray-900 hover:underline transition duration-150 ease-in-out"
               >
                 Terms
               </Link>{" "}
               ·{" "}
               <Link
                 to="#"
-                className="text-gray-600 hover:text-gray-900 hover:underline transition duration-150 ease-in-out"
+                className="text-gray-600 dark:text-neutral-300   hover:text-gray-900 hover:underline transition duration-150 ease-in-out"
               >
                 Privacy Policy
               </Link>
@@ -84,12 +84,12 @@ function Footer() {
 
           {/* 2nd block */}
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h6 className="text-gray-800 font-medium mb-2">Products</h6>
+            <h6 className="text-gray-800 dark:text-neutral-300  font-medium mb-2">Products</h6>
             <ul className="text-sm">
               <li className="mb-2">
                 <Link
                   to="#"
-                  className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out"
+                  className="text-gray-600 dark:text-neutral-300  hover:text-gray-900 transition duration-150 ease-in-out"
                 >
                   Vintage
                 </Link>
@@ -97,7 +97,7 @@ function Footer() {
               <li className="mb-2">
                 <Link
                   to="#"
-                  className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out"
+                  className="text-gray-600 dark:text-neutral-300  hover:text-gray-900 transition duration-150 ease-in-out"
                 >
                   Rock
                 </Link>
@@ -105,7 +105,7 @@ function Footer() {
               <li className="mb-2">
                 <Link
                   to="#"
-                  className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out"
+                  className="text-gray-600 dark:text-neutral-300 hover:text-gray-900 transition duration-150 ease-in-out"
                 >
                   Indie
                 </Link>
@@ -113,7 +113,7 @@ function Footer() {
               <li className="mb-2">
                 <Link
                   to="#"
-                  className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out"
+                  className="text-gray-600 dark:text-neutral-300 hover:text-gray-900 transition duration-150 ease-in-out"
                 >
                   Pop
                 </Link>
@@ -121,7 +121,7 @@ function Footer() {
               <li className="mb-2">
                 <Link
                   to="#"
-                  className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out"
+                  className="text-gray-600 dark:text-neutral-300 hover:text-gray-900 transition duration-150 ease-in-out"
                 >
                   Rap
                 </Link>
@@ -129,8 +129,8 @@ function Footer() {
             </ul>
           </div>
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-3">
-            <h6 className="text-gray-800 font-medium mb-2">Subscribe</h6>
-            <p className="text-sm text-gray-600 mb-4">
+            <h6 className="text-gray-800 dark:text-neutral-300  font-medium mb-2">Subscribe</h6>
+            <p className="text-sm dark:text-neutral-300 text-gray-600 mb-4">
               Get the latest news and articles to your inbox every month.
             </p>
             <form>
@@ -143,7 +143,7 @@ function Footer() {
                     <input
                       id="newsletter"
                       type="email"
-                      className="form-input w-full dark:bg-neutral-700 dark:outline-none dark:border-none text-gray-800 dark:text-white px-3 py-2 pr-12 text-sm"
+                      className="form-input w-full dark:bg-transparent text-gray-800 dark:text-white px-3 py-2 pr-12 text-sm"
                       placeholder="Your email"
                       required
                     />
