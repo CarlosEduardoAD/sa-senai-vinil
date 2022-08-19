@@ -1,6 +1,7 @@
 import ToggleButton from "../utils/ToggleButton"
 import { useState } from "react";
 import { Link } from 'react-router-dom'
+import PaymentUserProducts from "./PaymentUserProducts";
 
 function HeroPayment() {
     const [field, setField] = useState();
@@ -10,12 +11,14 @@ function HeroPayment() {
             <button className="absolute dark:text-white text-black p-4">
                 <Link to="/menu">Voltar</Link>
             </button>
+            <div className="sm:grid sm:grid-cols-2 sm:grid-flow-col flex flex-col">
             <div className="flex flex-col items-center justify-center pt-28 border-white p-12">
-                <p className="dark:text-white text-black text-3xl whitespace-nowrap md:text-5xl pb-12 font-inter font-bold">Finish your purchase</p>
+                <p className="dark:text-white text-black text-3xl whitespace lg:text-5xl pb-12 font-inter font-bold">Finish your purchase</p>
                 <form>
                     <div className="flex flex-col dark:text-white text-black font-inter font-semibold">
                         <label className="text-md">Select the payment method</label>
                         <select onChange={(e) => setField(e.target.value)} className='mt-2 rounded-lg dark:bg-neutral-800'>
+                            <option>Select your payment method</option>
                             <option>Credit card</option>
                             <option>Debit card</option>
                             <option>PayPal</option>
@@ -60,6 +63,10 @@ function HeroPayment() {
 
                 </form>
             </div>
+            <div className="flex items-center justify-center dark:text-white text-black">
+                <PaymentUserProducts></PaymentUserProducts>
+            </div>
+        </div>
             <div className="absolute top-20 md:flex px-4 font-medium text-gray-600 hover:text-gray-900 flex items-center transition duration-150 ease-in-out sm:mt-0">
                 <ToggleButton></ToggleButton>
             </div>
