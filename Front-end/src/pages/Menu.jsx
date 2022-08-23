@@ -10,7 +10,7 @@ function Menu(){
             <div className="z-auto"><Sidebar></Sidebar></div>
             <AuthHeader firstButton='Pedidos' secondButton='Carrinho' />
 
-        <section>
+        <section className="flex-grow">
             <HeroMenu></HeroMenu>
         </section>
 
