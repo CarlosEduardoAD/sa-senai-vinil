@@ -13,7 +13,7 @@ function HeroPayment() {
             </button>
             <div className="sm:grid sm:grid-cols-2 sm:grid-flow-col flex flex-col">
             <div className="flex flex-col items-center justify-center pt-28 border-white p-12">
-                <p className="dark:text-white text-black text-3xl whitespace lg:text-5xl pb-12 font-inter font-bold">Finish your purchase</p>
+                <p className="dark:text-white text-black text-3xl text-center lg:text-5xl pb-12 font-inter font-bold">Finish your purchase</p>
                 <form>
                     <div className="flex flex-col dark:text-white text-black font-inter font-semibold">
                         <label className="text-md">Select the payment method</label>
