@@ -1,100 +1,100 @@
 [
     {
-        "title": "Sunbed 'Mister Brown'",
+        "title": "Anything Goes / Big Jack AC/DC",
         "price": 600,
         "articul": 1063,
         "color": "Brown",
-        "imgSrc": "img/vigvam10.jpeg"
+        "imgSrc": "img/vigvam10.jpg"
     },
     {
-        "title": "Wigwam 'Fluffy'",
+        "title": "Disco 'Fine Line'",
         "price": 780,
         "articul": 1254,
         "color": "Pink",
-        "imgSrc": "img/vigvam1.jpeg"
+        "imgSrc": "img/vigvam1.jpg"
     },
     {
-        "title": "Wigwam 'Halloween'",
+        "title": "The name of the Game",
         "price": 1300,
         "articul": 5000,
         "color": "Black",
-        "imgSrc": "img/vigvam4.webp"
+        "imgSrc": "img/vigvam4.jpg"
     },
     {
-        "title": "Yurt 'Foxy'",
+        "title": "Hello",
         "price": 480,
         "articul": 1994,
         "color": "Grey and orange",
-        "imgSrc": "img/vigvam9.jpeg"
+        "imgSrc": "img/vigvam9.jpg"
     },
     {
-        "title": "Hammock 'Lagoon'",
+        "title": "Big ones you can look at",
         "price": 600,
         "articul": 5500,
         "color": "Pink",
-        "imgSrc": "img/vigvam5.jpeg"
+        "imgSrc": "img/vigvam5.jpg"
     },
     {
-        "title": "Wigwam 'Volcano'",
+        "title": "Conventional Weapons No. 02",
         "price": 780,
         "articul": 7832,
         "color": "Red",
-        "imgSrc": "img/vigvam6.jpeg"
+        "imgSrc": "img/vigvam6.jpg"
     },
     {
-        "title": "Wigwam 'Night'",
+        "title": "Dang!",
         "price": 1300,
         "articul": 3290,
         "color": "Navy",
-        "imgSrc": "img/vigvam3.webp"
+        "imgSrc": "img/vigvam3.jpg"
     },
     {
-        "title": "Hammock 'Hawaiian'",
+        "title": "7 rings",
         "price": 600,
         "articul": 1040,
         "color": "Olive",
-        "imgSrc": "img/vigvam7.jpeg"
+        "imgSrc": "img/vigvam7.jpg"
     },
     {
-        "title": "Yurt 'Chilli'",
+        "title": "Put it down",
         "price": 480,
         "articul": 1342,
         "color": "Red",
-        "imgSrc": "img/vigvam8.jpeg"
+        "imgSrc": "img/vigvam8.jpg"
     },
     {
-        "title": "Yurt 'Everest'",
+        "title": "The cure",
         "price": 600,
         "articul": 1091,
         "color": "Grey",
-        "imgSrc": "img/vigvam11.jpeg"
+        "imgSrc": "img/vigvam11.jpg"
     },
     {
-        "title": "Sunbed 'Aurora'",
+        "title": "Wish you were gay",
         "price": 450,
         "articul": 9854,
         "color": "Beige",
-        "imgSrc": "img/vigvam12.jpeg"
+        "imgSrc": "img/vigvam12.jpg"
     },
     {
-        "title": "Wigwam 'Tower'",
+        "title": "The Scotts",
         "price": 780,
         "articul": 1320,
         "color": "Brown",
-        "imgSrc": ""
+        "imgSrc": "img/vigvam00.jpg"
     },
     {
-        "title": "Hammock 'Seychelles'",
+        "title": "Shy way",
         "price": 700,
         "articul": 8880,
         "color": "Brown",
-        "imgSrc": "img/vigvam13.jpeg"
+        "imgSrc": "img/vigvam13.jpg"
     },
     {
-        "title": "Sunbed 'Asymmetry'",
+        "title": "Blow",
         "price": 450,
         "articul": 8361,
         "color": "Black",
-        "imgSrc": "img/vigvam14.jpeg"
+        "imgSrc": "img/vigvam14.jpg"
     }
 ]
