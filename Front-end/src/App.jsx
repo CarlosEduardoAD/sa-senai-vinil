@@ -15,6 +15,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ResetPassword from './pages/ResetPassword';
 import Menu from './pages/Menu';
+import Cards from '../../Cart/src/pages/Catalog'
 import Cart from "./pages/Cart"
 import Payment from "./pages/Payment"
 import NotFoundPage from './pages/404';
@@ -46,7 +47,7 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/reset-password" element={<ResetPassword />} />
-        <Route path="/menu" element={<Menu />} />
+        <Route path="/menu" element={Cards} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/buy" element={<Payment />} />
         <Route path="*" element={<NotFoundPage />} />
