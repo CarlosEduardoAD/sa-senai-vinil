@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ToggleButton from "../utils/ToggleButton";
 import { Hamburguer } from "../utils/Hamburguer";
@@ -17,15 +17,16 @@ function Header(props) {
 
   return (
     <header
-      className={`fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top && "dark:bg-neutral-800 bg-white backdrop-blur-sm shadow-lg"
-        }`}
+      className={`fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${
+        !top && "dark:bg-neutral-800 bg-white backdrop-blur-sm shadow-lg"
+      }`}
     >
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Site branding */}
           <div className="flex-shrink-0 mr-4">
             {/* Logo */}
-            <Link to="/" className="block" aria-label="Spox">
+            <Link to="/" className="block" aria-label="Goldies">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="62"
@@ -78,7 +79,6 @@ function Header(props) {
                 ></line>
               </svg>
             </Link>{" "}
-
           </div>
           {/* Site navigation */}
           <nav className="flex flex-grow">
@@ -95,7 +95,6 @@ function Header(props) {
                 <Link
                   to="/buy"
                   className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3 dark:bg-blue-800"
-                
                 >
                   <span>Buy</span>
                   <svg
@@ -110,10 +109,16 @@ function Header(props) {
                   </svg>
                 </Link>
               </li>
-              <li><div className="hidden md:flex flex-wrap px-4 font-medium text-gray-600 hover:text-gray-900 flex items-center transition duration-150 ease-in-out sm:mt-0">
-                <ToggleButton></ToggleButton>
-              </div></li>
-              <li><div className="flex md:hidden"><Hamburguer/></div></li>
+              <li>
+                <div className="hidden md:flex flex-wrap px-4 font-medium text-gray-600 hover:text-gray-900 flex items-center transition duration-150 ease-in-out sm:mt-0">
+                  <ToggleButton></ToggleButton>
+                </div>
+              </li>
+              <li>
+                <div className="flex md:hidden">
+                  <Hamburguer />
+                </div>
+              </li>
             </ul>
           </nav>
         </div>
