@@ -1,19 +1,19 @@
 [
-    {
-        "code": "promocode",
-        "discountInPercentage": 5
-    },
-    {
-        "code": "gtgtt90gt2",
-        "discountInPercentage": 10
-    },
-    {
-        "code": "half",
-        "discountInPercentage": 50
-    },
-    {
-        "promocodeType": "guest",
-        "code": "vynilland",
-        "discountInPercentage": 20
-    }
+  {
+    "code": "promocode",
+    "discountInPercentage": 5
+  },
+  {
+    "code": "amogus",
+    "discountInPercentage": 10
+  },
+  {
+    "code": "manasama",
+    "discountInPercentage": 50
+  },
+  {
+    "promocodeType": "guest",
+    "code": "vynilland",
+    "discountInPercentage": 20
+  }
 ]
