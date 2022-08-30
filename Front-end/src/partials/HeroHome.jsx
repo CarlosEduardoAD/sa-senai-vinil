@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Modal from "../utils/Modal";
-import ToggleButton from "../utils/ToggleButton";
-import UseDarkMode from "../utils/UseDarkMode";
-import HeroImage from "../images/hero-image.png";
+// import ToggleButton from "../utils/ToggleButton";
+// import UseDarkMode from "../utils/UseDarkMode";
+// import HeroImage from "../images/hero-image.png";
 import Goldies from "../images/Goldies.png"
 
 function HeroHome() {
