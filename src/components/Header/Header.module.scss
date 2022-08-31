@@ -17,10 +17,10 @@
 }
 
 .item {
-    color: inherit;
+    color: saturate($color: #201c1c, $amount: 9);
     font-weight: 500;
-    &:not(:last-child) {
-        margin-right: 20px;
+    &:not(:nth-last-child(0)) {
+        margin-right: 2rem;
     }
 }
 
@@ -29,6 +29,20 @@
     padding-bottom: 10px;
     transition: 0.3s;
     position: relative;
+}
+.signin {
+    color: saturate($color: #171594be, $amount: 9);
+    font-weight: 900;
+    &:not(:nth-last-child(0)) {
+        margin-right: 2rem;
+    }
+}
+.signup {
+    color: saturate($color: #171594be, $amount: 9);
+    font-weight: 900;
+    &:not(:nth-last-child(0)) {
+        margin-right: 2rem;
+    }
 }
 
 .container {
