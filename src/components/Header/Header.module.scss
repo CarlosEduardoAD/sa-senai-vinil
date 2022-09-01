@@ -1,3 +1,23 @@
+@import url("https://use.typekit.net/cdd4vic.css");
+
+// FONT VARIABLES
+$font-primary: muli, sans-serif;
+
+// COLOR VARIABLES
+:root {
+  --color-primary-blue: hsl(215, 91%, 62%);
+  --color-primary-blue-dark: hsl(215, 83%, 59%);
+  --color-neutral-grayish: hsl(256, 5%, 50%);
+  --color-primary-purple: hsl(259, 42%, 14%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  outline: none;
+}
+
 .nav {
     display: flex;
     justify-content: space-between;
@@ -17,26 +37,53 @@
 }
 
 .item {
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
     color: saturate($color: #201c1c, $amount: 9);
     font-weight: 500;
     &:not(:nth-last-child(0)) {
-        margin-right: 2rem;
+        margin-right: 0.9rem;
     }
 }
 
 .item a {
     padding-top: 10px;
     padding-bottom: 10px;
-    transition: 0.3s;
+    transition: 0.8s;
     position: relative;
 }
-.signin {
-    color: saturate($color: #171594be, $amount: 9);
-    font-weight: 900;
-    &:not(:nth-last-child(0)) {
-        margin-right: 2rem;
+.btn {
+    transition: 0.8s;
+    border-radius: 2rem;
+    padding: 0.7rem 3.9rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    height: auto;
+    width: 12rem;
+    &:not(:last-child) {
+        margin-right: 20px;
     }
-}
+  }
+  .btn {
+    background-color: var(--color-primary-blue);
+    color: #fff;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  .btn{
+    background: #fff;
+    border: 2px solid var(--color-primary-blue-dark);
+    color: var(--color-primary-blue-dark);
+    // vertical-align: middle;
+    &:hover {
+      background: var(--color-primary-blue-dark);
+      color: #fff;
+    }
+  }
+  
 .signup {
     color: saturate($color: #171594be, $amount: 9);
     font-weight: 900;

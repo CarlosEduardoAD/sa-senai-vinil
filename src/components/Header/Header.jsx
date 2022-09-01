@@ -21,8 +21,8 @@ function Header(props) {
                         <li className={styles.item}><NavLink exact to="/Catalog" activeClassName={styles.active}>Produtos</NavLink></li>
                         <li className={styles.item}><NavLink exact to="/cart" activeClassName={styles.active}>Cart</NavLink></li>
                         <li className={styles.item}><NavLink exact to="/favourites" activeClassName={styles.active}>Favourites</NavLink></li>
-                        <li className={styles.signin}><NavLink exact to="/SignIn" activeClassName={styles.active}>Sign In</NavLink></li>
-                        <li className={styles.signup}><NavLink exact to="/SignUp" activeClassName={styles.active}>Sign Up</NavLink></li>                  
+                        <li className={styles.btn}><NavLink exact to="/SignIn" activeClassName={styles.active}>Sign In</NavLink></li>
+                        <li className={styles.btn}><NavLink exact to="/SignUp" activeClassName={styles.active}>Sign Up</NavLink></li>                  
                     </ul>
                </nav>
             </div>
