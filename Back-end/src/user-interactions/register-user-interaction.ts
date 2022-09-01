@@ -1,27 +1,28 @@
 import mariadb from 'mariadb'
 
 export class user {
-    public name : string;
-    public email : string;
-    public password : string;
+    public _name: string;
+    public _email: string;
+    public _password: string;
 
 
-    constructor(name : string, email : string , password : string){
-        this.name = name
-        this.email = email
-        this.password = password
+    constructor(name: string, email: string, password: string) {
+        this._name = name
+        this._email = email
+        this._password = password
     }
 
-    public register(){
-        console.log(this.name)
-        console.log(this.email)
-        console.log(this.password)
-    }
-
-    public show(){
-        console.log(`Seja bem vindo ${this.name}`)
+    public registerUser() {
+        const pool = mariadb.createPool({
+            host: 'localhost',
+            database: 'goldies_sa',
+            password: 'carloseduardo08',
+            user: 'root'
+        })
+        pool.getConnection().then(() => {
+            pool.query(`INSERT INTO usuario (nome, endereco, email, fone, senha) VALUES ('${this._name}', 'rua dos sussy bakas', '${this._email}', '00 12345-1234', '${this._password}')`)
+            .then(() => { console.log('Data inserted sucessfully') })
+            .catch((e) => { console.log(e) })
+        })
     }
 }
-
-let classe = new user('aoba', 'aoba@gmail.com', '23410n1434')
-classe.register()
