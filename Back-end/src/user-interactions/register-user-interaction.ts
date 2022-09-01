@@ -1,4 +1,6 @@
-class user {
+import mariadb from 'mariadb'
+
+export class user {
     public name : string;
     public email : string;
     public password : string;

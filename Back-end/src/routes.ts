@@ -1,7 +1,7 @@
 import express from 'express'
 export const routes = express.Router()
 import mariadb from 'mariadb'
-import { Pool } from 'pg'
+import {user} from './user-interactions/register-user-interaction'
 
 routes.get('/', (req, res) => {
     const conn = mariadb.createPool({
