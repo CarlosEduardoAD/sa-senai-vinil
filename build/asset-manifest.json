@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.19b138a8.css",
+    "main.js": "/static/js/main.a9017011.js",
+    "static/media/korgi.jpeg": "/static/media/korgi.b9b18342878e49fef952.jpeg",
+    "static/media/Alumatica-Regular.woff2": "/static/media/Alumatica-Regular.786a655ff96271d8964d.woff2",
+    "static/media/closeBtn.svg": "/static/media/closeBtn.5e9ec4789a0ee23af231.svg",
+    "index.html": "/index.html",
+    "main.19b138a8.css.map": "/static/css/main.19b138a8.css.map",
+    "main.a9017011.js.map": "/static/js/main.a9017011.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.19b138a8.css",
+    "static/js/main.a9017011.js"
+  ]
+}
