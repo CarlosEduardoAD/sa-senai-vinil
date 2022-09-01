@@ -13,7 +13,7 @@ import Error from '../components/Error/Error';
 const App = () => {
     return (
         <>
-            <Header />
+            <Header  />
             <main>
                 <Switch>
                     <Route exact path="/" component={Home} />
