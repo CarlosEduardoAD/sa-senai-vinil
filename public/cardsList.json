@@ -1,0 +1,114 @@
+[
+  {
+    "title": "Anything Goes / Big Jack AC/DC",
+    "price": 600,
+    "articul": 1063,
+    "color": "Brown",
+    "imgSrc": "img/vigvam10.jpg"
+  },
+  {
+    "title": "Ultra Violence",
+    "price": 780,
+    "articul": 1254,
+    "color": "Pink",
+    "imgSrc": "img/vigvam1.jpeg"
+  },
+  {
+    "title": "The name of the Game",
+    "price": 1300,
+    "articul": 5000,
+    "color": "Black",
+    "imgSrc": "img/vigvam4.jpg"
+  },
+  {
+    "title": "Hello",
+    "price": 480,
+    "articul": 1994,
+    "color": "Grey and orange",
+    "imgSrc": "img/vigvam9.jpg"
+  },
+  {
+    "title": "Big ones you can look at",
+    "price": 600,
+    "articul": 5500,
+    "color": "Pink",
+    "imgSrc": "img/vigvam5.jpg"
+  },
+  {
+    "title": "Conventional Weapons No. 02",
+    "price": 780,
+    "articul": 7832,
+    "color": "Red",
+    "imgSrc": "img/vigvam6.jpg"
+  },
+  {
+    "title": "Dang!",
+    "price": 1300,
+    "articul": 3290,
+    "color": "Navy",
+    "imgSrc": "img/vigvam3.jpg"
+  },
+  {
+    "title": "Demon Days",
+    "price": 600,
+    "articul": 1040,
+    "color": "Olive",
+    "imgSrc": "img/vigvam7.jpeg"
+  },
+  {
+    "title": "Put it down",
+    "price": 480,
+    "articul": 1342,
+    "color": "Red",
+    "imgSrc": "img/vigvam8.jpg"
+  },
+  {
+    "title": "The cure",
+    "price": 600,
+    "articul": 1091,
+    "color": "Grey",
+    "imgSrc": "img/vigvam11.jpg"
+  },
+  {
+    "title": "Wish you were gay",
+    "price": 450,
+    "articul": 9854,
+    "color": "Beige",
+    "imgSrc": "img/vigvam12.jpg"
+  },
+  {
+    "title": "The Scotts",
+    "price": 780,
+    "articul": 1320,
+    "color": "Brown",
+    "imgSrc": "img/vigvam00.jpg"
+  },
+  {
+    "title": "Shy way",
+    "price": 700,
+    "articul": 8880,
+    "color": "Brown",
+    "imgSrc": "img/vigvam13.jpg"
+  },
+  {
+    "title": "Blow",
+    "price": 450,
+    "articul": 8361,
+    "color": "Black",
+    "imgSrc": "img/vigvam14.jpg"
+  },
+  {
+    "title": "Just another diamond day",
+    "price": 450,
+    "articul": 8361,
+    "color": "Black",
+    "imgSrc": "img/vigvam15.jpeg"
+  },
+  {
+    "title": "Cherry bomb",
+    "price": 450,
+    "articul": 8361,
+    "color": "Black",
+    "imgSrc": "img/vigvam16.jpeg"
+  }
+]

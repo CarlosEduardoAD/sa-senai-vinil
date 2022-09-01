@@ -11,7 +11,7 @@ function Footer() {
           <div className="sm:col-span-12 lg:col-span-3">
             <div className="mb-2">
               {/* Logo */}
-              <Link to="/" className="inline-block" aria-label="Spox">
+              <Link to="/" className="inline-block" aria-label="Goldies">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="72"
