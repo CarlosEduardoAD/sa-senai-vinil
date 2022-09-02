@@ -6,7 +6,7 @@ export class user {
     public _password: string;
 
 
-    constructor(name: string, email: string, password: string) {
+    constructor(name?: any, email?: any, password?: any) {
         this._name = name
         this._email = email
         this._password = password
@@ -21,8 +21,12 @@ export class user {
         })
         pool.getConnection().then(() => {
             pool.query(`INSERT INTO usuario (nome, endereco, email, fone, senha) VALUES ('${this._name}', 'rua dos sussy bakas', '${this._email}', '00 12345-1234', '${this._password}')`)
-            .then(() => { console.log('Data inserted sucessfully') })
-            .catch((e) => { console.log(e) })
+                .then(() => { console.log('Data inserted sucessfully') })
+                .catch((e) => { console.log(e) })
         })
+    }
+
+    public loginUser() {
+
     }
 }
