@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from 'axios'
 
 function SignIn() {
   const { register, handleSubmit, formState : {errors} } = useForm({
@@ -8,7 +9,10 @@ function SignIn() {
     shouldUseNativeValidation : true,
   });
   const onSubmit = (data) => {
-    console.log(JSON.stringify(data));
+    let userData = JSON.stringify(data.customerEmail);
+    sessionStorage.setItem('username', userData)
+    axios.post('http://localhost:3000/login', {'email' : userData, 'password' : data.customerPassword.trim().toString()})
+    console.log(userData.trim().toString)
   };
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
