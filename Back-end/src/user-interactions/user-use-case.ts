@@ -21,7 +21,7 @@ export class user {
             user: 'root'
         })
         pool.getConnection().then(() => {
-            pool.query(`INSERT INTO usuario (nome, endereco, email, fone, senha) VALUES ('${this._name}', 'rua dos sussy bakas', '${this._email}', '00 12345-1234', '${this.password}')`)
+            pool.query(`INSERT INTO usuario (nome, endereco, email, fone, senha) VALUES (${this._name}, 'rua dos sussy bakas', ${this._email}, '00 12345-1234', '${this.password.toString()}')`)
                 .then(() => { console.log('Data inserted sucessfully') })
                 .catch((e) => { console.log(e) })
         })
@@ -47,6 +47,7 @@ export class user {
                 }
                 else {
                     console.log(res)
+                    return true
                 }
             })
         } catch (err) {
