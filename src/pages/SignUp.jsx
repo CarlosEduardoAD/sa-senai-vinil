@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 function SignUp() {
 
@@ -10,6 +11,10 @@ function SignUp() {
   })
 
   const onSubmit = (data) => {
+    let userData = JSON.stringify(data.customerName)
+    let userEmail = JSON.stringify(data.customerEmailSignUp)
+    let userPassword = JSON.stringify(data.customerPasswordSignUp)
+    axios.post('http://localhost:3000/register', {'nome' : userData, 'email' : userEmail, 'password' : userPassword})
     console.log(JSON.stringify(data));
   }
 

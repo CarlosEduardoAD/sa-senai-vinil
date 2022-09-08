@@ -10,8 +10,9 @@ function SignIn() {
   });
   const onSubmit = (data) => {
     let userData = JSON.stringify(data.customerEmail);
+    let userPassword = JSON.stringify(data.customerPassword)
     sessionStorage.setItem('username', userData)
-    axios.post('http://localhost:3000/login', {'email' : userData, 'password' : data.customerPassword.trim().toString()})
+    axios.post('http://localhost:3000/login', {'email' : userData, 'password' : userPassword})
     console.log(userData.trim().toString)
   };
   return (

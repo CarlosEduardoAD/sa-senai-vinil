@@ -31,7 +31,9 @@ routes.post('/register', async (req, res) => {
 })
 
 routes.post('/login', (req, res) => {
-    let { email, password } = req.body
-    console.log(email,password)
+    let {nome, email, password } = req.body
+    console.log(nome, email, password)
+    let obj = new user(nome, email, password)
+    obj.loginUser()
     res.send(req.body)
 })
