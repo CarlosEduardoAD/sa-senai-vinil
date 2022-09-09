@@ -1,15 +1,16 @@
 import mariadb from 'mariadb'
+import bcrypt from 'bcrypt'
 
 export class user {
     public _name: string;
     public _email: string;
-    public _password: string;
+    public password: string;
 
 
     constructor(name?: any, email?: any, password?: any) {
         this._name = name
         this._email = email
-        this._password = password
+        this.password = password
     }
 
     public registerUser() {
@@ -20,13 +21,37 @@ export class user {
             user: 'root'
         })
         pool.getConnection().then(() => {
-            pool.query(`INSERT INTO usuario (nome, endereco, email, fone, senha) VALUES ('${this._name}', 'rua dos sussy bakas', '${this._email}', '00 12345-1234', '${this._password}')`)
+            pool.query(`INSERT INTO usuario (nome, endereco, email, fone, senha) VALUES (${this._name}, 'rua dos sussy bakas', ${this._email}, '00 12345-1234', '${this.password.toString()}')`)
                 .then(() => { console.log('Data inserted sucessfully') })
                 .catch((e) => { console.log(e) })
         })
     }
 
-    public loginUser() {
-
+    public async loginUser() {
+        const pool = mariadb.createPool({
+            host: 'localhost',
+            database: 'goldies_sa',
+            password: 'carloseduardo08',
+            user: 'root'
+        })
+        try {
+            console.log('Essa é o email: ' + this._email)
+            console.log('Essa é a senha: ' + this.password)
+            let conn = await pool.getConnection()
+            const rows = await conn.query(`SELECT senha from usuario WHERE email = ${this._email}`)
+            let result = rows[0]['senha']
+            console.log('Essa é a senha que retornei: ' + result)
+            bcrypt.compare(this.password, String(result), function(err, res) {
+                if (err) {
+                    console.log(err)
+                }
+                else {
+                    console.log(res)
+                    return true
+                }
+            })
+        } catch (err) {
+            console.log(err)
+        }
     }
 }

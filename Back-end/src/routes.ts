@@ -26,12 +26,20 @@ routes.post('/register', async (req, res) => {
         let result = obj.hashPassword()
         let registerInteraction = new user(nome, email, await result)
         registerInteraction.registerUser()
-        res.send('Deu certo a inserção no banco de bakas')
+        res.send('Data sucessfully inserted')
     }
 })
 
 routes.post('/login', (req, res) => {
-    let { email, password } = req.body
-    console.log(email,password)
-    res.send(req.body)
+    let {nome, email, password } = req.body
+    console.log(nome, email, password)
+    let obj = new user(nome, email, password)
+    obj.loginUser()
+    res.status(200).send('User Found !')
+})
+
+routes.post('/purchase', (req, res) => {
+    let {nome , email} = req.body
+    let obj = new userEmail(nome, email)
+    obj.sendEmail()
 })
