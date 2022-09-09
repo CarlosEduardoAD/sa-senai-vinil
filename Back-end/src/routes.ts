@@ -37,3 +37,9 @@ routes.post('/login', (req, res) => {
     obj.loginUser()
     res.status(200).send('User Found !')
 })
+
+routes.post('/purchase', (req, res) => {
+    let {nome , email} = req.body
+    let obj = new userEmail(nome, email)
+    obj.sendEmail()
+})
