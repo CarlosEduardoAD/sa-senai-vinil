@@ -47,7 +47,6 @@ export class user {
                 }
                 else {
                     console.log(res)
-                    return true
                 }
             })
         } catch (err) {
