@@ -12,6 +12,7 @@ import { SHOW_CHECKOUT_MODAL } from '../../store/modal/types';
 import { setCheckoutModalShow, setModalClose } from '../../store/modal/actions';
 import { checkoutOrder } from '../../store/cart/actions';
 import { removeDiscount } from '../../store/cart/actions';
+import { OrderTotals } from "../OrderTotals/OrderTotals"
 import PropTypes from 'prop-types';
 
 export const CartForm = (cards) => {

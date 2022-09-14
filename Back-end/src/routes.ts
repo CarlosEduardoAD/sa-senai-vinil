@@ -4,6 +4,7 @@ import mariadb from 'mariadb'
 import { user } from './user-interactions/user-use-case'
 import { userHash } from './user-interactions/hash-interaction'
 import { userEmail } from './email-interactions/email-use-case'
+import { userPurchase } from './purchase-interactions/purchase-use-case'
 
 const conn = mariadb.createPool({
     host: 'localhost',
@@ -39,7 +40,9 @@ routes.post('/login', (req, res) => {
 })
 
 routes.post('/purchase', (req, res) => {
-    let {nome , email} = req.body
-    let obj = new userEmail(nome, email)
-    obj.sendEmail()
+    let {fn, ln, email, age, add} = req.body
+    let obj = new userPurchase(fn, ln, email, age, add)
+    obj.purchaseItem()
+    console.log(req.body)
+
 })
