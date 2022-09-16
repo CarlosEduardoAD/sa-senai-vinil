@@ -58,19 +58,17 @@ export const CartForm = (cards) => {
     setvalues(values);
     dispatch(setCheckoutModalShow(SHOW_CHECKOUT_MODAL));
     let firstName = JSON.stringify(values.firstName);
+    console.log(values.firstName)
     let lastName = JSON.stringify(values.lastName);
     let email = JSON.stringify(values.email);
     let age = JSON.stringify(values.age);
     let adress = JSON.stringify(values.address);
-    let price = JSON.stringify(finalPrice)
-    console.log(price)
     const request = {
       firstName: firstName,
       lastName: lastName,
       email: email,
       age: age,
       adress: adress,
-      price : price
     };
     axios.post("http://localhost:3000/purchase", request);
   };
@@ -83,7 +81,6 @@ export const CartForm = (cards) => {
     <>
       <div className={styles.formContainer}>
         <h1 className={styles.cartTitle}>2. Shipping info</h1>
-
         <Formik
           initialValues={{
             firstName: "",
