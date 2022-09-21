@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import Header from "../partials/Header";
+import axios from 'axios'
 
 function SignIn() {
   const { register, handleSubmit, formState : {errors} } = useForm({
@@ -9,12 +9,14 @@ function SignIn() {
     shouldUseNativeValidation : true,
   });
   const onSubmit = (data) => {
-    console.log(JSON.stringify(data));
+    let userData = JSON.stringify(data.customerEmail);
+    let userPassword = JSON.stringify(data.customerPassword)
+    sessionStorage.setItem('username', userData)
+    axios.post('http://localhost:3000/login', {'email' : userData, 'password' : userPassword})
+    console.log(userData.trim().toString)
   };
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
-      {/*  Site header */}
-      <Header firstButton='Sign Up' secondButton='Enter'/>
 
       {/*  Page content */}
       <main className="flex-grow">

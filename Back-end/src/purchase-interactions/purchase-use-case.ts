@@ -24,10 +24,8 @@ export class userPurchase {
         })
         try{
             let conn = await pool.getConnection()
-            let id = await conn.query(`SELECT id FROM usuario WHERE nome = ${this.firstName}`)
-            let userId = id[0]['id']
-            await conn.query(`INSERT INTO compras (id_user, endereco, presente, preco_total, forma_pag) VALUES (?, ?, 1, 8.90, "credito")`,
-            [userId, this.address])
+            conn.query(`INSERT INTO compras (id_user, endereco, presente, preco_total, forma_pag) VALUES (SELECT id FROM usuario WHERE nome = ${this.firstName}, ${this.address}, '1', ${this.email}, 'cartão de crédito'`)
+            console.log('sim')
         }
         catch(err){
             console.log(err)

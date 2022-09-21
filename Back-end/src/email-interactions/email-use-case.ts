@@ -2,10 +2,10 @@ import nodemailer from 'nodemailer'
 import sendgrid from '@sendgrid/mail'
 
 export class userEmail {
-    user? : string
-    email? : string
+    user : string
+    email : string
 
-    constructor(user? : string, email? : string){
+    constructor(user : string, email : string){
         this.user = user
         this.email = email
         sendgrid.setApiKey('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')

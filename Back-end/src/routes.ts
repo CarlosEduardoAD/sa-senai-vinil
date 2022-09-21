@@ -27,7 +27,7 @@ routes.post('/register', async (req, res) => {
         let result = obj.hashPassword()
         let registerInteraction = new user(nome, email, await result)
         registerInteraction.registerUser()
-        res.status(200)
+        res.send('Data sucessfully inserted')
     }
 })
 
@@ -40,11 +40,9 @@ routes.post('/login', (req, res) => {
 })
 
 routes.post('/purchase', (req, res) => {
-    console.log(req.body.firstName)
-    let obj = new userPurchase(req.body.firstName, req.body.lastName, req.body.email, req.body.age, req.body.adress)
+    let {fn, ln, email, age, add} = req.body
+    let obj = new userPurchase(fn, ln, email, age, add)
     obj.purchaseItem()
-    let emailObj = new userEmail(req.body.firstName, req.body.email)
-    emailObj.sendEmail()
     console.log(req.body)
 
 })

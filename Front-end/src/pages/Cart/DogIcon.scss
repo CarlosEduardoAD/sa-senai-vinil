@@ -1,3 +1,5 @@
+ @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 .dog {
     position: absolute;
     top: 55%;
@@ -475,8 +477,7 @@
     width: 100%;
     z-index: 10;
     position: absolute;
-    font-family: "Alumatica", sans-serif;
-    font-weight: 700;
+    font-family: 'Lato', sans-serif;
 }
 
 .bubbleBtn:focus {
@@ -486,7 +487,7 @@
 .dogPromocode {
     z-index: 10;
     position: absolute;
-    font-family: "Alumatica", sans-serif;
+    font-family: 'Lato', sans-serif;
     font-weight: 700;
     z-index: 5;
     bottom: 0;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import Header from '../partials/Header';
+import axios from 'axios';
 
 function SignUp() {
 
@@ -11,17 +11,16 @@ function SignUp() {
   })
 
   const onSubmit = (data) => {
+    let userData = JSON.stringify(data.customerName)
+    let userEmail = JSON.stringify(data.customerEmailSignUp)
+    let userPassword = JSON.stringify(data.customerPasswordSignUp)
+    axios.post('http://localhost:3000/register', {'nome' : userData, 'email' : userEmail, 'password' : userPassword})
     console.log(JSON.stringify(data));
   }
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
-
-      {/*  Site header */}
-      <Header firstButton='Sign In' secondButton='Sign Up' />
-
       {/*  Page content */}
-
       <main className="flex-grow">
         <section className="bg-gradient-to-b from-gray-100 to-white ">
           <div className="max-w-6xl sm:max-w-full mx-auto px-4 sm:px-6 dark:bg-[#151617]">

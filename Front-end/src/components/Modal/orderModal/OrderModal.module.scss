@@ -1,3 +1,5 @@
+ @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 .header {
     flex-direction: column;
     background-color: #d3cdf985;
@@ -59,8 +61,7 @@
 
 .orderDetailsTitle {
     position: relative;
-    font-family: "Alumatica", sans-serif;
-    font-weight: 700;
+    font-family: 'Lato', sans-serif;
     margin-bottom: 20px;
     font-size: 18px;
     &::after {
@@ -95,8 +96,7 @@
 
 .total,
 .discount {
-    font-family: "Alumatica", sans-serif;
-    font-weight: 700;
+    font-family: 'Lato', sans-serif;
     margin-bottom: 20px;
     font-size: 18px;
     display: flex;
