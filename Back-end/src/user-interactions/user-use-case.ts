@@ -71,4 +71,23 @@ export class user {
             console.log(err)
         }
     }
+
+    public async changeUserPassword(){
+        const pool = mariadb.createPool({
+            host: 'localhost',
+            database: 'goldies_sa',
+            password: 'carloseduardo08',
+            user: 'root'
+        })
+
+        try{
+            console.log('Essa é o email: ' + this._email)
+            console.log('Essa é a senha: ' + this.password)
+            const conn = pool.getConnection()
+            let query = await (await conn).query('UPDATE usuario SET senha = ? WHERE email = ?', [this.password, this._email])
+            console.log(query)
+        }catch(err){
+            console.log(err)
+        }
+    }
 }
