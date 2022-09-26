@@ -53,4 +53,22 @@ export class user {
             console.log(err)
         }
     }
+
+    public async returnPurchasesFromUser(){
+        const pool = mariadb.createPool({
+            host: 'localhost',
+            database: 'goldies_sa',
+            password: 'carloseduardo08',
+            user: 'root'
+        })
+
+        try{
+            let conn = await pool.getConnection()
+            const result = await conn.query('SELECT * FROM compras WHERE nome = ?', [this._name])
+            console.log(result)
+        }
+        catch(err) {
+            console.log(err)
+        }
+    }
 }

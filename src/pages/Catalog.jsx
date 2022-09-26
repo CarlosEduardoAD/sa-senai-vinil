@@ -67,7 +67,7 @@ const Catalog = () => {
     }
 
     return (
-        <div className={styles.app}>
+        <div className={`${styles.app} dark:bg-[#151617]`}>
             <div className={styles.container}>
                 <div className={styles.appInner}>
                     <ModalRoot modalType={SHOW_ADD_TO_CART_MODAL}

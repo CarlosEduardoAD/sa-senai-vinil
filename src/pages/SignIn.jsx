@@ -25,8 +25,8 @@ function SignIn() {
             <div className="pt-32 pb-12 md:pt-40 md:pb-20">
               {/* Page header */}
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-                <h1 className="h1 dark:text-white">
-                  Welcome back. We exist to make entrepreneurism easier.
+                <h1 className="h1 dark:text-white text-4xl font-bold">
+                  A festa está bombando aqui, só falta você aqui conosco.
                 </h1>
               </div>
 
@@ -36,7 +36,7 @@ function SignIn() {
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <label
-                        className="block text-gray-800 text-sm font-medium mb-1 dark:text-white"
+                        className="block text-gray-800 text-sm font-semibold mb-1 dark:text-white"
                         htmlFor="email"
                       >
                         Email
@@ -44,7 +44,7 @@ function SignIn() {
                       <input
                         id="email"
                         type="email"
-                        className="form-input w-full text-gray-800 dark:bg-neutral-700 dark:border-none dark:text-white"
+                        className="form-input w-full text-gray-800 dark:bg-neutral-700 dark:border-none dark:text-white rounded-lg"
                         placeholder="Enter your email address"
                         required
                         {...register('customerEmail', {required : true})}
@@ -56,7 +56,7 @@ function SignIn() {
                     <div className="w-full px-3">
                       <div className="flex justify-between">
                         <label
-                          className="block text-gray-800 text-sm font-medium mb-1 dark:text-white"
+                          className="block text-gray-800 text-sm font-semibold mb-1 dark:text-white"
                           htmlFor="password"
                         >
                           Password
@@ -71,7 +71,7 @@ function SignIn() {
                       <input
                         id="password"
                         type="password"
-                        className="form-input w-full text-gray-800 dark:text-white dark:bg-neutral-700 dark:border-none"
+                        className="form-input w-full text-gray-800 dark:text-white dark:bg-neutral-700 dark:border-none rounded-lg"
                         placeholder="Enter your password"
                         required
                         {...register('customerPassword', {required : true})}
@@ -84,8 +84,8 @@ function SignIn() {
                     <div className="w-full px-3">
                       <div className="flex justify-between">
                         <label className="flex items-center">
-                          <input type="checkbox" className="form-checkbox bg-neutral-500 dark:bg-white" />
-                          <span className="text-gray-600 ml-2">
+                          <input type="checkbox" className="form-checkbox bg-neutral-500 rounded-sm dark:bg-white" />
+                          <span className="text-gray-800 ml-2">
                             Keep me signed in
                           </span>
                         </label>
@@ -94,8 +94,8 @@ function SignIn() {
                   </div>
                   <div className="flex flex-wrap -mx-3 mt-6">
                     <div className="w-full px-3">
-                      <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full">
-                        Sign in
+                      <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full rounded-md py-3">
+                        <p className="text-xl font-semibold">Sign in</p>
                       </button>
                     </div>
                   </div>
@@ -114,7 +114,7 @@ function SignIn() {
                 <form>
                   <div className="flex flex-wrap -mx-3 mb-3">
                     <div className="w-full px-3">
-                      <button className="btn px-0 text-white bg-gray-900 hover:bg-gray-800 w-full relative flex items-center">
+                      <button className="btn px-0 text-white bg-gray-900 hover:bg-gray-800 w-full relative flex items-center py-2 rounded-md">
                         <svg
                           className="w-4 h-4 fill-current text-white opacity-75 flex-shrink-0 mx-4"
                           viewBox="0 0 16 16"
@@ -130,7 +130,7 @@ function SignIn() {
                   </div>
                   <div className="flex flex-wrap -mx-3">
                     <div className="w-full px-3">
-                      <button className="btn px-0 text-white bg-red-600 hover:bg-red-700 w-full relative flex items-center">
+                      <button className="btn px-0 text-white bg-red-600 hover:bg-red-700 w-full relative flex items-center py-2 rounded-md">
                         <svg
                           className="w-4 h-4 fill-current text-white opacity-75 flex-shrink-0 mx-4"
                           viewBox="0 0 16 16"

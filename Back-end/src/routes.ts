@@ -41,10 +41,10 @@ routes.post('/login', (req, res) => {
 
 routes.post('/purchase', (req, res) => {
     console.log(req.body.firstName)
-    let obj = new userPurchase(req.body.firstName, req.body.lastName, req.body.email, req.body.age, req.body.adress)
+    let obj = new userPurchase(req.body.firstName, req.body.lastName, req.body.email, req.body.adress, parseFloat(req.body.price))
     obj.purchaseItem()
     let emailObj = new userEmail(req.body.firstName, req.body.email)
     emailObj.sendEmail()
     console.log(req.body)
-
 })
+

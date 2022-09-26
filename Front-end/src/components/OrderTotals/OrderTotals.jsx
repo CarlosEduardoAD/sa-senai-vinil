@@ -50,7 +50,7 @@ const OrderTotals = () => {
                     <Form className={styles.promocodeForm}>
                         <p className={styles.promocodeFormTitle}>Apply a promo code</p>
                         <div className={styles.promocodeFieldContainer}>
-                            <Field className={styles.promocodeField} name="promocode" type="text" placeholder="Enter promo code" />
+                            <Field className={`${styles.promocodeField} dark:bg-[#0a1424]`} name="promocode" type="text" placeholder="Enter promo code" />
                             <button className={styles.promocodeBtn} type="submit">Apply</button>
                         </div>
                     </Form >

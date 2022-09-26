@@ -53,8 +53,6 @@ export const CartForm = (cards) => {
   }, []);
 
   const handleFormSubmit = (values) => {
-    const finalPrice = totalPrice.current.value
-    console.log('O preço final é:  ' + finalPrice)
     setvalues(values);
     dispatch(setCheckoutModalShow(SHOW_CHECKOUT_MODAL));
     let firstName = JSON.stringify(values.firstName);
@@ -63,12 +61,15 @@ export const CartForm = (cards) => {
     let email = JSON.stringify(values.email);
     let age = JSON.stringify(values.age);
     let adress = JSON.stringify(values.address);
+    let price = sessionStorage.getItem('totalPrice'.toString())
+    console.log(JSON.stringify(price))
     const request = {
       firstName: firstName,
       lastName: lastName,
       email: email,
       age: age,
       adress: adress,
+      price: price
     };
     axios.post("http://localhost:3000/purchase", request);
   };
@@ -94,12 +95,12 @@ export const CartForm = (cards) => {
           onSubmit={handleFormSubmit}
         >
           {({ isSubmitting }) => (
-            <Form className={styles.form}>
+            <Form className={`${styles.form} dark:text-gray-500d dark:bg-[#040a1b] backdrop-blur-lg dark:shadow-xl dark:text-gray-300`}>
               <FieldArray
                 name="fields"
                 render={() => (
                   <>
-                    <div className={styles.formInner}>
+                    <div className={`${styles.formInner}`}>
                       {formDataFields.map(
                         ({ id, name, label, placeholder, type }) => {
                           return name === "phone" ? (
@@ -120,25 +121,6 @@ export const CartForm = (cards) => {
                           );
                         }
                       )}
-                    </div>
-                    <div className={styles.orderTotals}>
-                      <div className={styles.totalsContainer}>
-                        <h3 className={styles.totalsTitle}>Order totals</h3>
-                        <p className={styles.totalsPrices}>
-                          <span>Subtotal:</span>
-                          <span>{subTotal} UAH</span>
-                        </p>
-                        <p className={styles.totalsPrices}>
-                          <span>Discount:</span>
-                          <span>{discount ? discount : "0"}%</span>
-                        </p>
-                        <p className={styles.totalsPrices}>
-                          <span className={styles.orderTotalPrice} ref={totalPrice}>
-                            Order total:
-                          </span>
-                          <span className={styles.totalPrice}>{total} UAH</span>
-                        </p>
-                      </div>
                     </div>
                     <button
                       className={`${btnStyles.btn} ${styles.submitBtn}`}

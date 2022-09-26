@@ -1,4 +1,8 @@
 @import url("https://use.typekit.net/cdd4vic.css");
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 
 // FONT VARIABLES
 $font-primary: muli, sans-serif;
@@ -29,6 +33,7 @@ $font-primary: muli, sans-serif;
     flex-grow: 1;
     justify-content: center;
     font-family: "Alumatica", sans-serif;
+    flex-wrap: wrap;
 }
 
 .logo {
@@ -67,14 +72,12 @@ $font-primary: muli, sans-serif;
     }
   }
   .btn {
-    background-color: var(--color-primary-blue);
     color: #fff;
     &:hover {
       opacity: 0.8;
     }
   }
   .btn{
-    background: #fff;
     border: 2px solid var(--color-primary-blue-dark);
     color: var(--color-primary-blue-dark);
     // vertical-align: middle;
@@ -83,7 +86,7 @@ $font-primary: muli, sans-serif;
       color: #fff;
     }
   }
-  
+
 .signup {
     color: saturate($color: #171594be, $amount: 9);
     font-weight: 900;
@@ -102,8 +105,8 @@ $font-primary: muli, sans-serif;
     padding-top: 10px;
     padding-bottom: 10px;
     box-shadow: 0px 0px 10px 1px hsl(0deg, 0%, 82%, 49%);
-    @media (max-width: 725px) {
-        margin-bottom: 20px;
+    @media (max-width: 855px){
+        overflow : hidden;
     }
 }
 
@@ -121,6 +124,10 @@ $font-primary: muli, sans-serif;
         content: "";
         animation: line 0.3s forwards;
     }
+}
+
+.activeSign{
+    color : rgb(216, 216, 216);
 }
 
 @keyframes line {
