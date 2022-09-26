@@ -32,7 +32,7 @@ routes.post('/register', async (req, res) => {
 })
 
 routes.post('/login', (req, res) => {
-    let {nome, email, password } = req.body
+    let { nome, email, password } = req.body
     console.log(nome, email, password)
     let obj = new user(nome, email, password)
     obj.loginUser()
@@ -45,6 +45,17 @@ routes.post('/purchase', (req, res) => {
     obj.purchaseItem()
     let emailObj = new userEmail(req.body.firstName, req.body.email)
     emailObj.sendEmail()
+    console.log(req.body)
+})
+
+routes.post('/reset', async (req, res) => {
+    const {nome, email, password} = req.body
+    console.log(email)
+    console.log(password)
+    let hashObj = new userHash(password)
+    let newPassword = hashObj.hashPassword()
+    let obj = new user(nome, email, await newPassword)
+    obj.changeUserPassword()
     console.log(req.body)
 })
 
