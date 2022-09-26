@@ -68,7 +68,7 @@ const Favourites = () => {
     }
 
     return (
-        <div className={styles.favoritesSection}>
+        <div className={`${styles.favoritesSection} dark:bg-[#151617] `}>
             <div className={styles.container}>
                 <h2 className={styles.favoritesTitle}>Favorites - {cardsInFavorites.length} items</h2>
                 {content}

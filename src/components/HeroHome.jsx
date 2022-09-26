@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Modal from "../utils/Modal.jsx";
-import Goldies from "../images/Goldies.png"
+import Goldies from "../images/Goldies.png";
 
 function HeroHome() {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
-
 
   return (
     <section className="relative dark:bg-[#151617]">
@@ -41,14 +40,14 @@ function HeroHome() {
 
       <div className="max-w-6xl sm:max-w-full mx-auto px-4 sm:px-6">
         {/* Hero content */}
-        <div className="pt-32 pb-12 md:pt-40 md:pb-20">
+        <div className="pt-32 pb-48 sm:pb-12 md:pt-40 md:pb-20">
           {/* Section header */}
           <div className="text-center pb-12 md:pb-16">
             <h1
               className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4"
               data-aos="zoom-y-out"
             >
-             <span className="dark:text-white"> O "velho" aqui é o{" "}</span>
+              <span className="dark:text-white"> O "velho" aqui é o </span>
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-teal-250 dark:from-blue-700 dark:to-indigo-900">
                 NOVO
               </span>
@@ -59,10 +58,8 @@ function HeroHome() {
                 data-aos="zoom-y-out"
                 data-aos-delay="150"
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
-                culpa nisi necessitatibus eos at, possimus, sit doloribus
-                blanditiis libero hic ipsum dolores recusandae fugiat
-                voluptatibus nihil, pariatur a error neque?
+                Saudades dos tempos de brilhantina e das baladadas de sábado à noite ?
+                Estamos aqui para colocar você de volta à pista !
               </p>
               <div
                 className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center"

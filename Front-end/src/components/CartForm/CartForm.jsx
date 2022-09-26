@@ -30,7 +30,7 @@ export const CartForm = (cards) => {
     }
     return (
         <>
-            <div className={styles.formContainer}>
+            <div className={`${styles.formContainer}`}>
                 <h1 className={styles.cartTitle}>2. Shipping info</h1>
 
                 <Formik

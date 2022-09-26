@@ -21,7 +21,7 @@ const CardInCart = ({ articul, imgSrc, title, color, price, isPriceShow, onClick
     }
 
     return (
-        <li className={orderModalStyles ? CheckoutList.item : styles.item}>
+        <li className={`${orderModalStyles ? CheckoutList.item : styles.item} dark:text-gray-200`}>
             <img src={imgSrc ? imgSrc : NOIMGSRC} alt={title} className={orderModalStyles ? CheckoutList.img : styles.img}/>
             <div className={orderModalStyles ? CheckoutList.itemInfo : styles.itemInfo}>
                 <h3 className={styles.itemTitle}>{title}</h3>

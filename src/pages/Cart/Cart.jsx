@@ -65,18 +65,19 @@ const Cart = () => {
     }
 
     return (
-        <div className={styles.cartSection}>
+        <div className={`${styles.cartSection} dark:bg-[#151617] pb-48 `}>
+
             <div className={styles.container}>
-                <h2 className={styles.cartTitle}>1. Products  - {cardsInCart.length}</h2>
+                <h2 className={`${styles.cartTitle}`}>1. Products  - {cardsInCart.length}</h2>
                 {isLoading ? <Loader /> : ''}
                 {cardsInCart.length >= 1 ?
                     <div className={styles.cartInner}>
                         <ul className={styles.listTitles}>
-                            <li>Photo</li>
-                            <li>Description</li>
-                            <li>Price</li>
-                            <li>Quantity</li>
-                            <li>Total</li>
+                            <li className='dark:text-white'>Photo</li>
+                            <li className='dark:text-white'>Description</li>
+                            <li className='dark:text-white'>Price</li>
+                            <li className='dark:text-white'>Quantity</li>
+                            <li className='dark:text-white'>Total</li>
                         </ul>
                         {content}
                     </div> :

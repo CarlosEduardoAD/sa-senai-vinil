@@ -13,7 +13,7 @@ const Card = ({ title, price, articul, color, imgSrc, onClickHandler, changeFavo
             <div className={styles.cardInfo}>
                 <h2 className={styles.title}>{title}</h2>
                 <p className={styles.cardColor}>
-                    <span>Color: {color}</span>
+                    <span >Color: {color}</span>
                     <span className={styles.productColor} style={{ backgroundColor: `${color}` }}></span>
                 </p>
                 <p>Articul: {articul}</p>

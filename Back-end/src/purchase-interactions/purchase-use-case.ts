@@ -4,15 +4,15 @@ export class userPurchase {
     public firstName: string;
     public lastName: string;
     public email: string;
-    public age: string;
     public address: string;
+    public price : any;
 
-    constructor(firstName: string, lastName: string, email: string, age: string, address: string) {
+    constructor(firstName: string, lastName: string, email: string, address: string, price : any) {
         this.firstName = firstName
         this.lastName = lastName
         this.email = email
-        this.age = age
         this.address = address
+        this.price = price
     }
 
     public async purchaseItem(){
@@ -26,8 +26,8 @@ export class userPurchase {
             let conn = await pool.getConnection()
             let id = await conn.query(`SELECT id FROM usuario WHERE nome = ${this.firstName}`)
             let userId = id[0]['id']
-            await conn.query(`INSERT INTO compras (id_user, endereco, presente, preco_total, forma_pag) VALUES (?, ?, 1, 8.90, "credito")`,
-            [userId, this.address])
+            await conn.query(`INSERT INTO compras (id_user, endereco, presente, preco_total, forma_pag) VALUES (?, ?, 1, ?, "credito")`,
+            [userId, this.address, this.price])
         }
         catch(err){
             console.log(err)
