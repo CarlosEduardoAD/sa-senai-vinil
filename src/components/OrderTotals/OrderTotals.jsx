@@ -15,6 +15,7 @@ const OrderTotals = () => {
     const cardsList = useSelector(({ cards }) => cards.cards);
     const discount = useSelector(({ discount }) => discount);
 
+
     useEffect(() => {
         let mounted = true;
         getPromocodesList()
@@ -32,7 +33,6 @@ const OrderTotals = () => {
 
     const subTotal = countSubtotal(cardsInCart, cardsList)
     const total = countTotalWithDiscount(subTotal, discount);
-    sessionStorage.setItem('totalPrice', total)
 
     const handleSubmit = (values) => {
         const { promocode } = values;
@@ -48,19 +48,19 @@ const OrderTotals = () => {
                 onSubmit={handleSubmit}>
                 {() => (
                     <Form className={styles.promocodeForm}>
-                        <p className={`${styles.promocodeFormTitle}`}>Apply a promo code</p>
+                        <p className={styles.promocodeFormTitle}>Apply a promo code</p>
                         <div className={styles.promocodeFieldContainer}>
-                            <Field className={`${styles.promocodeField} dark:bg-transparent border-none dark:opacity-50 rounded-lg`} name="promocode" type="text" placeholder="Enter promo code" />
+                            <Field className={`${styles.promocodeField} dark:bg-[#0a1424]`} name="promocode" type="text" placeholder="Enter promo code" />
                             <button className={styles.promocodeBtn} type="submit">Apply</button>
                         </div>
                     </Form >
                 )}
             </Formik>
-            <div className={`${styles.totalsContainer} dark:bg-slate-300/10 shadow-none`}>
-                <h3 className={`${styles.totalsTitle}`}>Order totals</h3>
-                <p className={`${styles.totalsPrices} dark:text-white font-inter`}><span>Subtotal:</span><span>{subTotal} UAH</span></p>
-                <p className={`${styles.totalsPrices} dark:text-white font-inter`}><span>Discount:</span><span>{discount ? discount : '0'}%</span></p>
-                <p className={`${styles.totalsPrices} dark:text-white font-inter`}><span className={styles.orderTotalPrice}>Order total:</span><span className={styles.totalPrice}>{total} UAH</span></p>
+            <div className={styles.totalsContainer}>
+                <h3 className={styles.totalsTitle}>Order totals</h3>
+                <p className={styles.totalsPrices}><span>Subtotal:</span><span>{subTotal} UAH</span></p>
+                <p className={styles.totalsPrices}><span>Discount:</span><span>{discount ? discount : '0'}%</span></p>
+                <p className={styles.totalsPrices}><span className={styles.orderTotalPrice}>Order total:</span><span className={styles.totalPrice}>{total} UAH</span></p>
             </div>
         </div>
     );

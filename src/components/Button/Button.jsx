@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Button = ({ text, onClickHandler }) => {
     return (
-        <button className={`${styles.btn} dark:bg-slate-800 dark:text-white`}
+        <button className={styles.btn}
             onClick={() => onClickHandler()}>
             {text}
         </button>
