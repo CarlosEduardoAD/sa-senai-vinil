@@ -1,5 +1,7 @@
 import mariadb from 'mariadb'
 import bcrypt from 'bcrypt'
+require("dotenv").config();
+const jwt = require("jsonwebtoken");
 
 export class user {
     public _name: string;
@@ -38,23 +40,34 @@ export class user {
             console.log('Essa é o email: ' + this._email)
             console.log('Essa é a senha: ' + this.password)
             let conn = await pool.getConnection()
-            const rows = await conn.query(`SELECT senha from usuario WHERE email = ${this._email}`)
+            const rows = await conn.query(`SELECT senha, id from usuario WHERE email = ${this._email}`)
             let result = rows[0]['senha']
+            let id = rows[0]['id']
             console.log('Essa é a senha que retornei: ' + result)
-            bcrypt.compare(this.password, String(result), function(err, res) {
+            bcrypt.compare(this.password, String(result), function (err, res) {
                 if (err) {
                     console.log(err)
                 }
                 else {
-                    console.log(res)
+                    try {
+                        console.log(res)
+                        const secret = process.env.SECRET
+                        const token = jwt.sign({
+                            id : id
+                        }, secret);
+                        console.log('Autenticação sus ' + token)
+                    } catch (err) {
+                        console.log(err)
+                    }
+
                 }
             })
         } catch (err) {
-            console.log(err)
+            return "Wrong password"
         }
     }
 
-    public async returnPurchasesFromUser(){
+    public async returnPurchasesFromUser() {
         const pool = mariadb.createPool({
             host: 'localhost',
             database: 'goldies_sa',
@@ -62,17 +75,17 @@ export class user {
             user: 'root'
         })
 
-        try{
+        try {
             let conn = await pool.getConnection()
             const result = await conn.query('SELECT * FROM compras WHERE nome = ?', [this._name])
             console.log(result)
         }
-        catch(err) {
+        catch (err) {
             console.log(err)
         }
     }
 
-    public async changeUserPassword(){
+    public async changeUserPassword() {
         const pool = mariadb.createPool({
             host: 'localhost',
             database: 'goldies_sa',
@@ -80,13 +93,13 @@ export class user {
             user: 'root'
         })
 
-        try{
+        try {
             console.log('Essa é o email: ' + this._email)
             console.log('Essa é a senha: ' + this.password)
             const conn = pool.getConnection()
             let query = await (await conn).query('UPDATE usuario SET senha = ? WHERE email = ?', [this.password, this._email])
             console.log(query)
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
     }
