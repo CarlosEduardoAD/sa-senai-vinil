@@ -69,7 +69,7 @@ const Favourites = () => {
 
     return (
         <div className={`${styles.favoritesSection} dark:bg-[#151617] min-h-screen`}>
-            <div className={styles.container}>
+            <div className={`${styles.container} dark:bg-[#151617]`}>
                 <h2 className={styles.favoritesTitle}>Favorites - {cardsInFavorites.length} items</h2>
                 {content}
                 <ModalRoot modalType={SHOW_ADD_TO_CART_MODAL}
