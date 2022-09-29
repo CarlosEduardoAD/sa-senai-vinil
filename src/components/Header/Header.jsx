@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from './Header.module.scss';
 import { NavLink, Link } from "react-router-dom";
-import {ToggleButton} from "../../utils/ToggleButton"
+import { ToggleButton } from "../../utils/ToggleButton"
 
 function Header(props) {
   const [top, setTop] = useState(true);

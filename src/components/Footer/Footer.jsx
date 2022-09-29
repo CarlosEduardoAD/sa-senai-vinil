@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Feedback from "../Feedback"
+
 
 function Footer() {
   return (
@@ -78,6 +80,28 @@ function Footer() {
               </li>
             </ul>
           </div>
+           {/* 3nd block */}
+          <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
+            <h6 className="text-gray-800 dark:text-neutral-300  font-medium mb-2">Support</h6>
+            <ul className="text-sm">
+              <li className="mb-2">
+                <Link
+                  to="#"
+                  className="text-gray-600 dark:text-neutral-300  hover:text-gray-900 transition duration-150 ease-in-out"
+                >
+                  Contact
+                </Link>
+              </li>
+              <li className="mb-2">
+                <Link
+                  to="#"
+                  className="text-gray-600 dark:text-neutral-300  hover:text-gray-900 transition duration-150 ease-in-out"
+                >
+                  Send Feedback
+                </Link>
+              </li>
+            </ul>
+          </div>
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-3">
             <h6 className="text-gray-800 dark:text-neutral-300  font-medium mb-2">Subscribe</h6>
             <p className="text-sm dark:text-neutral-300 text-gray-600 mb-4">
@@ -121,7 +145,8 @@ function Footer() {
                   {/* Success message */}
                   {/* <p className="mt-2 text-green-600 text-sm">Thanks for subscribing!</p> */}
                 </div>
-              </div>
+              </div>   
+              <Feedback></Feedback>
             </form>
           </div>
         </div>
