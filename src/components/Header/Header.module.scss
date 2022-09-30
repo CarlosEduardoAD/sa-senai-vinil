@@ -3,7 +3,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-
 // FONT VARIABLES
 $font-primary: muli, sans-serif;
 
@@ -23,41 +22,54 @@ $font-primary: muli, sans-serif;
 }
 
 .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navList {
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-    font-family: "Alumatica", sans-serif;
-    flex-wrap: wrap;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  font-family: "Alumatica", sans-serif;
+  flex-wrap: wrap;
 }
 
 .logo {
-    width: auto;
-    height: 60px;
+  width: auto;
+  height: 60px;
 }
 
 .item {
-    border-radius: 1rem;
-    padding: 0.5rem 1rem;
-    color: saturate($color: #201c1c, $amount: 9);
-    font-weight: 500;
-    &:not(:nth-last-child(0)) {
-        margin-right: 0.9rem;
-    }
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  color: saturate($color: #201c1c, $amount: 9);
+  font-weight: 500;
+  &:not(:nth-last-child(0)) {
+    margin-right: 0.9rem;
+  }
 }
 
 .item a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    transition: 0.8s;
-    position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: 0.8s;
+  position: relative;
 }
 .btn {
+  margin-top: 0.3em;
+  transition: 0.8s;
+  border-radius: 2rem;
+  padding: 0.8rem 3.9rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  height: 3rem;
+  width: 12rem;
+  &:not(:last-child) {
+    margin-right: 20px;
+=======
     transition: 0.8s;
     border-radius: 2rem;
     padding: 1rem 3.9rem;
@@ -71,70 +83,71 @@ $font-primary: muli, sans-serif;
         margin-right: 20px;
     }
   }
-  .btn {
+}
+.btn {
+  color: #fff;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.btn {
+  border: 0.125rem solid var(--color-primary-blue-dark);
+  color: var(--color-primary-blue-dark);
+  // vertical-align: middle;
+  &:hover {
+    background: var(--color-primary-blue-dark);
     color: #fff;
-    &:hover {
-      opacity: 0.8;
-    }
   }
-  .btn{
-    border: 2px solid var(--color-primary-blue-dark);
-    color: var(--color-primary-blue-dark);
-    // vertical-align: middle;
-    &:hover {
-      background: var(--color-primary-blue-dark);
-      color: #fff;
-    }
-  }
+}
 
 .signup {
-    color: saturate($color: #171594be, $amount: 9);
-    font-weight: 900;
-    &:not(:nth-last-child(0)) {
-        margin-right: 2rem;
-    }
+  color: saturate($color: #171594be, $amount: 9);
+  font-weight: 900;
+  &:not(:nth-last-child(0)) {
+    margin-right: 2rem;
+  }
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 
 .header {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    box-shadow: 0px 0px 10px 1px hsl(0deg, 0%, 82%, 49%);
-    @media (max-width: 855px){
-        overflow : hidden;
-    }
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0px 0px 10px 1px hsl(0deg, 0%, 82%, 49%);
+  @media (max-width: 855px) {
+    overflow: hidden;
+  }
 }
 
 .active {
-    color: rgb(88, 110, 205);
-    position: relative;
-    transition: 0.3s;
+  color: rgb(88, 110, 205);
+  position: relative;
+  transition: 0.3s;
 
-    &::before {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 2px;
-        background-color: rgb(88, 110, 205);
-        content: "";
-        animation: line 0.3s forwards;
-    }
+  &::before {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: rgb(88, 110, 205);
+    content: "";
+    animation: line 0.3s forwards;
+  }
 }
 
-.activeSign{
-    color : rgb(216, 216, 216);
+.activeSign {
+  color: rgb(216, 216, 216);
 }
 
 @keyframes line {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
