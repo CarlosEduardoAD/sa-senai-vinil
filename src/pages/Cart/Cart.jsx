@@ -68,7 +68,7 @@ const Cart = () => {
         <div className={`${styles.cartSection} dark:bg-[#151617] pb-48 `}>
 
             <div className={styles.container}>
-                <h2 className={`${styles.cartTitle}`}>1. Products  - {cardsInCart.length}</h2>
+                <h2 className={`${styles.cartTitle} font-inter`}>1. Products  - {cardsInCart.length}</h2>
                 {isLoading ? <Loader /> : ''}
                 {cardsInCart.length >= 1 ?
                     <div className={styles.cartInner}>

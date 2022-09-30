@@ -1,6 +1,6 @@
-import sendgrid from '@sendgrid/mail'
 import nodemailer from 'nodemailer'
-
+const node_cron = require('node-cron')
+import mariadb from 'mariadb'
 export class userEmail {
     user?: string
     email?: string
@@ -18,8 +18,8 @@ export class userEmail {
             secure: false,
             auth:
             {
-                user: 'carloseduardomarianoregis@gmail.com',
-                pass: 'cjqyrapgoiinwtgu'
+                user: process.env.EMAIL,
+                pass: process.env.APP_PASS
             },
             tls: {
                 rejectUnauthorized: false,
@@ -51,5 +51,22 @@ export class userEmail {
             style="font-family:Montserrat,Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif;font-size:15px;color:#9d9d9d;vertical-align:middle;letter-spacing:undefined;text-align:center"><a href="https://www.designedwithbee.com/" target="_blank" style="color: #9d9d9d; text-decoration: none;">Designed with BEE</a></td></tr></table></td></tr></table></td></tr></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><!-- End --></body></html>`
         })
 
+    }
+
+    public async subscribeEmail(){
+        let pool = mariadb.createPool({
+            host : 'localhost',
+            user : 'root',
+            password : 'carloseduardo08',
+            database : 'goldies_sa'
+        })
+
+        try {
+            const conn = await pool.getConnection()
+            let query = await conn.query('INSERT INTO subscriptions (user_email) VALUES (?)', [this.email])
+            console.log('Subscription done sucessfully')
+        }catch(err){
+            console.log(err)
+        }
     }
 }

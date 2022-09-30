@@ -1,9 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Feedback from "../Feedback"
-
+import axios from 'axios'
 
 function Footer() {
+
+  async function subscribeEmail(e){
+    e.preventDefault()
+    const myForm = new FormData(e.target)
+    console.log(myForm)
+    const request = Object.fromEntries(myForm)
+    const userData = {
+      email : request.newsletter
+    }
+    axios.post("http://localhost:3000/subscribe", userData)
+  }
+
   return (
     <footer className="dark:bg-[#151617] dark:text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -14,7 +26,7 @@ function Footer() {
             <div className="mb-2">
               {/* Logo */}
               <Link to="/" className="inline-block" aria-label="Spox">
-                
+
               </Link>
             </div>
             <div className="text-sm text-gray-600">
@@ -107,7 +119,7 @@ function Footer() {
             <p className="text-sm dark:text-neutral-300 text-gray-600 mb-4">
               Get the latest news and articles to your inbox every month.
             </p>
-            <form>
+            <form onSubmit={subscribeEmail}>
               <div className="flex flex-wrap mb-4">
                 <div className="w-full">
                   <label className="block text-sm sr-only" htmlFor="newsletter">
@@ -116,8 +128,9 @@ function Footer() {
                   <div className="relative flex items-center max-w-xs">
                     <input
                       id="newsletter"
+                      name='newsletter'
                       type="email"
-                      className="form-input w-full dark:bg-transparent text-gray-800 dark:text-white px-3 py-2 pr-12 text-sm"
+                      className="form-input w-full dark:bg-transparent text-gray-800 dark:text-white px-5 py-2 pr-12 text-sm"
                       placeholder="Your email"
                       required
                     />
