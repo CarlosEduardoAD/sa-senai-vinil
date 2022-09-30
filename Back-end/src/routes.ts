@@ -5,25 +5,7 @@ import { userHash } from './user-interactions/hash-interaction'
 import { userEmail } from './email-interactions/email-use-case'
 import { userPurchase } from './purchase-interactions/purchase-use-case'
 export const routes = express.Router()
-const jwt = require('jsonwebtoken')
 require("dotenv").config();
-
-
-function checkTokenMiddleware(req : any, res : any, next : any){
-    const authHeader = req.headers.authorization;
-    const token = authHeader && authHeader.split(" ")[1];
-
-    try {
-        const secret = process.env.SECRET;
-
-        jwt.verify(token, secret);
-
-        next();
-      } catch (err) {
-        res.status(400).json({ msg: "O Token é inválido!" });
-      }
-
-}
 
 
 const conn = mariadb.createPool({
@@ -59,7 +41,7 @@ routes.post('/login', (req, res) => {
     res.status(200).send('User Found !')
 })
 
-routes.post('/purchase', checkTokenMiddleware, (req, res) => {
+routes.post('/purchase', (req, res) => {
     console.log(req.body.firstName)
     let obj = new userPurchase(req.body.firstName, req.body.lastName, req.body.email, req.body.adress, parseFloat(req.body.price))
     obj.purchaseItem()
@@ -78,4 +60,11 @@ routes.post('/reset', async (req, res) => {
     obj.changeUserPassword()
     console.log(req.body)
 })
+
+routes.post('/subscribe', async(req, res) => {
+    const {user, email} = req.body
+    let obj = new userEmail(user, email)
+    obj.subscribeEmail()
+})
+
 

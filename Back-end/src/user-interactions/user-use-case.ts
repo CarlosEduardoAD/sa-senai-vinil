@@ -51,11 +51,6 @@ export class user {
                 else {
                     try {
                         console.log(res)
-                        const secret = process.env.SECRET
-                        const token = jwt.sign({
-                            id : id
-                        }, secret);
-                        console.log('Autenticação sus ' + token)
                     } catch (err) {
                         console.log(err)
                     }
