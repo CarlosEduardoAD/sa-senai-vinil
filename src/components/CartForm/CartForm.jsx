@@ -81,7 +81,7 @@ export const CartForm = (cards) => {
   return (
     <>
       <div className={styles.formContainer}>
-        <h1 className={styles.cartTitle}>2. Shipping info</h1>
+        <h1 className={`${styles.cartTitle} font-inter`}>2. Shipping info</h1>
         <Formik
           initialValues={{
             firstName: "",

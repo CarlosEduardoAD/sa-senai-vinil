@@ -61,3 +61,10 @@ routes.post('/reset', async (req, res) => {
     console.log(req.body)
 })
 
+routes.post('/subscribe', async(req, res) => {
+    const {user, email} = req.body
+    let obj = new userEmail(user, email)
+    obj.subscribeEmail()
+})
+
+

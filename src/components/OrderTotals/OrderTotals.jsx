@@ -48,16 +48,16 @@ const OrderTotals = () => {
                 onSubmit={handleSubmit}>
                 {() => (
                     <Form className={styles.promocodeForm}>
-                        <p className={`${styles.promocodeFormTitle}`}>Apply a promo code</p>
+                        <p className={`${styles.promocodeFormTitle} font-inter`}>Apply a promo code</p>
                         <div className={styles.promocodeFieldContainer}>
-                            <Field className={`${styles.promocodeField} dark:bg-transparent border-none dark:opacity-50 rounded-lg`} name="promocode" type="text" placeholder="Enter promo code" />
+                            <Field className={`${styles.promocodeField} dark:bg-transparent border-none dark:opacity-50 rounded-lg font-inter`} name="promocode" type="text" placeholder="Enter promo code" />
                             <button className={styles.promocodeBtn} type="submit">Apply</button>
                         </div>
                     </Form >
                 )}
             </Formik>
             <div className={`${styles.totalsContainer} dark:bg-slate-300/10 shadow-none`}>
-                <h3 className={`${styles.totalsTitle}`}>Order totals</h3>
+                <h3 className={`${styles.totalsTitle} font-inter`}>Order totals</h3>
                 <p className={`${styles.totalsPrices} dark:text-white font-inter`}><span>Subtotal:</span><span>{subTotal} UAH</span></p>
                 <p className={`${styles.totalsPrices} dark:text-white font-inter`}><span>Discount:</span><span>{discount ? discount : '0'}%</span></p>
                 <p className={`${styles.totalsPrices} dark:text-white font-inter`}><span className={styles.orderTotalPrice}>Order total:</span><span className={styles.totalPrice}>{total} UAH</span></p>
