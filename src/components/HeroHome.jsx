@@ -240,7 +240,7 @@ function HeroHome() {
               para entregar estas obras nas residências, se trata de uma arte delicada e frágil, mas com um significado poderoso, e mostramos isso
               nas nossas entregas.
             </p>
-            <p className="sm:text-5xl text-center text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-teal-250 dark:from-indigo-500 dark:to-blue-900 animate-gradient-xy font-bold mt-16">
+            <p className="sm:text-5xl text-center text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-teal-250 dark:from-rose-500 dark:to-blue-700 animate-gradient-xy font-bold mt-16">
               Então coloca o som na Vitrola !
             </p>
             <a>

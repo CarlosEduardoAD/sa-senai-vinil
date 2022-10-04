@@ -1,23 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import axios from 'axios'
+import {Redirect} from 'react-router-dom'
+import axios from "axios";
 
 function SignIn() {
-  const { register, handleSubmit, formState : {errors} } = useForm({
-    mode : "onSubmit",
-    shouldUseNativeValidation : true,
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: "onSubmit",
+    shouldUseNativeValidation: true,
   });
   const onSubmit = (data) => {
     let userData = JSON.stringify(data.customerEmail);
-    let userPassword = JSON.stringify(data.customerPassword)
-    sessionStorage.setItem('username', userData)
-    axios.post('http://localhost:3000/login', {'email' : userData, 'password' : userPassword})
-    console.log(userData.trim().toString)
+    let userPassword = JSON.stringify(data.customerPassword);
+    sessionStorage.setItem("username", userData);
+    axios.post("http://localhost:3000/login", {
+      email: userData,
+      password: userPassword,
+    });
+    console.log(userData.trim().toString);
   };
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
-
       {/*  Page content */}
       <main className="flex-grow">
         <section className="bg-gradient-to-b from-gray-100 to-white">
@@ -47,9 +54,14 @@ function SignIn() {
                         className="form-input w-full text-gray-800 dark:bg-neutral-700 dark:border-none dark:text-white rounded-lg"
                         placeholder="Enter your email address"
                         required
-                        {...register('customerEmail', {required : true})}
+                        {...register("customerEmail", { required: true })}
                       />
-                      {errors.customerEmail && <p className="text-red-500 text-xs italic">Digite seu e-mail por favor</p>}
+                      {errors.customerEmail && (
+                        <p className="text-red-500 text-xs italic">
+                          Digite seu e-mail por favor
+                        </p>
+
+                      )}
                     </div>
                   </div>
                   <div className="flex flex-wrap -mx-3 mb-4">
@@ -74,17 +86,23 @@ function SignIn() {
                         className="form-input w-full text-gray-800 dark:text-white dark:bg-neutral-700 dark:border-none rounded-lg"
                         placeholder="Enter your password"
                         required
-                        {...register('customerPassword', {required : true})}
+                        {...register("customerPassword", { required: true })}
                       />
-                      {errors.customerPassword && <p className="text-red-500 text-xs italic">Digite sua senha por favor</p>}
-
+                      {errors.customerPassword && (
+                        <p className="text-red-500 text-xs italic">
+                          Digite sua senha por favor
+                        </p>
+                      )}
                     </div>
                   </div>
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <div className="flex justify-between">
                         <label className="flex items-center">
-                          <input type="checkbox" className="form-checkbox bg-neutral-500 rounded-sm dark:bg-white" />
+                          <input
+                            type="checkbox"
+                            className="form-checkbox bg-neutral-500 rounded-sm dark:bg-white"
+                          />
                           <span className="text-gray-800 ml-2">
                             Keep me signed in
                           </span>
