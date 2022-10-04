@@ -1,6 +1,5 @@
 import nodemailer from 'nodemailer'
 import mariadb from 'mariadb'
-const node_cron = require('node-cron')
 
 export class userEmail {
     user?: string
