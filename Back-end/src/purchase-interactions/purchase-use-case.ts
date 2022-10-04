@@ -28,9 +28,12 @@ export class userPurchase {
             let userId = id[0]['id']
             await conn.query(`INSERT INTO compras (id_user, endereco, presente, preco_total, forma_pag) VALUES (?, ?, 1, ?, "credito")`,
             [userId, this.address, this.price])
+            let compraId = await conn.query('')
+            let idDisco = await conn.query('')
+            await conn.query('INSERT INTO')
         }
         catch(err){
-            console.log(err)
+            return 'Não foi possível, por favor tente novamente'
         }
     }
 }

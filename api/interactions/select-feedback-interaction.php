@@ -4,10 +4,10 @@ class createFeedback
 {
 
     private $conn;
-    private $db_table = 'user_feedbacks';
+    private $db_table = 'user_wishes';
     public $userEmail;
-    public $type;
-    public $feedbackText;
+    public $discName;
+    public $price;
 
 
     public function __construct($db)

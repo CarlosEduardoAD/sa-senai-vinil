@@ -67,4 +67,8 @@ routes.post('/subscribe', async(req, res) => {
     obj.subscribeEmail()
 })
 
+routes.post('/:username/purchases', (req, res) => {
+    const username = req.params.username
+})
+
 

@@ -9,6 +9,8 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 include_once('./utils/connection.php');
 include_once('./interactions/create-feedback-interaction.php');
 
+$_SERVER['REQUEST_METHOD'];
+
 $database = new connection();
 $db = $database->get_connection();
 $feedback = new createFeedback($db);
