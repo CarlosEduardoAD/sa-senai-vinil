@@ -1,6 +1,6 @@
 <?php
 
-class createFeedback
+class updateFeedback
 {
 
     private $conn;
@@ -15,7 +15,7 @@ class createFeedback
         $this->conn = $db;
     }
 
-    public function create_feedback()
+    public function update_feedback()
     {
         try {
             $sql = "UPDATE" . $this->db_table . 'SET discName = '. $this -> discName . 'SET price ='. $this -> price .'WHERE user_email = '. $this -> userEmail .'';

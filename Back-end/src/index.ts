@@ -3,7 +3,7 @@ import cors from 'cors'
 import { routes } from './routes'
 import mariadb from 'mariadb'
 import nodemailer from 'nodemailer'
-
+require("dotenv").config();
 const node_cron = require('node-cron')
 const app = express();
 
@@ -18,8 +18,8 @@ const transport = nodemailer.createTransport({
     secure: false,
     auth:
     {
-        user: 'carloseduardomarianoregis@gmail.com',
-        pass: 'cjqyrapgoiinwtgu'
+        user: process.env.EMAIL,
+        pass: process.env.APP_PASS
     },
     tls: {
         rejectUnauthorized: false,
