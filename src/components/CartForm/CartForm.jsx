@@ -71,7 +71,7 @@ export const CartForm = (cards) => {
       adress: adress,
       price: price
     };
-    axios.post("http://localhost:3000/purchase", request);
+    axios.post("http://localhost:3000/purchase", request, {withCredentials : true});
   };
   const closeModalHandler = () => {
     dispatch(setModalClose(SHOW_CHECKOUT_MODAL));
@@ -95,12 +95,12 @@ export const CartForm = (cards) => {
           onSubmit={handleFormSubmit}
         >
           {({ isSubmitting }) => (
-            <Form className={`${styles.form} dark:text-gray-500d dark:bg-[#040a1b] backdrop-blur-lg dark:shadow-xl dark:text-gray-300`}>
+            <Form className={`${styles.form} dark:text-gray-900 dark:bg-[#040a1b] backdrop-blur-lg dark:shadow-xl`}>
               <FieldArray
                 name="fields"
                 render={() => (
                   <>
-                    <div className={`${styles.formInner}`}>
+                    <div className={`${styles.formInner} dark:text-gray-800 dark:bg-[#040a1b] backdrop-blur-lg dark:shadow-xl`}>
                       {formDataFields.map(
                         ({ id, name, label, placeholder, type }) => {
                           return name === "phone" ? (
@@ -112,6 +112,7 @@ export const CartForm = (cards) => {
                             />
                           ) : (
                             <FormikInputBlock
+                            className='bg-blue-600'
                               key={id}
                               name={name}
                               type={type}

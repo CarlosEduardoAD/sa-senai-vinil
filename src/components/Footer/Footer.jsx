@@ -158,7 +158,7 @@ function Footer() {
                   {/* Success message */}
                   {/* <p className="mt-2 text-green-600 text-sm">Thanks for subscribing!</p> */}
                 </div>
-              </div>   
+              </div>
               <Feedback></Feedback>
             </form>
           </div>

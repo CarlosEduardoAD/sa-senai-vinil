@@ -5,14 +5,15 @@ import styles from './CardsList.module.scss';
 
 
 const CardsList = ({ cards, onClickHandler, changeFavouriteHandler, favouritesCardsArr }) => {
-    const cardsComponents = cards.map(({ title, price, articul, color, imgSrc }) => {
+    const cardsComponents = cards.map(({ title, price, articul, genre, imgSrc, artist }) => {
         return (
             <Card key={articul}
                 title={title}
                 price={price}
                 articul={articul}
-                color={color}
+                genre={genre}
                 imgSrc={imgSrc}
+                artist={artist}
                 isFavourite={favouritesCardsArr.includes(articul)}
                 onClickHandler={onClickHandler}
                 changeFavouriteHandler={changeFavouriteHandler} />

@@ -13,8 +13,11 @@ import Loader from '../../components/Loader/Loader';
 import { CartForm } from '../../components/CartForm/CartForm';
 import OrderTotals from '../../components/OrderTotals/OrderTotals'
 import DogIcon from './DogIcon';
+import Cookies from 'js-cookie'
+import { useHistory } from 'react-router-dom';
 
 const Cart = () => {
+    const navigate = useHistory()
     const isLoading = useSelector(({ cards }) => cards.isLoading);
     const cardsList = useSelector(({ cards }) => cards.cards);
     const currrentCardArticul = useSelector(({ currrentCardArticul }) => currrentCardArticul);
@@ -24,7 +27,10 @@ const Cart = () => {
 
     useEffect(() => {
         dispatch(fetchCardsList());
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        let cookie = Cookies.get('acess_token')
+        if(!cookie){
+            navigate.push('/signin')
+        }
     }, []);
 
     const deleteFromCartHandler = (articul) => {
@@ -65,7 +71,7 @@ const Cart = () => {
     }
 
     return (
-        <div className={`${styles.cartSection} dark:bg-[#151617] pb-48 `}>
+        <div className={`${styles.cartSection} dark:bg-[#151617] pb-48 -mt-6`}>
 
             <div className={styles.container}>
                 <h2 className={`${styles.cartTitle} font-inter`}>1. Products  - {cardsInCart.length}</h2>
