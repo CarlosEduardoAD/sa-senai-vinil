@@ -9,14 +9,16 @@ const Card = ({
   title,
   price,
   articul,
-  color,
+  genre,
   imgSrc,
+  artist,
   onClickHandler,
   changeFavouriteHandler,
   isFavourite,
 }) => {
   const isFavouriteClass = isFavourite ? styles.isFavourite : "";
   return (
+    <div className='bg-gradient-to-b dark:from-[#050026] dark:to-emerald-900 relative -pt-2 pl-[0.8px] pr-[0.8px] rounded-lg'>
     <li
       className={`${styles.item}`}
     >
@@ -25,22 +27,21 @@ const Card = ({
         src={imgSrc ? imgSrc : NOIMGSRC}
         alt="bed for pets"
       />
-      <div className={styles.cardInfo}>
-        <h2 className={`${styles.title} dark:text-white`}>{title}</h2>
+      <div className={`${styles.cardInfo} `}>
+        <h2 className={`${styles.title} dark:text-white font-inter font-black`}>{title}</h2>
         <p className={`${styles.cardColor}`}>
-          <span className="font-semibold font-inter dark:text-white">
-            Color: {color}
+          <span className="font-medium font-inter dark:text-white">
+            Genre: {genre}
           </span>
           <span
             className={styles.productColor}
-            style={{ backgroundColor: `${color}` }}
           ></span>
         </p>
-        <p className="font-medium font-inter dark:text-white">
-          Articul: {articul}
-        </p>
+        <span className="font-medium font-inter dark:text-white">
+            Artist: {artist}
+          </span>
         <p
-          className={`${styles.cardPrice} text-gray-200 font-medium font-inter`}
+          className={`${styles.cardPrice} text-slate-800 dark:text-white font-medium font-inter`}
         >
           {price} UAH
         </p>
@@ -60,6 +61,7 @@ const Card = ({
         />
       </div>
     </li>
+    </div>
   );
 };
 

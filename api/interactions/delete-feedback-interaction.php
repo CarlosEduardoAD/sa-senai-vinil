@@ -1,13 +1,12 @@
 <?php
 
-class createFeedback
+class deleteFeedback
 {
 
     private $conn;
-    private $db_table = 'user_feedbacks';
     public $userEmail;
-    public $type;
-    public $feedbackText;
+    public $discName;
+    public $price;
 
 
     public function __construct($db)
@@ -15,11 +14,13 @@ class createFeedback
         $this->conn = $db;
     }
 
-    public function create_feedback()
+    public function delete_feedback()
     {
         try {
-            $sql = "DELETE FROM" . $this->db_table . 'WHERE user_email = '. $this -> userEmail .' AND feedback_text = '. $this -> feedbackText .'';
+            $sql = 'DELETE FROM user_wishes WHERE user_email = :email AND disc_name = :disc';
             $query = $this->conn->prepare($sql);
+            $query->bindValue(':email', $this -> userEmail, PDO::PARAM_STR);
+            $query->bindValue(':disc', $this -> discName, PDO::PARAM_STR);
             $query->execute();
             return $query;
         } catch (PDOException $exception) {

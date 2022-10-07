@@ -11,8 +11,11 @@ import { setCurrentArticul } from '../../store/currentCardArticul/actions';
 import { ModalRoot } from '../../components/Modal/ModalRoot';
 import { addToFavourites, removeFavourites } from '../../store/favourites/actions';
 import Loader from '../../components/Loader/Loader';
+import Cookies from 'js-cookie'
+import { useHistory } from 'react-router-dom';
 
 const Favourites = () => {
+    const navigate = useHistory()
     const isLoading = useSelector(({ cards }) => cards.isLoading);
     const cardsList = useSelector(({ cards }) => cards.cards);
     const currrentCardArticul = useSelector(({ currrentCardArticul }) => currrentCardArticul);
@@ -22,7 +25,10 @@ const Favourites = () => {
 
     useEffect(() => {
         dispatch(fetchCardsList());
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        let cookie = Cookies.get('acess_token')
+        if(!cookie){
+            navigate.push('/signin')
+        }
     }, [])
 
     // Cart
@@ -68,7 +74,7 @@ const Favourites = () => {
     }
 
     return (
-        <div className={`${styles.favoritesSection} dark:bg-[#151617] min-h-screen`}>
+        <div className={`${styles.favoritesSection} dark:bg-[#151617] min-h-screen -mt-6`}>
             <div className={`${styles.container} dark:bg-[#151617]`}>
                 <h2 className={`${styles.favoritesTitle} font-inter`}>Favorites - {cardsInFavorites.length} items</h2>
                 {content}

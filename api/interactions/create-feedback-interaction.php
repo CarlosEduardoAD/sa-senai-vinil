@@ -4,10 +4,10 @@ class createFeedback
 {
 
     private $conn;
-    private $db_table = 'user_feedbacks';
+    private $db_table = 'user_wishes';
     public $userEmail;
-    public $type;
-    public $feedbackText;
+    public $discName;
+    public $price;
 
 
     public function __construct($db)
@@ -18,7 +18,7 @@ class createFeedback
     public function create_feedback()
     {
         try {
-            $sql = "INSERT INTO " . $this->db_table . "(user_email, type, feedback_text) VALUES ('" . $this->userEmail . "','" . $this->type . "', '" . $this->feedbackText . "')";
+            $sql = "INSERT INTO " . $this->db_table . "(user_email, disc_name, price) VALUES ('" . $this->userEmail . "','" . $this->discName . "', '" . $this->price . "')";
             $query = $this->conn->prepare($sql);
             $query->execute();
             return $query;

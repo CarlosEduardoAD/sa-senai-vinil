@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "../utils/Modal.jsx";
 import Goldies from "../images/Goldies.png";
 import { NavLink } from "react-router-dom";
 import styles from "./Header/Header.module.scss";
+import Cookies from "js-cookie";
 
 function HeroHome() {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
+  const [cookie, setCookie] = useState();
+
+  useEffect(() => {
+    let userToken = Cookies.get("acess_token");
+    setCookie(userToken);
+  }, []);
 
   return (
     <section className="relative dark:bg-[#151617]">
@@ -61,7 +68,7 @@ function HeroHome() {
         </svg>
       </div>
 
-      <div className="max-w-6xl sm:max-w-full mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl sm:max-w-full mx-auto px-4 sm:px-6 ">
         {/* Hero content */}
         <div className="pt-32 pb-48 sm:pb-12 md:pt-40 md:pb-20">
           {/* Section header */}
@@ -236,25 +243,34 @@ function HeroHome() {
               ter essa nostalgia
             </p>
             <p className="text-lg sm:text-2xl text-center text-black dark:text-white font-medium pt-16 px-12 md:px-48">
-              A música é uma arte, e queríamos contribuir para esta. Fomos fundados em 2017 e desde dessa data, estivemos trabalhando duro
-              para entregar estas obras nas residências, se trata de uma arte delicada e frágil, mas com um significado poderoso, e mostramos isso
-              nas nossas entregas.
+              A música é uma arte, e queríamos contribuir para esta. Fomos
+              fundados em 2017 e desde dessa data, estivemos trabalhando duro
+              para entregar estas obras nas residências, se trata de uma arte
+              delicada e frágil, mas com um significado poderoso, e mostramos
+              isso nas nossas entregas.
             </p>
-            <p className="sm:text-5xl text-center text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-teal-250 dark:from-rose-500 dark:to-blue-700 animate-gradient-xy font-bold mt-16">
-              Então coloca o som na Vitrola !
-            </p>
-            <a>
-              {" "}
-              <button className={`${styles.btn} font-inter mt-12`}>
-                <NavLink
-                  exact
-                  to="/SignUp"
-                  activeClassName={`${styles.active} dark:text-white`}
-                >
-                  
-                </NavLink>
-              </button>
-            </a>
+            {cookie ? (
+              <div></div>
+            ) : (
+              <>
+                {" "}
+                <p className="sm:text-5xl text-center text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-teal-250 dark:from-rose-500 dark:to-blue-700 animate-gradient-xy font-bold mt-16">
+                  Então coloca o som na Vitrola !
+                </p>
+                <a>
+                  {" "}
+                  <button className={`${styles.btn} font-inter mt-12`}>
+                    <NavLink
+                      exact
+                      to="/SignUp"
+                      activeClassName={`${styles.active} dark:text-white`}
+                    >
+                      Entrar
+                    </NavLink>
+                  </button>
+                </a>
+              </>
+            )}
           </div>
         </div>
       </div>

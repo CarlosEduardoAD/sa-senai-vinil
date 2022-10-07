@@ -11,8 +11,11 @@ import { addToCart } from '../store/cart/actions';
 import { setAddToCartModalShow, setModalClose } from '../store/modal/actions';
 import { setCurrentArticul } from '../store/currentCardArticul/actions';
 import Loader from '../components/Loader/Loader';
+import Cookies from 'js-cookie'
+import { useHistory } from 'react-router-dom';
 
 const Catalog = () => {
+    const navigate = useHistory()
     const isLoading = useSelector(({ cards }) => cards.isLoading);
     const cardsList = useSelector(({ cards }) => cards.cards);
     const currrentCardArticul = useSelector(({ currrentCardArticul }) => currrentCardArticul);
@@ -23,7 +26,6 @@ const Catalog = () => {
 
     useEffect(() => {
         dispatch(fetchCardsList());
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // Cart
@@ -67,7 +69,7 @@ const Catalog = () => {
     }
 
     return (
-        <div className={`${styles.app} dark:bg-[#151617]`}>
+        <div className={`${styles.app} dark:bg-[#151617] -mt-6`}>
             <div className={styles.container}>
                 <div className={styles.appInner}>
                     <ModalRoot modalType={SHOW_ADD_TO_CART_MODAL}

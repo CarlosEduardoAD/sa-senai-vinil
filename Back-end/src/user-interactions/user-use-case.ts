@@ -1,17 +1,17 @@
 import mariadb from 'mariadb'
 import bcrypt from 'bcrypt'
 require("dotenv").config();
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken')
 
 export class user {
-    public _name: string;
-    public _email: string;
+    public name: string;
+    public email: string;
     public password: string;
 
 
     constructor(name?: any, email?: any, password?: any) {
-        this._name = name
-        this._email = email
+        this.name = name
+        this.email = email
         this.password = password
     }
 
@@ -23,7 +23,7 @@ export class user {
             user: 'root'
         })
         pool.getConnection().then(() => {
-            pool.query(`INSERT INTO usuario (nome, endereco, email, fone, senha) VALUES (${this._name}, 'rua dos sussy bakas', ${this._email}, '00 12345-1234', '${this.password.toString()}')`)
+            pool.query(`INSERT INTO usuario (nome, endereco, email, fone, senha) VALUES (${this.name}, 'rua dos sussy bakas', ${this.email}, '00 12345-1234', '${this.password.toString()}')`)
                 .then(() => { console.log('Data inserted sucessfully') })
                 .catch((e) => { console.log(e) })
         })
@@ -37,10 +37,10 @@ export class user {
             user: 'root'
         })
         try {
-            console.log('Essa é o email: ' + this._email)
+            console.log('Essa é o email: ' + this.email)
             console.log('Essa é a senha: ' + this.password)
             let conn = await pool.getConnection()
-            const rows = await conn.query(`SELECT senha, id from usuario WHERE email = ${this._email}`)
+            const rows = await conn.query(`SELECT senha, id from usuario WHERE email = ${this.email}`)
             let result = rows[0]['senha']
             let id = rows[0]['id']
             console.log('Essa é a senha que retornei: ' + result)
@@ -72,7 +72,7 @@ export class user {
 
         try {
             let conn = await pool.getConnection()
-            const result = await conn.query('SELECT * FROM compras WHERE nome = ?', [this._name])
+            const result = await conn.query('SELECT * FROM compras WHERE nome = ?', [this.email])
             console.log(result)
         }
         catch (err) {
@@ -89,10 +89,10 @@ export class user {
         })
 
         try {
-            console.log('Essa é o email: ' + this._email)
+            console.log('Essa é o email: ' + this.email)
             console.log('Essa é a senha: ' + this.password)
             const conn = pool.getConnection()
-            let query = await (await conn).query('UPDATE usuario SET senha = ? WHERE email = ?', [this.password, this._email])
+            let query = await (await conn).query('UPDATE usuario SET senha = ? WHERE email = ?', [this.password, this.email])
             console.log(query)
         } catch (err) {
             console.log(err)
