@@ -3,8 +3,24 @@ import { useState } from "react";
 import { ToggleButton } from "./ToggleButton";
 import { NavLink } from "react-router-dom";
 import styles from "../components/Header/Header.module.scss";
+import Cookies from "js-cookie";
+import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 export function Hamburguer() {
+  const [cookie, setCookie] = useState();
+  const navigate = useHistory();
+
+  useEffect(() => {
+    let userToken = Cookies.get("acess_token");
+    setCookie(userToken);
+  }, []);
+
+  const logoutUser = async () => {
+    Cookies.remove('acess_token')
+    navigate.push('/')
+  };
+
   const [isOpen, setOpen] = useState();
 
   const handleClick = () => {
@@ -40,22 +56,49 @@ export function Hamburguer() {
               </NavLink>
             </li>
           </ul>
-          <div className="flex items-center gap-4 mt-12">
+          <div className="flex items-center gap-4 mt-12 ml-4">
             <div>
-              <li className={`rounded-lg border-2 p-2 border-black dark:border-white`}>
-                <NavLink exact to="/SignIn" activeClassName={styles.active}>
-                  Sign In
-                </NavLink>
-              </li>
+              {cookie ? (
+                <div></div>
+              ) : (
+                <li
+                  className={`rounded-lg border-2 p-2 border-black dark:border-white mt-4`}
+                >
+                  <NavLink exact to="/signin" activeClassName={styles.active}>
+                    Sign in
+                  </NavLink>
+                </li>
+              )}
             </div>
             <div>
-              <li className={`rounded-lg border-2 p-2 border-black dark:border-white`}>
-                <NavLink exact to="/SignUp" activeClassName={styles.active}>
-                  Sign Up
-                </NavLink>
-              </li>
+              {cookie ? (
+                <div></div>
+              ) : (
+                <li
+                  className={`rounded-lg border-2 p-2 border-black dark:border-white mt-4`}
+                >
+                  <NavLink exact to="/signup" activeClassName={styles.active}>
+                    Sign up
+                  </NavLink>
+                </li>
+              )}
             </div>
+            <div></div>
           </div>
+          {cookie ? (
+              <li
+                className={`rounded-lg border-2 p-2 border-black dark:border-white mt-4`}
+              >
+                <button onClick={() => logoutUser()}>
+                <li exact to="/" activeClassName={styles.active}>
+                  Sign Out
+                </li>
+                </button>
+              </li>
+          ) : (
+            <div></div>
+          )}
+
           <div className="grid grid-cols-2 grid-flow-row">
             <div className="absolute bottom-12 left-0 ml-[10px] sm:hidden ">
               <ToggleButton></ToggleButton>

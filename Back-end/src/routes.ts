@@ -4,8 +4,27 @@ import { user } from './user-interactions/user-use-case'
 import { userHash } from './user-interactions/hash-interaction'
 import { userEmail } from './email-interactions/email-use-case'
 import { userPurchase } from './purchase-interactions/purchase-use-case'
+const jwt = require("jsonwebtoken");
 export const routes = express.Router()
 require("dotenv").config();
+
+function checkToken(req: any, res: any, next: any) {
+    let token = req.cookies.acess_token
+    if(!token){
+        return res.status(401)
+    }
+    try {
+        let data =  jwt.verify(token, process.env.SECRET)
+        console.log(token)
+        req.user_email = data.email
+        return next()
+    }
+    catch (err) {
+        console.log(err)
+        return res.sendStatus(403)
+    }
+
+}
 
 
 const conn = mariadb.createPool({
@@ -23,14 +42,12 @@ routes.get('/', (req, res) => {
 
 
 routes.post('/register', async (req, res) => {
-    {
-        const { nome, email, password } = req.body
-        let obj = new userHash(password)
-        let result = obj.hashPassword()
-        let registerInteraction = new user(nome, email, await result)
-        registerInteraction.registerUser()
-        res.status(200)
-    }
+    const { nome, email, password } = req.body
+    let obj = new userHash(password)
+    let result = obj.hashPassword()
+    let registerInteraction = new user(nome, email, await result)
+    registerInteraction.registerUser()
+    res.status(200)
 })
 
 routes.post('/login', (req, res) => {
@@ -38,10 +55,11 @@ routes.post('/login', (req, res) => {
     console.log(nome, email, password)
     let obj = new user(nome, email, password)
     obj.loginUser()
-    res.status(200).send('User Found !')
+    let token = jwt.sign({email : email}, process.env.SECRET)
+    return res.cookie("acess_token", token, {domain : 'localhost', path: '/', httpOnly: false, secure : false}).status(200).json('Logged in !').send()
 })
 
-routes.post('/purchase', (req, res) => {
+routes.post('/purchase', checkToken, (req, res) => {
     console.log(req.body.firstName)
     let obj = new userPurchase(req.body.firstName, req.body.lastName, req.body.email, req.body.adress, parseFloat(req.body.price))
     obj.purchaseItem()
@@ -51,7 +69,7 @@ routes.post('/purchase', (req, res) => {
 })
 
 routes.post('/reset', async (req, res) => {
-    const {nome, email, password} = req.body
+    const { nome, email, password } = req.body
     console.log(email)
     console.log(password)
     let hashObj = new userHash(password)
@@ -61,10 +79,12 @@ routes.post('/reset', async (req, res) => {
     console.log(req.body)
 })
 
-routes.post('/subscribe', async(req, res) => {
-    const {user, email} = req.body
+routes.post('/subscribe', async (req, res) => {
+    const { user, email } = req.body
     let obj = new userEmail(user, email)
     obj.subscribeEmail()
 })
 
-
+routes.get('/user/itens', checkToken, (req, res) => {
+    res.end()
+})

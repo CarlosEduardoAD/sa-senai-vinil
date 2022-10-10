@@ -3,14 +3,21 @@ import cors from 'cors'
 import { routes } from './routes'
 import mariadb from 'mariadb'
 import nodemailer from 'nodemailer'
-
+require("dotenv").config();
 const node_cron = require('node-cron')
 const app = express();
+const cookieParser = require("cookie-parser")
+app.use(cookieParser())
 
-app.use(cors())
+const corsOptions = {
+    origin: 'http://localhost:3001',
+    credentials: true,            //access-control-allow-credentials:true
+    optionSuccessStatus: 200
+}
+app.use(express.urlencoded({extended : true}))
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use(routes)
-
 
 const transport = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -18,8 +25,8 @@ const transport = nodemailer.createTransport({
     secure: false,
     auth:
     {
-        user: 'carloseduardomarianoregis@gmail.com',
-        pass: 'cjqyrapgoiinwtgu'
+        user: process.env.EMAIL,
+        pass: process.env.APP_PASS
     },
     tls: {
         rejectUnauthorized: false,
@@ -43,7 +50,7 @@ const emailJob =
                 transport.sendMail({
                     from: 'Goldy <carloseduardomarianoregis@gmail.com>',
                     to: row['user_email'],
-                    text : 'Já deu uma olhada nas nossas promoções ? Elas estão fervendo !'
+                    text: 'Já deu uma olhada nas nossas promoções ? Elas estão fervendo !'
                 })
             }
 
@@ -54,6 +61,7 @@ const emailJob =
     })
 
 emailJob.start();
+
 
 app.listen(3000, 'localhost', async () => {
     await console.log('Server running...')

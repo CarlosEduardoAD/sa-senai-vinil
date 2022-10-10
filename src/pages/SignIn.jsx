@@ -1,10 +1,12 @@
 import React from "react";
+import {useState} from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import {Redirect} from 'react-router-dom'
+import {useHistory} from 'react-router-dom';
 import axios from "axios";
 
 function SignIn() {
+  const navigate = useHistory()
   const {
     register,
     handleSubmit,
@@ -20,8 +22,9 @@ function SignIn() {
     axios.post("http://localhost:3000/login", {
       email: userData,
       password: userPassword,
-    });
+    }, {withCredentials : true})
     console.log(userData.trim().toString);
+    navigate.push('/Catalog')
   };
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">

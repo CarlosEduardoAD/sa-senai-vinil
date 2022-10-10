@@ -1,13 +1,12 @@
 <?php
 
-class createFeedback
+class selectFeedback
 {
 
     private $conn;
-    private $db_table = 'user_feedbacks';
     public $userEmail;
-    public $type;
-    public $feedbackText;
+    public $discName;
+    public $price;
 
 
     public function __construct($db)
@@ -15,13 +14,17 @@ class createFeedback
         $this->conn = $db;
     }
 
-    public function create_feedback()
+    public function select_feedback()
     {
         try {
-            $sql = "SELECT * FROM" . $this->db_table . 'WHERE user_email = '. $this -> userEmail .'';
+            $sql = 'SELECT disc_name, price from user_wishes where user_email = :email';
             $query = $this->conn->prepare($sql);
+            $query->bindValue(':email', $this -> userEmail, PDO::PARAM_STR);
             $query->execute();
-            return $query;
+            $results = $query->fetchAll(PDO::FETCH_ASSOC);
+            $json = json_encode($results);
+            print($json);
+            return $json;
         } catch (PDOException $exception) {
             echo $exception;
         }
