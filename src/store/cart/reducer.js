@@ -4,7 +4,7 @@ export const cartReducer = ((state = [], action) => {
             const isInCart = state.some(({ id }) => {
                 return id === action.payload.currentArticul ? true : false;
             })
-            return isInCart ? [...state] : [...state, { id: action.payload.currentArticul, count: 1 }]
+            return isInCart ? [...state, {id : action.payload.currentArticul, count : 1}] : [...state, { id: action.payload.currentArticul, title : action.payload.title, count: 1 }]
         case 'REMOVE_FROM_CART':
             return state.filter((item) => item.id !== action.payload);
         case 'CHECKOUT_ORDER':
@@ -12,7 +12,7 @@ export const cartReducer = ((state = [], action) => {
         case 'INCREASE_PRODUCT_QUANTITY':
             return state.map((item) => {
                 return item.id === action.payload ?
-                    { id: item.id, count: item.count += 1 } :
+                    { id: item.id, title: item.title, count: item.count += 1 } :
                     item;
             })
         case 'DECREASE_PRODUCT_QUANTITY':

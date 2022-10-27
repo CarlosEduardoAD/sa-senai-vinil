@@ -3,6 +3,13 @@ import bcrypt from 'bcrypt'
 require("dotenv").config();
 const jwt = require('jsonwebtoken')
 
+const pool = mariadb.createPool({
+    host: '127.0.0.1',
+    database: 'goldies_sa',
+    password: 'carloseduardo08',
+    user: 'root'
+})
+
 export class user {
     public name: string;
     public email: string;
@@ -16,12 +23,6 @@ export class user {
     }
 
     public registerUser() {
-        const pool = mariadb.createPool({
-            host: 'localhost',
-            database: 'goldies_sa',
-            password: 'carloseduardo08',
-            user: 'root'
-        })
         pool.getConnection().then(() => {
             pool.query(`INSERT INTO usuario (nome, endereco, email, fone, senha) VALUES (${this.name}, 'rua dos sussy bakas', ${this.email}, '00 12345-1234', '${this.password.toString()}')`)
                 .then(() => { console.log('Data inserted sucessfully') })
@@ -30,12 +31,6 @@ export class user {
     }
 
     public async loginUser() {
-        const pool = mariadb.createPool({
-            host: 'localhost',
-            database: 'goldies_sa',
-            password: 'carloseduardo08',
-            user: 'root'
-        })
         try {
             console.log('Essa é o email: ' + this.email)
             console.log('Essa é a senha: ' + this.password)
@@ -63,17 +58,13 @@ export class user {
     }
 
     public async returnPurchasesFromUser() {
-        const pool = mariadb.createPool({
-            host: 'localhost',
-            database: 'goldies_sa',
-            password: 'carloseduardo08',
-            user: 'root'
-        })
-
         try {
             let conn = await pool.getConnection()
-            const result = await conn.query('SELECT * FROM compras WHERE nome = ?', [this.email])
-            console.log(result)
+            const idQuery = await conn.query(`SELECT id FROM usuario WHERE email = ${this.email}`)
+            const id = idQuery[0]['id']
+            const result  = await conn.query('select disco.id, nome, cantor, ano, data from disco inner join itens on itens.id_disco = disco.id inner join compras on itens.id_compra = compras.id where id_user = ?', [id])
+            console.log(JSON.stringify(result))
+            return result
         }
         catch (err) {
             console.log(err)
@@ -81,13 +72,6 @@ export class user {
     }
 
     public async changeUserPassword() {
-        const pool = mariadb.createPool({
-            host: 'localhost',
-            database: 'goldies_sa',
-            password: 'carloseduardo08',
-            user: 'root'
-        })
-
         try {
             console.log('Essa é o email: ' + this.email)
             console.log('Essa é a senha: ' + this.password)

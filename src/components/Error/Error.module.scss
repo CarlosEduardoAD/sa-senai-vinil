@@ -17,7 +17,7 @@
 }
 
 .imgContainer {
-    background-image: url("./korgi.jpeg");
+    background-image: url("./korgi-rbg.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -48,12 +48,12 @@
     height: 80vh;
     position: relative;
     @media (max-width: 600px) {
-        
+
     }
 }
 
 .errorTextBlock {
-    justify-self: right;
+    justify-self: center;
     text-align: center;
     align-self: center;
     @media (max-width: 600px) {

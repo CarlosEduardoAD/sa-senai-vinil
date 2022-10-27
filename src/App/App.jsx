@@ -14,6 +14,7 @@ import { Hamburguer } from "../utils/Hamburguer";
 import Cookies from "js-cookie";
 import { useHistory } from "react-router-dom";
 import { ArrowArcLeft } from "phosphor-react";
+import CookieConsent from "react-cookie-consent";
 
 const App = () => {
   const navigate = useHistory();
@@ -31,6 +32,17 @@ const App = () => {
 
   return (
     <>
+      <CookieConsent
+        location="bottom"
+        buttonText="Sure man!!"
+        cookieName="myAwesomeCookieName2"
+        style={{ background: "#2B373B" }}
+        buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+        expires={150}
+      >
+        Precisamos que você aceite os Cookies, mas queriamos que também pudesse comê-los...{" "}
+        <span style={{ fontSize: "10px" }}>Porque estou vendo isso ?</span>
+      </CookieConsent>
       <div className="hidden sm:block">
         <Header />
       </div>
@@ -38,11 +50,11 @@ const App = () => {
         <Hamburguer></Hamburguer>
       </div>
       {cookie ? (
-         <button onClick={() => logoutUser()}>
-        <div className="z-10 lg:flex lg:items-center lg:gap-4 lg:fixed lg:bottom-12 lg:right-12 lg:rounded-lg lg:dark:bg-indigo-900 bg-blue-700 lg:hover:scale-105 lg:p-4 text-white transition-all duration-200 ease-in-out hidden">
-       <ArrowArcLeft></ArrowArcLeft>Logout
-      </div>
-      </button>
+        <button onClick={() => logoutUser()}>
+          <div className="z-10 lg:flex lg:items-center lg:gap-4 lg:fixed lg:bottom-12 lg:right-12 lg:rounded-lg lg:dark:bg-indigo-900 bg-blue-700 lg:hover:scale-105 lg:p-4 text-white transition-all duration-200 ease-in-out hidden">
+            <ArrowArcLeft></ArrowArcLeft>Logout
+          </div>
+        </button>
       ) : (
         <div></div>
       )}

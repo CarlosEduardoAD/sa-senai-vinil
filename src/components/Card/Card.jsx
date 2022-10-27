@@ -3,7 +3,10 @@ import PropTypes from "prop-types";
 import styles from "./Card.module.scss";
 import FavouriteIcon from "./FavouriteIcon";
 import Button from "../Button/Button";
+import axios from 'axios'
+import Cookies from "js-cookie";
 const NOIMGSRC = "img/notfound.png";
+
 
 const Card = ({
   title,
@@ -57,7 +60,7 @@ const Card = ({
         </button>
         <Button
           text="Add to card"
-          onClickHandler={() => onClickHandler(articul)}
+          onClickHandler={() => {onClickHandler(articul)}}
         />
       </div>
     </li>

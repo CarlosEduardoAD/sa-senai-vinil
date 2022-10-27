@@ -23,7 +23,7 @@ export const checkoutOrder = () => {
 export const increaseProductQuantity = (articul) => {
     return {
         type: INCREASE_PRODUCT_QUANTITY,
-        payload: articul
+        payload: articul,
     }
 }
 

@@ -12,7 +12,7 @@ export const AddToCartModal = ({ actions, closeModalHandler, header, text, close
             text={text}
             isShown={modalIsShown}
             actions={actions}
-            closeModalHandler={() => { closeModalHandler() }} />
+            closeModalHandler={() => { closeModalHandler()}} />
     )
 }
 

@@ -1,17 +1,20 @@
 import modalStyles from './Modal.module.scss';
 import Button from '../../Button/Button';
 import PropTypes from 'prop-types';
+import axios from 'axios'
+import Cookies from 'js-cookie';
 
 const createModalButtons = (text1, text2, okBtnFunc, cancelBtnFunc, currentArticul) => {
     return (
         <>
             <Button
-                onClickHandler={() => { okBtnFunc(currentArticul) }}
+                onClickHandler={() => { okBtnFunc(currentArticul);
+                }}
                 className={`${modalStyles.btn} ${modalStyles.okBtn}`}
                 text={text1}
             />
             <Button
-                onClickHandler={() => { cancelBtnFunc() }}
+                onDeleteClickHandler={() => { cancelBtnFunc() }}
                 className={`${modalStyles.btn} ${modalStyles.cancelBtn}`}
                 text={text2}
             />

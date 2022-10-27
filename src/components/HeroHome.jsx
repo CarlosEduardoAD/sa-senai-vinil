@@ -4,14 +4,24 @@ import Goldies from "../images/Goldies.png";
 import { NavLink } from "react-router-dom";
 import styles from "./Header/Header.module.scss";
 import Cookies from "js-cookie";
+import axios from "axios";
 
 function HeroHome() {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
   const [cookie, setCookie] = useState();
+  const [discs, setDiscs] = useState([]);
 
-  useEffect(() => {
+  useEffect(async () => {
     let userToken = Cookies.get("acess_token");
     setCookie(userToken);
+    await axios
+      .get("http://localhost:3000/itens", { withCredentials: true })
+      .then((res) => {
+        let dados = res.data;
+        console.log(res.data[0].nome);
+        setDiscs(dados);
+        console.log(dados);
+      });
   }, []);
 
   return (
@@ -153,6 +163,31 @@ function HeroHome() {
               </div>
             </Modal>
           </div>
+          {cookie ? (
+            <div className="text-white flex items-center justify-center text-center">
+              <div className="mt-12">
+                {discs.map((disc) => {
+                  return (
+                    <div className="flex items-center justify-center">
+                      <div className="border-b-4 rounded-xl border-black dark:border-blue-800 p-8 mt-14 text-black dark:text-white">
+                        <ul>
+                          <li className="lg:text-4xl font-bold">{disc.nome}</li>
+                          <li className="lg:text-2xl font-semibold">Ano: {disc.ano}</li>
+                          <li className="lg:text-2xl font-semibold">Artista: {disc.cantor}</li>
+                          <li className="lg:text-lg">
+                            Data de compra:{" "}
+                            {new Date(parseInt(disc.data)).toLocaleDateString()}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ) : (
+            <div></div>
+          )}
           <div className="flex flex-col items-center justify-center mt-24 max-x-md text-black dark:text-white font-inter sm:text-[2.4rem] text-2xl font-bold text-center ">
             Catálogo curado pela nossa comunidade...{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r text-5xl sm:text-7xl py-8 sm:py-12 from-blue-700 to-teal-250 dark:from-blue-700 dark:to-indigo-900 animate-gradient-x">
@@ -183,7 +218,7 @@ function HeroHome() {
                 </li>
               </ul>
             </span>{" "}
-           de discos de todas as épocas.
+            de discos de todas as épocas.
           </div>
           <div className="flex flex-col items-center justify-center text-black dark:text-white text-2xl sm:text-[2.4rem] font-bold pt-24">
             Todos os{" "}
@@ -211,7 +246,7 @@ function HeroHome() {
                 <li
                   className="hover:opacity-70 tranisition-all ease-in-out rounded-md duration-300 sm:w-[11rem] w-[12rem] h-[10rem] sm:h-[11rem] md:w-[14rem] md:h-[14rem] no-repeat bg-cover"
                   style={{
-                    backgroundImage: `url(https://images.unsplash.com/photo-1561611882-33b20c4d1335?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTV8RDdTbGZsajVTVzB8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60)`
+                    backgroundImage: `url(https://images.unsplash.com/photo-1561611882-33b20c4d1335?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTV8RDdTbGZsajVTVzB8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60)`,
                   }}
                 >
                   <p className="text-gray-200 hover:opacity-100 hover:scale-150 pt-4 text-lg transition-all duration-300 ease-in-out">

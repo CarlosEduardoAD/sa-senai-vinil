@@ -15,23 +15,22 @@ function checkToken(req: any, res: any, next: any) {
     }
     try {
         let data =  jwt.verify(token, process.env.SECRET)
-        console.log(token)
-        req.user_email = data.email
-        return next()
+        res.locals.email = data.email
     }
     catch (err) {
         console.log(err)
         return res.sendStatus(403)
     }
-
+    return next()
 }
 
 
 const conn = mariadb.createPool({
-    host: 'localhost',
+    host: '127.0.0.1',
     user: 'root',
     password: 'carloseduardo08',
-    database: 'goldies_sa'
+    database: 'goldies_sa',
+    port : 3306
 })
 
 routes.get('/', (req, res) => {
@@ -59,13 +58,17 @@ routes.post('/login', (req, res) => {
     return res.cookie("acess_token", token, {domain : 'localhost', path: '/', httpOnly: false, secure : false}).status(200).json('Logged in !').send()
 })
 
+routes.post('/insertPurchase', checkToken, (req, res) => {
+    const email = res.locals.email
+    let obj = new userPurchase('', '', email, '', '', '')
+    obj.insertItem()
+})
+
 routes.post('/purchase', checkToken, (req, res) => {
-    console.log(req.body.firstName)
-    let obj = new userPurchase(req.body.firstName, req.body.lastName, req.body.email, req.body.adress, parseFloat(req.body.price))
+    let obj = new userPurchase(req.body.firstName, req.body.lastName, req.body.email, req.body.adress, parseFloat(req.body.price), req.body.discInfo)
     obj.purchaseItem()
     let emailObj = new userEmail(req.body.firstName, req.body.email)
     emailObj.sendEmail()
-    console.log(req.body)
 })
 
 routes.post('/reset', async (req, res) => {
@@ -85,6 +88,11 @@ routes.post('/subscribe', async (req, res) => {
     obj.subscribeEmail()
 })
 
-routes.get('/user/itens', checkToken, (req, res) => {
-    res.end()
+routes.get('/itens', checkToken, async (req, res) => {
+    const email = res.locals.email
+    console.log(email)
+    let obj = new user('', email, '')
+    let result = await obj.returnPurchasesFromUser()
+    console.log(result)
+    res.json(result)
 })
