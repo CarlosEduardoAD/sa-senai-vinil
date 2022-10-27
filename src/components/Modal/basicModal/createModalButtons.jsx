@@ -1,12 +1,21 @@
 import modalStyles from './Modal.module.scss';
 import Button from '../../Button/Button';
 import PropTypes from 'prop-types';
+import axios from 'axios'
+import Cookies from 'js-cookie';
 
 const createModalButtons = (text1, text2, okBtnFunc, cancelBtnFunc, currentArticul) => {
     return (
         <>
             <Button
-                onClickHandler={() => { okBtnFunc(currentArticul) }}
+                onClickHandler={() => { okBtnFunc(currentArticul)
+                if(text1 == 'Delete'){
+                    return
+                }
+                axios.defaults.withCredentials = true;
+                axios.post('http://localhost:3000/insertPurchase', {withCredentials : true})
+                console.log(console.log(Cookies.get('acess_token')))
+                console.log("Worked")}}
                 className={`${modalStyles.btn} ${modalStyles.okBtn}`}
                 text={text1}
             />

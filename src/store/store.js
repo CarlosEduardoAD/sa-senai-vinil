@@ -23,6 +23,7 @@ const syncMiddleware = store => next => action => {
         localStorage.setItem('favourites', JSON.stringify(favourites))
     }
     if (['ADD_TO_CART', 'REMOVE_FROM_CART', 'DECREASE_PRODUCT_QUANTITY', 'INCREASE_PRODUCT_QUANTITY', 'CHECKOUT_ORDER'].includes(action.type)) {
+        console.log(store.getState())
         const { cardsInCart } = store.getState();
         localStorage.setItem('cardsInCart', JSON.stringify(cardsInCart))
     }

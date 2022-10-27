@@ -4,7 +4,7 @@
     "price": 600,
     "articul": 1063,
     "genre": "Rock; Pyschedelic Rock",
-    "artist" : "Pink Floy",
+    "artist" : "Pink Floyd",
     "imgSrc": "img/vigvam10.png",
     "artist" : "Pink Floyd"
   },
@@ -17,7 +17,7 @@
     "artist" : "Lana Del Rey"
   },
   {
-    "title": "The name of the Game",
+    "title": "The Name Of The Game",
     "price": 1300,
     "articul": 5000,
     "genre": "Disco",
@@ -33,36 +33,36 @@
     "artist" : "Adele"
   },
   {
-    "title": "Big ones you can look at",
+    "title": "Big Ones you can look at",
     "price": 600,
     "articul": 5500,
-    "genre": "Pink",
+    "genre": "Rock",
     "imgSrc": "img/vigvam5.jpg",
     "artist" : "Aerosmith"
   },
   {
-    "title": "Conventional Weapons No. 02",
+    "title": "Parachutes",
     "price": 780,
     "articul": 7832,
-    "genre": "Red",
-    "imgSrc": "img/vigvam6.jpg",
-    "artist" : "My Chemical Romance"
+    "genre": "Pop; Pop Rock",
+    "imgSrc": "img/vigvam6.jfif",
+    "artist" : "Coldplay"
   },
   {
-    "title": "Dang!",
+    "title": "Before I Go",
     "price": 1350,
     "articul": 3290,
-    "genre": "Navy",
-    "imgSrc": "img/vigvam3.jpg",
-    "artist" : "Mae miller ft. Park Anderson"
+    "genre": "Chillwave",
+    "imgSrc": "img/vigvam3.jfif",
+    "artist" : "A.L.I.S.O.N"
   },
   {
-    "title": "Demon Days",
+    "title": "Adagio For Strings",
     "price": 500,
     "articul": 1040,
-    "genre": "Olive",
-    "imgSrc": "img/vigvam7.jpeg",
-    "artist" : "Gorillaz"
+    "genre": "EDM; Trance",
+    "imgSrc": "img/vigvam7.jpg",
+    "artist" : "Tiësto"
   },
   {
     "title": "Put it down",
@@ -92,7 +92,7 @@
     "title": "The Scotts",
     "price": 730,
     "articul": 1320,
-    "genre": "Brown",
+    "genre": "Rap; Hip Hop",
     "imgSrc": "img/vigvam00.jpg",
     "artist" : "The Scotts"
   },
@@ -115,17 +115,17 @@
   {
     "title": "Just another diamond day",
     "price": 310,
-    "articul": 8361,
+    "articul": 8364,
     "genre": "Folk music",
     "imgSrc": "img/vigvam15.jpeg",
     "artist" : "Vashti Bunyan"
   },
   {
-    "title": "Cherry bomb",
+    "title": "Before The Night",
     "price": 525,
-    "articul": 8361,
-    "genre": "Black",
-    "imgSrc": "img/vigvam16.jpeg",
-    "artist" : "ishowspeed"
+    "articul": 8375,
+    "genre": "Synthwave; Chillwave",
+    "imgSrc": "img/vigvam16.jfif",
+    "artist" : "HOME"
   }
 ]

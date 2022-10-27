@@ -21,6 +21,7 @@
         "phosphor-react": "^1.4.1",
         "react": "^17.0.2",
         "react-content-loader": "^6.2.0",
+        "react-cookie-consent": "^8.0.1",
         "react-dom": "^17.0.2",
         "react-feedback-widget": "^4.0.0",
         "react-flatpickr": "^3.10.13",

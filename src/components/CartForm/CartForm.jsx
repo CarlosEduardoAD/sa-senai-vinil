@@ -35,7 +35,17 @@ export const CartForm = (cards) => {
   const subTotal = countSubtotal(cardsInCart, cardsList);
   const total = countTotalWithDiscount(subTotal, discount);
 
-  const totalPrice = useRef()
+  const filteredCards = cardsList.filter(({articul}) => {
+
+    return cardsInCart.find(({id}) =>
+    {
+        return articul === id;
+    })
+})
+
+const filteredObject = {...filteredCards}
+const filteredCart = {...cardsInCart}
+
 
   useEffect(() => {
     let mounted = true;
@@ -69,7 +79,8 @@ export const CartForm = (cards) => {
       email: email,
       age: age,
       adress: adress,
-      price: price
+      price: price,
+      discInfo : filteredCart
     };
     axios.post("http://localhost:3000/purchase", request, {withCredentials : true});
   };

@@ -53,11 +53,16 @@ const Cart = () => {
     if (hasError) {
         content = (<div>Sorry, error</div>)
     } else {
-        const filteredCards = cardsList.filter(({ articul }) => {
-            return cardsInCart.find(({ id }) => {
+        const filteredCards = cardsList.filter(({articul}) => {
+
+            return cardsInCart.find(({id}) =>
+            {
                 return articul === id;
             })
         });
+
+        console.log(cardsInCart)
+
         content = (<>
             <CartList
                 cards={filteredCards}

@@ -13,6 +13,7 @@ import { setCurrentArticul } from '../store/currentCardArticul/actions';
 import Loader from '../components/Loader/Loader';
 import Cookies from 'js-cookie'
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 const Catalog = () => {
     const navigate = useHistory()
