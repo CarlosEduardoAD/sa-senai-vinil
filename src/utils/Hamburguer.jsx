@@ -6,10 +6,12 @@ import styles from "../components/Header/Header.module.scss";
 import Cookies from "js-cookie";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export function Hamburguer() {
   const [cookie, setCookie] = useState();
   const navigate = useHistory();
+  const { t } = useTranslation();
 
   useEffect(() => {
     let userToken = Cookies.get("acess_token");
@@ -19,6 +21,7 @@ export function Hamburguer() {
   const logoutUser = async () => {
     Cookies.remove('acess_token')
     navigate.push('/')
+    navigate.go(0)
   };
 
   const [isOpen, setOpen] = useState();
@@ -37,22 +40,27 @@ export function Hamburguer() {
           <ul className="flex flex-col items-center justify-center gap-12 text-xl">
             <li className="active:text-blue-600">
               <NavLink exact to="/" activeClassName="">
-                Home
+                {t('inicio')}
               </NavLink>
             </li>
             <li className="active:text-blue-600">
               <NavLink exact to="/Catalog" activeClassName="">
-                Produtos
+                {t('produtos')}
               </NavLink>
             </li>
             <li className="active:text-blue-600">
               <NavLink exact to="/cart" activeClassName="">
-                Carrinho
+                {t('Carrinho')}
               </NavLink>
             </li>
             <li className="active:text-blue-600">
               <NavLink exact to="/favourites" activeClassName="">
-                Favoritos
+                {t('Favoritos')}
+              </NavLink>
+            </li>
+            <li className="active:text-blue-600">
+              <NavLink exact to="/wishList" activeClassName="">
+                {t('ListaDeDesejos')}
               </NavLink>
             </li>
           </ul>
@@ -65,7 +73,7 @@ export function Hamburguer() {
                   className={`rounded-lg border-2 p-2 border-black dark:border-white mt-4`}
                 >
                   <NavLink exact to="/signin" activeClassName={styles.active}>
-                    Sign in
+                    {t('Cadastro')}
                   </NavLink>
                 </li>
               )}
@@ -78,7 +86,7 @@ export function Hamburguer() {
                   className={`rounded-lg border-2 p-2 border-black dark:border-white mt-4`}
                 >
                   <NavLink exact to="/signup" activeClassName={styles.active}>
-                    Sign up
+                    {t('Entrar')}
                   </NavLink>
                 </li>
               )}
@@ -91,7 +99,7 @@ export function Hamburguer() {
               >
                 <button onClick={() => logoutUser()}>
                 <li exact to="/" activeClassName={styles.active}>
-                  Sign Out
+                  {t('Logout')}
                 </li>
                 </button>
               </li>

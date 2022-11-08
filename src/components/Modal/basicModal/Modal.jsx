@@ -5,9 +5,9 @@ import styles from './Modal.module.scss';
 const Modal = ({ isShown, header, text, actions, closeButton, closeModalHandler }) => {
     const classHide = !isShown ? styles.hide : '';
     return (
-        <> <div className={`${styles.modalBox} ${isShown ? '' : styles.hide}`}>
-            <div className={styles.header}>
-                <h2 className={styles.headerTitle}>{header}</h2>
+        <> <div className={`${styles.modalBox} ${isShown ? '' : styles.hide} dark:bg-[#241e63] dark:text-white`}>
+            <div className={`${styles.header} dark:bg-[#312a86]`}>
+                <h2 className={`${styles.headerTitle} dark:bg-[#312a86]`}>{header}</h2>
                 <button onClick={() => { closeModalHandler() }} className={closeButton ? styles.closeBtn : ''}></button>
             </div>
             <p className={styles.text}>{text}</p>

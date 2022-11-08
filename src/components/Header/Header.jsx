@@ -3,8 +3,12 @@ import styles from "./Header.module.scss";
 import { NavLink, Link } from "react-router-dom";
 import { ToggleButton } from "../../utils/ToggleButton";
 import Cookies from "js-cookie";
+import { useTranslation } from "react-i18next";
 
 function Header(props) {
+
+  const {t} = useTranslation()
+
   const [cookie, setCookie] = useState(null);
   const [top, setTop] = useState(true);
   useEffect(() => {
@@ -36,31 +40,38 @@ function Header(props) {
                 className={`${styles.item} dark:text-white text-lg hidden sm:flex font-inter`}
               >
                 <NavLink exact to="/" activeClassName={styles.active}>
-                  Home
+                  {t('inicio')}
                 </NavLink>
               </li>
               <li
                 className={`${styles.item} dark:text-white text-lg hidden sm:flex font-inter`}
               >
                 <NavLink exact to="/Catalog" activeClassName={styles.active}>
-                  Produtos
+                  {t('produtos')}
                 </NavLink>
               </li>
               <li
                 className={`${styles.item} dark:text-white text-lg hidden sm:flex font-inter`}
               >
                 <NavLink exact to="/cart" activeClassName={styles.active}>
-                  Cart
+                {t('Carrinho')}
                 </NavLink>
               </li>
               <li
                 className={`${styles.item} dark:text-white text-lg hidden sm:flex font-inter`}
               >
                 <NavLink exact to="/favourites" activeClassName={styles.active}>
-                  Favourites
+                {t('Lista de Desejos')}
                 </NavLink>
               </li>
-            </>
+            <li
+                className={`${styles.item} dark:text-white text-lg hidden sm:flex font-inter`}
+              >
+                <NavLink exact to="/wishlist" activeClassName={styles.active}>
+                {t('Favoritos')}
+                </NavLink>
+              </li>
+              </>
           ) : (
             <div></div>
           )}
@@ -70,9 +81,9 @@ function Header(props) {
                 <NavLink
                   exact
                   to="/SignIn"
-                  activeClassName={`${styles.active} dark:text-white`}
+                  activeClassName={`${styles.active} dark:text-white `}
                 >
-                  Sign In
+                  {t('Login')}
                 </NavLink>
               </li>
               <li className={`${styles.btn} font-inter`}>
@@ -81,7 +92,7 @@ function Header(props) {
                   to="/SignUp"
                   activeClassName={`${styles.active}`}
                 >
-                  Sign Up
+                  {t('Cadastro')}
                 </NavLink>
               </li>
             </div>

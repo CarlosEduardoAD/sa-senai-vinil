@@ -13,8 +13,10 @@ import { addToFavourites, removeFavourites } from '../../store/favourites/action
 import Loader from '../../components/Loader/Loader';
 import Cookies from 'js-cookie'
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Favourites = () => {
+    const {t} = useTranslation()
     const navigate = useHistory()
     const isLoading = useSelector(({ cards }) => cards.isLoading);
     const cardsList = useSelector(({ cards }) => cards.cards);
@@ -63,7 +65,7 @@ const Favourites = () => {
         content = (<div>Sorry, error</div>)
     }
     else if (cardsInFavorites.length < 1) {
-        content = <p className={`${styles.noItemsTitle} font-inter`}>No items in favourites</p>;
+        content = <p className={`${styles.noItemsTitle} font-inter`}>{t('SemItens')}</p>;
     } else {
         const filteredCards = cardsList.filter(({ articul }) => cardsInFavorites.includes(articul));
         content = (<CardsList
@@ -76,14 +78,14 @@ const Favourites = () => {
     return (
         <div className={`${styles.favoritesSection} dark:bg-[#151617] min-h-screen -mt-6`}>
             <div className={`${styles.container} dark:bg-[#151617]`}>
-                <h2 className={`${styles.favoritesTitle} font-inter`}>Favorites - {cardsInFavorites.length} items</h2>
+                <h2 className={`${styles.favoritesTitle} font-inter`}>{t('ListaDeDesejos')} - {cardsInFavorites.length} items</h2>
                 {content}
                 <ModalRoot modalType={SHOW_ADD_TO_CART_MODAL}
                     modalProps={{
-                        actions: createModalButtons('Ok', 'Cancel', addCardsToCartHandler, closeModalHandler, currrentCardArticul),
+                        actions: createModalButtons('Ok', t('Cancelar'), addCardsToCartHandler, closeModalHandler, currrentCardArticul),
                         closeModalHandler: () => { closeModalHandler() },
-                        header: 'Do you want to add this product to your cart?',
-                        text: 'This item will be available in the cart',
+                        header: t('VoceQuerColocar'),
+                        text: t('EsteItemVaiFicar'),
                         closeButton: true,
                     }} />
             </div>

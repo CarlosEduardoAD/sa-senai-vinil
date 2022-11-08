@@ -64,3 +64,13 @@
 .isFavourite path {
     fill: #ffc107;
 }
+
+.wishlistBox {
+    border-radius: 15px 0 15px;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 0;
+    top: 0;
+    background-color: #01114e;
+}

@@ -57,7 +57,7 @@ export class userPurchase {
                 let id = await conn.query(`SELECT id FROM usuario WHERE email = ${this.email}`)
                 let userId = id[0]['id']
                 console.log(userId)
-                let id2 = await conn.query(`SELECT id FROM disco WHERE articul_id = ${objId}`)
+                let id2 = await conn.query(`SELECT id FROM disco WHERE articul_id = ${Number(objId)}`)
                 let discId = id2[0]['id']
                 console.log(discId)
                 let id3 = await conn.query(`SELECT id FROM compras WHERE id_user = ${Number(userId)} ORDER BY data DESC LIMIT ${size}`)

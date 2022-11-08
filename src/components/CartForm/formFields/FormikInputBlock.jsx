@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 export const FormikInputBlock = ({ id, name, placeholder, type, label }) => {
     return <div key={id} className={styles.fieldContainer}>
-        <label className={styles.orderLabel} htmlFor={name}>{label}</label>
-        <Field className={styles.orderInput}
+        <label className={`${styles.orderLabel} dark:text-white`} htmlFor={name}>{label}</label>
+        <Field className={`${styles.orderInput} rounded-lg dark:bg-neutral-800 dark:border-neutral-800 dark:text-white`}
             key={id}
             name={name}
             placeholder={placeholder}

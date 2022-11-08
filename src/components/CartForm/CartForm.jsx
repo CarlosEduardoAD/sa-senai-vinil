@@ -18,7 +18,7 @@ import { SHOW_CHECKOUT_MODAL } from "../../store/modal/types";
 import { setCheckoutModalShow, setModalClose } from "../../store/modal/actions";
 import { checkoutOrder } from "../../store/cart/actions";
 import { removeDiscount } from "../../store/cart/actions";
-import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import axios from "axios";
 import OrderTotals from "../OrderTotals/OrderTotals";
@@ -26,7 +26,7 @@ import OrderTotals from "../OrderTotals/OrderTotals";
 export const CartForm = (cards) => {
   const dispatch = useDispatch();
   const [values, setvalues] = useState(null);
-
+  const { t } = useTranslation();
   const cardsInCart = useSelector(({ cardsInCart }) => cardsInCart);
   const [promocodes, setPromocodes] = useState(null);
   const [setError] = useState(false);
@@ -35,17 +35,14 @@ export const CartForm = (cards) => {
   const subTotal = countSubtotal(cardsInCart, cardsList);
   const total = countTotalWithDiscount(subTotal, discount);
 
-  const filteredCards = cardsList.filter(({articul}) => {
+  const filteredCards = cardsList.filter(({ articul }) => {
+    return cardsInCart.find(({ id }) => {
+      return articul === id;
+    });
+  });
 
-    return cardsInCart.find(({id}) =>
-    {
-        return articul === id;
-    })
-})
-
-const filteredObject = {...filteredCards}
-const filteredCart = {...cardsInCart}
-
+  const filteredObject = { ...filteredCards };
+  const filteredCart = { ...cardsInCart };
 
   useEffect(() => {
     let mounted = true;
@@ -66,13 +63,13 @@ const filteredCart = {...cardsInCart}
     setvalues(values);
     dispatch(setCheckoutModalShow(SHOW_CHECKOUT_MODAL));
     let firstName = JSON.stringify(values.firstName);
-    console.log(values.firstName)
+    console.log(values.firstName);
     let lastName = JSON.stringify(values.lastName);
     let email = JSON.stringify(values.email);
     let age = JSON.stringify(values.age);
     let adress = JSON.stringify(values.address);
-    let price = sessionStorage.getItem('totalPrice'.toString())
-    console.log(JSON.stringify(price))
+    let price = sessionStorage.getItem("totalPrice".toString());
+    console.log(JSON.stringify(price));
     const request = {
       firstName: firstName,
       lastName: lastName,
@@ -80,9 +77,11 @@ const filteredCart = {...cardsInCart}
       age: age,
       adress: adress,
       price: price,
-      discInfo : filteredCart
+      discInfo: filteredCart,
     };
-    axios.post("http://localhost:3000/purchase", request, {withCredentials : true});
+    axios.post("http://localhost:3000/purchase", request, {
+      withCredentials: true,
+    });
   };
   const closeModalHandler = () => {
     dispatch(setModalClose(SHOW_CHECKOUT_MODAL));
@@ -92,7 +91,7 @@ const filteredCart = {...cardsInCart}
   return (
     <>
       <div className={styles.formContainer}>
-        <h1 className={`${styles.cartTitle} font-inter`}>2. Shipping info</h1>
+        <h1 className={`${styles.cartTitle} font-inter`}>2. {t('InformacoesTransporte')}</h1>
         <Formik
           initialValues={{
             firstName: "",
@@ -106,12 +105,12 @@ const filteredCart = {...cardsInCart}
           onSubmit={handleFormSubmit}
         >
           {({ isSubmitting }) => (
-            <Form className={`${styles.form} dark:text-gray-900 dark:bg-[#040a1b] backdrop-blur-lg dark:shadow-xl`}>
+            <Form className={`${styles.form} backdrop-blur-lg dark:shadow-xl`}>
               <FieldArray
                 name="fields"
                 render={() => (
                   <>
-                    <div className={`${styles.formInner} dark:text-gray-800 dark:bg-[#040a1b] backdrop-blur-lg dark:shadow-xl`}>
+                    <div className={`${styles.formInner} p-4 dark:shadow-xl`}>
                       {formDataFields.map(
                         ({ id, name, label, placeholder, type }) => {
                           return name === "phone" ? (
@@ -123,7 +122,6 @@ const filteredCart = {...cardsInCart}
                             />
                           ) : (
                             <FormikInputBlock
-                            className='bg-blue-600'
                               key={id}
                               name={name}
                               type={type}
@@ -139,7 +137,7 @@ const filteredCart = {...cardsInCart}
                       disabled={isSubmitting}
                       type="submit"
                     >
-                      Checkout
+                      {t('Finalizar')}
                     </button>
                   </>
                 )}
@@ -154,7 +152,7 @@ const filteredCart = {...cardsInCart}
           closeModalHandler: () => {
             closeModalHandler();
           },
-          header: "Your order has been received",
+          header: t('SeuPedido'),
           closeButton: true,
           cards: { cards },
           formValues: values ? values : null,

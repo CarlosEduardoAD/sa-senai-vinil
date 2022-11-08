@@ -1,12 +1,14 @@
 import React from "react";
-import {useState} from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import {useHistory} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 function SignIn() {
-  const navigate = useHistory()
+  const navigate = useHistory();
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -19,12 +21,16 @@ function SignIn() {
     let userData = JSON.stringify(data.customerEmail);
     let userPassword = JSON.stringify(data.customerPassword);
     sessionStorage.setItem("username", userData);
-    axios.post("http://localhost:3000/login", {
-      email: userData,
-      password: userPassword,
-    }, {withCredentials : true})
+    axios.post(
+      "http://localhost:3000/login",
+      {
+        email: userData,
+        password: userPassword,
+      },
+      { withCredentials: true }
+    );
     console.log(userData.trim().toString);
-    navigate.push('/Catalog')
+    navigate.push("/Catalog");
   };
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
@@ -36,7 +42,7 @@ function SignIn() {
               {/* Page header */}
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
                 <h1 className="h1 dark:text-white text-4xl font-bold">
-                  A festa está bombando aqui, só falta você aqui conosco.
+                  {t("AFestaEstaBombando")}
                 </h1>
               </div>
 
@@ -55,7 +61,7 @@ function SignIn() {
                         id="email"
                         type="email"
                         className="form-input w-full text-gray-800 dark:bg-neutral-700 dark:border-none dark:text-white rounded-lg"
-                        placeholder="Enter your email address"
+                        placeholder={t("ColoqueSeuEmail")}
                         required
                         {...register("customerEmail", { required: true })}
                       />
@@ -63,7 +69,6 @@ function SignIn() {
                         <p className="text-red-500 text-xs italic">
                           Digite seu e-mail por favor
                         </p>
-
                       )}
                     </div>
                   </div>
@@ -74,20 +79,20 @@ function SignIn() {
                           className="block text-gray-800 text-sm font-semibold mb-1 dark:text-white"
                           htmlFor="password"
                         >
-                          Password
+                          {t('Senha')}
                         </label>
                         <Link
                           to="reset-password"
                           className="text-sm font-medium text-blue-600 hover:underline"
                         >
-                          Having trouble signing in?
+                         {t('EsqueceuASenha')}
                         </Link>
                       </div>
                       <input
                         id="password"
                         type="password"
                         className="form-input w-full text-gray-800 dark:text-white dark:bg-neutral-700 dark:border-none rounded-lg"
-                        placeholder="Enter your password"
+                        placeholder={t('ColoqueSuaSenha')}
                         required
                         {...register("customerPassword", { required: true })}
                       />
@@ -107,7 +112,7 @@ function SignIn() {
                             className="form-checkbox bg-neutral-500 rounded-sm dark:bg-white"
                           />
                           <span className="text-gray-800 ml-2">
-                            Keep me signed in
+                            {t('LembrarMinhaSenha')}
                           </span>
                         </label>
                       </div>
@@ -116,7 +121,7 @@ function SignIn() {
                   <div className="flex flex-wrap -mx-3 mt-6">
                     <div className="w-full px-3">
                       <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full rounded-md py-3">
-                        <p className="text-xl font-semibold">Sign in</p>
+                        <p className="text-xl font-semibold">{t('Entrar')}</p>
                       </button>
                     </div>
                   </div>
@@ -126,19 +131,19 @@ function SignIn() {
                     className="border-t border-gray-300 flex-grow mr-3"
                     aria-hidden="true"
                   ></div>
-                  <div className="text-gray-600 italic">Or</div>
+                  <div className="text-gray-600 italic">{t('Ou')}</div>
                   <div
                     className="border-t border-gray-300 flex-grow ml-3"
                     aria-hidden="true"
                   ></div>
                 </div>
                 <div className="text-gray-600 text-center mt-6">
-                  Don’t you have an account?{" "}
+                  {t('NaoTemConta')}{" "}
                   <Link
                     to="/signup"
                     className="text-blue-600 hover:underline transition duration-150 ease-in-out"
                   >
-                    Sign up
+                    {t('Cadastro')}
                   </Link>
                 </div>
               </div>
