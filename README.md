@@ -25,9 +25,12 @@ npm run build
 
 ## Back-end
 
+**Install depedencies in Back-end**
+
 ```bash
 npm install
 ```
+**Init server**
 
 ```bash
 npm run serve
