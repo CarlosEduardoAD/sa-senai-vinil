@@ -8,6 +8,7 @@ class createFeedback
     public $userEmail;
     public $discName;
     public $price;
+    public $artist;
 
 
     public function __construct($db)
@@ -18,7 +19,7 @@ class createFeedback
     public function create_feedback()
     {
         try {
-            $sql = "INSERT INTO " . $this->db_table . "(user_email, disc_name, price) VALUES ('" . $this->userEmail . "','" . $this->discName . "', '" . $this->price . "')";
+            $sql = "INSERT INTO " . $this->db_table . "(user_email, disc_name, price, artist) VALUES ('" . $this->userEmail . "','" . $this->discName . "', '" . $this->price . "', '" . $this->artist . "')";
             $query = $this->conn->prepare($sql);
             $query->execute();
             return $query;

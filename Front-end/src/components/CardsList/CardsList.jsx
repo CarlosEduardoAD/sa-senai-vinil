@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './CardsList.module.scss';
 
 
-const CardsList = ({ cards, onClickHandler, changeFavouriteHandler, favouritesCardsArr }) => {
+const CardsList = ({ cards, onClickHandler, changeFavouriteHandler,changeWishListHandler, favouritesCardsArr, wishListCardArr }) => {
     const cardsComponents = cards.map(({ title, price, articul, color, imgSrc }) => {
         return (
             <Card key={articul}
@@ -14,8 +14,11 @@ const CardsList = ({ cards, onClickHandler, changeFavouriteHandler, favouritesCa
                 color={color}
                 imgSrc={imgSrc}
                 isFavourite={favouritesCardsArr.includes(articul)}
+                isWishs={wishListCardArr.includes(articul)}
                 onClickHandler={onClickHandler}
-                changeFavouriteHandler={changeFavouriteHandler} />
+                changeFavouriteHandler={changeFavouriteHandler}
+                changesWishListHandler={changeWishListHandler}
+                 />
         )
     })
 
@@ -30,12 +33,14 @@ CardsList.propTypes = {
     cards: PropTypes.array.isRequired,
     onClickHandler: PropTypes.func.isRequired,
     changeFavouriteHandler: PropTypes.func.isRequired,
-    favouritesCardsArr: PropTypes.array
+    favouritesCardsArr: PropTypes.array,
+    wishListCardsArr: PropTypes.array
 };
 
 CardsList.defaultProps = {
     cards: [],
-    favouritesCardsArr: []
+    favouritesCardsArr: [],
+    wishListCardsArr: []
 };
 
 export default CardsList;

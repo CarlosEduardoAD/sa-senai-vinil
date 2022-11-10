@@ -5,11 +5,14 @@ import { NavLink } from "react-router-dom";
 import styles from "./Header/Header.module.scss";
 import Cookies from "js-cookie";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
+import {I18n} from '../utils/I18n'
 
 function HeroHome() {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
   const [cookie, setCookie] = useState();
   const [discs, setDiscs] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(async () => {
     let userToken = Cookies.get("acess_token");
@@ -20,12 +23,14 @@ function HeroHome() {
         let dados = res.data;
         console.log(res.data[0].nome);
         setDiscs(dados);
+        console.log(typeof dados)
         console.log(dados);
       });
   }, []);
 
   return (
     <section className="relative dark:bg-[#151617]">
+      <I18n/>
       {/* Illustration behind hero content */}
       <div
         className="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none"
@@ -87,9 +92,9 @@ function HeroHome() {
               className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4"
               data-aos="zoom-y-out"
             >
-              <span className="dark:text-white"> O "velho" aqui é o </span>
+              <span className="dark:text-white"> {t("oVelho")} </span>
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-teal-250 dark:from-blue-700 dark:to-indigo-900 animate-gradient-x">
-                NOVO
+                {t("novo")}
               </span>
             </h1>
             <div className="max-w-3xl mx-auto">
@@ -98,8 +103,7 @@ function HeroHome() {
                 data-aos="zoom-y-out"
                 data-aos-delay="150"
               >
-                Saudades dos tempos de brilhantina e das baladadas de sábado à
-                noite ? Estamos aqui para colocar você de volta na pista.
+                {t("Saudades")}
               </p>
               <div
                 className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center"
@@ -142,7 +146,7 @@ function HeroHome() {
                   <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm0 2C5.373 24 0 18.627 0 12S5.373 0 12 0s12 5.373 12 12-5.373 12-12 12z" />
                   <path d="M10 17l6-5-6-5z" />
                 </svg>
-                <span className="ml-3">Watch the full video (2 min)</span>
+                <span className="ml-3">{t('AssistaAoVideo')} (2 min)</span>
               </button>
             </div>
 
@@ -172,10 +176,14 @@ function HeroHome() {
                       <div className="border-b-4 rounded-xl border-black dark:border-blue-800 p-8 mt-14 text-black dark:text-white">
                         <ul>
                           <li className="lg:text-4xl font-bold">{disc.nome}</li>
-                          <li className="lg:text-2xl font-semibold">Ano: {disc.ano}</li>
-                          <li className="lg:text-2xl font-semibold">Artista: {disc.cantor}</li>
+                          <li className="lg:text-2xl font-semibold">
+                            {t('Ano')}: {disc.ano}
+                          </li>
+                          <li className="lg:text-2xl font-semibold">
+                            {t('Artista')}: {disc.cantor}
+                          </li>
                           <li className="lg:text-lg">
-                            Data de compra:{" "}
+                            {t('DataDeCompra')}:{" "}
                             {new Date(parseInt(disc.data)).toLocaleDateString()}
                           </li>
                         </ul>
@@ -189,9 +197,9 @@ function HeroHome() {
             <div></div>
           )}
           <div className="flex flex-col items-center justify-center mt-24 max-x-md text-black dark:text-white font-inter sm:text-[2.4rem] text-2xl font-bold text-center ">
-            Catálogo curado pela nossa comunidade...{" "}
+            {t('Catalogo')}{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r text-5xl sm:text-7xl py-8 sm:py-12 from-blue-700 to-teal-250 dark:from-blue-700 dark:to-indigo-900 animate-gradient-x">
-              &nbsp; Várias opções &nbsp;
+              &nbsp; {t('VariasOpcoes')} &nbsp;
             </span>
             <span className="relative mb-12">
               <ul className="flex flex-row gap-4">
@@ -218,12 +226,12 @@ function HeroHome() {
                 </li>
               </ul>
             </span>{" "}
-            de discos de todas as épocas.
+            {t('DeDiscos')}
           </div>
           <div className="flex flex-col items-center justify-center text-black dark:text-white text-2xl sm:text-[2.4rem] font-bold pt-24">
-            Todos os{" "}
+           {t('TodosOs')}{" "}
             <span className="sm:text-8xl text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-teal-250 dark:from-emerald-700 dark:to-indigo-900 animate-gradient-x">
-              Gêneros.
+            {t('Generos')}
             </span>
             <span className="relative mb-12 mt-12">
               <ul className="flex sm:flex-row flex-col gap-4 text-center">
@@ -268,21 +276,13 @@ function HeroHome() {
           </div>
           <div className="flex flex-col items-center justify-center pt-24 text-center">
             <p className="text-2xl sm:text-4xl text-black dark:text-white font-bold">
-              Afinal, porque fazemos isso ?
+              {t('Afinal')}
             </p>
             <p className="text-lg sm:text-2xl text-center text-black dark:text-white font-medium pt-24 px-12 md:px-48">
-              Independente de qual o seu gosto e o porquê dele, fazemos isso
-              porque queremos reviver as emoções de se ouvir uma música, de
-              relembrar os bons momentos e resgatar a importância da música e
-              sua influência nas nossas vidas. E os discos de vinil nos fazem
-              ter essa nostalgia
+              {t('Independente')}
             </p>
             <p className="text-lg sm:text-2xl text-center text-black dark:text-white font-medium pt-16 px-12 md:px-48">
-              A música é uma arte, e queríamos contribuir para esta. Fomos
-              fundados em 2017 e desde dessa data, estivemos trabalhando duro
-              para entregar estas obras nas residências, se trata de uma arte
-              delicada e frágil, mas com um significado poderoso, e mostramos
-              isso nas nossas entregas.
+              {t('AMusica')}
             </p>
             {cookie ? (
               <div></div>
@@ -290,7 +290,7 @@ function HeroHome() {
               <>
                 {" "}
                 <p className="sm:text-5xl text-center text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-teal-250 dark:from-rose-500 dark:to-blue-700 animate-gradient-xy font-bold mt-16">
-                  Então coloca o som na Vitrola !
+                  {t('EntaoColocaOSom')}
                 </p>
                 <a>
                   {" "}
@@ -300,7 +300,7 @@ function HeroHome() {
                       to="/SignUp"
                       activeClassName={`${styles.active} dark:text-white`}
                     >
-                      Entrar
+                      {t('Entrar')}
                     </NavLink>
                   </button>
                 </a>

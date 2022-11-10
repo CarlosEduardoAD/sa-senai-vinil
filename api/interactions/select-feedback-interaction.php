@@ -17,14 +17,11 @@ class selectFeedback
     public function select_feedback()
     {
         try {
-            $sql = 'SELECT disc_name, price from user_wishes where user_email = :email';
+            $sql = "SELECT disc_name, price, artist from user_wishes where user_email = ?";
             $query = $this->conn->prepare($sql);
-            $query->bindValue(':email', $this -> userEmail, PDO::PARAM_STR);
-            $query->execute();
+            $query->execute([$this -> userEmail]);
             $results = $query->fetchAll(PDO::FETCH_ASSOC);
-            $json = json_encode($results);
-            print($json);
-            return $json;
+            return $results;
         } catch (PDOException $exception) {
             echo $exception;
         }

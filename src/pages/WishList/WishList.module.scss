@@ -1,0 +1,41 @@
+.wishsSection {
+    padding: 30px 0;
+}
+
+.wishsTitle {
+    margin-bottom: 40px;
+    font-family: "Alumatica", sans-serif;
+    color: #667ad1;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.noItemsTitle {
+    font-weight: 500;
+    font-family: "Alumatica", sans-serif;
+    font-size: 20px;
+    color: #667ad1;
+    margin-top: 40px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    column-gap: 30px;
+    row-gap: 40px;
+    justify-items: center;
+    padding-left: 0px;
+    padding: 40px 0 40px;
+    list-style: none;
+    justify-content: center;
+
+    @media (max-width: 550px) {
+        justify-content: center;
+    }
+}

@@ -2,8 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Feedback from "../Feedback"
 import axios from 'axios'
+import { useTranslation } from "react-i18next"
+
+
 
 function Footer() {
+  const { t } = useTranslation();
 
   async function subscribeEmail(e){
     e.preventDefault()
@@ -34,21 +38,21 @@ function Footer() {
                 to="#"
                 className="text-gray-600 dark:text-neutral-300 hover:text-gray-900 hover:underline transition duration-150 ease-in-out"
               >
-                Terms
+                {t('Termos')}
               </Link>{" "}
               ·{" "}
               <Link
                 to="#"
                 className="text-gray-600 dark:text-neutral-300   hover:text-gray-900 hover:underline transition duration-150 ease-in-out"
               >
-                Privacy Policy
+                {t('Política')}
               </Link>
             </div>
           </div>
 
           {/* 2nd block */}
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h6 className="text-gray-800 dark:text-neutral-300  font-medium mb-2">Products</h6>
+            <h6 className="text-gray-800 dark:text-neutral-300  font-medium mb-2">{t('produtos')}</h6>
             <ul className="text-sm">
               <li className="mb-2">
                 <Link
@@ -94,14 +98,14 @@ function Footer() {
           </div>
            {/* 3nd block */}
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h6 className="text-gray-800 dark:text-neutral-300  font-medium mb-2">Support</h6>
+            <h6 className="text-gray-800 dark:text-neutral-300  font-medium mb-2">{t('Suporte')}</h6>
             <ul className="text-sm">
               <li className="mb-2">
                 <Link
                   to="#"
                   className="text-gray-600 dark:text-neutral-300  hover:text-gray-900 transition duration-150 ease-in-out"
                 >
-                  Contact
+                  {t('Contato')}
                 </Link>
               </li>
               <li className="mb-2">
@@ -109,15 +113,15 @@ function Footer() {
                   to="#"
                   className="text-gray-600 dark:text-neutral-300  hover:text-gray-900 transition duration-150 ease-in-out"
                 >
-                  Send Feedback
+                  {t('EnviarFeedback')}
                 </Link>
               </li>
             </ul>
           </div>
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-3">
-            <h6 className="text-gray-800 dark:text-neutral-300  font-medium mb-2">Subscribe</h6>
+            <h6 className="text-gray-800 dark:text-neutral-300  font-medium mb-2">{t('InscrevaSe')}</h6>
             <p className="text-sm dark:text-neutral-300 text-gray-600 mb-4">
-              Get the latest news and articles to your inbox every month.
+              {t('FiqueSabendo')}
             </p>
             <form onSubmit={subscribeEmail}>
               <div className="flex flex-wrap mb-4">
@@ -131,7 +135,7 @@ function Footer() {
                       name='newsletter'
                       type="email"
                       className="form-input w-full dark:bg-transparent text-gray-800 dark:text-white px-5 py-2 pr-12 text-sm"
-                      placeholder="Your email"
+                      placeholder={t('SeuEmail')}
                       required
                     />
                     <button

@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { favouritesReducer } from './favourites/reducer';
+import { wishListReducer } from './wishlist/reducer'
 import { cartReducer } from './cart/reducer';
 import { cardsReducer } from './cards/reducer';
 import { modalReducer } from './modal/reducer';
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
     modal: modalReducer,
     cards: cardsReducer,
     favourites: favouritesReducer,
+    wishList: wishListReducer,
     cardsInCart: cartReducer,
     currrentCardArticul: currentArticulReducer,
     discount: discountReducer,

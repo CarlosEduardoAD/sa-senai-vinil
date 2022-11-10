@@ -5,6 +5,7 @@ import orderModalStyles from './OrderModal.module.scss';
 import CheckoutList from '../../CheckoutList/CheckoutList';
 import { countSubtotal } from '../../../helpers/countSubtotal';
 import { countTotalWithDiscount } from '../../../helpers/countTotalWithDiscount'
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 export const OrderModal = ({ header, closeButton, formValues, closeModalHandler }) => {
@@ -13,6 +14,7 @@ export const OrderModal = ({ header, closeButton, formValues, closeModalHandler 
     const cardsList = useSelector(({ cards }) => cards.cards);
     const cardsInCart = useSelector(({ cardsInCart }) => cardsInCart);
     const discount = useSelector(({ discount }) => discount);
+    const { t } = useTranslation()
 
     const filteredCards = cardsList.filter(({ articul }) => {
         return cardsInCart.find(({ id }) => {
@@ -41,22 +43,22 @@ export const OrderModal = ({ header, closeButton, formValues, closeModalHandler 
 
     return (
         <>
-            <div className={`${styles.modalBox} ${modalIsShown ? '' : styles.hide}`}>
-                <div className={`${styles.header} ${orderModalStyles.header}`}>
+            <div className={`${styles.modalBox} ${modalIsShown ? '' : styles.hide} dark:bg-[#312a86] dark:text-white`}>
+                <div className={`${styles.header} ${orderModalStyles.header} dark:bg-[#312a86]`}>
                     <button onClick={() => { closeModalHandler() }} className={closeButton ? `${styles.closeBtn} ${orderModalStyles.closeBtn}` : ''}></button>
                     <CheckoutIcon />
                     <h2 className={`${styles.headerTitle} ${orderModalStyles.headerTitle}`}>{header}</h2>
                 </div>
                 <div className={orderModalStyles.orderInfoBlock}>
-                    <p className={orderModalStyles.orderDetailsTitle}>Customer info</p>
+                    <p className={orderModalStyles.orderDetailsTitle}>{t('InformacoesDoCliente')}</p>
 
                     <ul className={orderModalStyles.customerDataList}>
                         {[...dataArr]}
                     </ul>
-                    <p className={orderModalStyles.orderDetailsTitle}>Products info</p>
+                    <p className={orderModalStyles.orderDetailsTitle}>{t('InformacoesDoProduto')}</p>
                     <ul className={orderModalStyles.productsTitles}>
-                        <li>Products</li>
-                        <li>Qty</li>
+                        <li>{t('Produtos')}</li>
+                        <li>{t('Quantidade')}</li>
                         <li>Subtotal</li>
                     </ul>
                     <div className={orderModalStyles.itemsList}>

@@ -10,6 +10,7 @@ require("dotenv").config();
 
 function checkToken(req: any, res: any, next: any) {
     let token = req.cookies.acess_token
+    console.log(token)
     if(!token){
         return res.status(401)
     }
@@ -95,4 +96,10 @@ routes.get('/itens', checkToken, async (req, res) => {
     let result = await obj.returnPurchasesFromUser()
     console.log(result)
     res.json(result)
+})
+
+routes.get('/user_email', checkToken, async (req, res) => {
+    const email = res.locals.email
+    console.log(email)
+    res.send(email)
 })

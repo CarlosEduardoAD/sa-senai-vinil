@@ -7,10 +7,10 @@ export const NumberFormatInputBlock = ({ name, label, id, placeholder, type }) =
     const [field] = useField(name);
 
     return <div key={id} className={styles.fieldContainer}>
-        <label className={styles.orderLabel} htmlFor={name}>{label}</label>
+        <label className={`${styles.orderLabel} dark:text-white`} htmlFor={name}>{label}</label>
         <NumberFormat
             {...field}
-            className={styles.orderInput}
+            className={`${styles.orderInput} rounded-lg dark:bg-neutral-800 dark:border-neutral-800 dark:text-white`}
             format="+38 (###) ###-##-##"
             allowEmptyFormatting mask="_"
             name={name}

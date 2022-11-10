@@ -1,3 +1,5 @@
+import '../../i'
+
 export const formDataFields = [
     {
         id: 1,
