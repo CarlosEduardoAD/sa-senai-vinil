@@ -24,7 +24,6 @@
     <a href=""><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="">View Demo</a>
     ·
     <a href="">Report Bug</a>
     ·
@@ -91,9 +90,9 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 
 ### Back-end stacks
-* ![Typescript][Typescript.com]
+* ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 * ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
-* ![Express][Express.js]
+* ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 * ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
 * ![Insomnia](https://img.shields.io/badge/Insomnia-black?style=for-the-badge&logo=insomnia&logoColor=5849BE)
 
