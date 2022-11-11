@@ -81,6 +81,13 @@
     "Endereco" : "Endereço",
     "Ano" : "Ano",
     "DataDeCompra" : "Data de compra",
-    "AssistaAoVideo" : "Assitir o vídeo"
+    "AssistaAoVideo" : "Assitir o vídeo",
+    "Presente" : "Embalar para presente ?",
+    "CartaoDeCredito" : "Cartão de crédito",
+    "CartaoDeDebito" : "Cartão de débito",
+    "NumeroCartao" : "Número do cartão",
+    "NomeCartao" : "Nome no cartão",
+    "DataValidade" : "Data de validade",
+    "ColoqueEstaChave" : "Cole esta chave pix na opção de pagamento do seu banco"
   }
 }

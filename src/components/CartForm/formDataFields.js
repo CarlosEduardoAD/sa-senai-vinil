@@ -44,6 +44,13 @@ export const formDataFields = [
         label: translate('Endereco'),
         placeholder: translate('Endereco'),
         type: 'text',
+    },
+    {
+        id: 7,
+        name: 'gift',
+        label: translate('Presente'),
+        placeholder: translate('Presente'),
+        type: 'checkbox',
     }
 
 ]

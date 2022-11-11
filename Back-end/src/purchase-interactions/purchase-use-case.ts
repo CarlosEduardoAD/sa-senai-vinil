@@ -7,14 +7,18 @@ export class userPurchase {
     public address: string;
     public price: any;
     public obj: any
+    public gift : any;
+    public paymentMethod : any;
 
-    constructor(firstName: string, lastName: string, email: string, address: string, price: any, obj: any) {
+    constructor(firstName: string, lastName: string, email: string, address: string, price: any, obj: any, gift : any, paymentMethod : any) {
         this.firstName = firstName
         this.lastName = lastName
         this.email = email
         this.address = address
         this.price = price
         this.obj = obj
+        this.gift = gift
+        this.paymentMethod = paymentMethod
     }
 
     public async insertItem() {
@@ -63,7 +67,7 @@ export class userPurchase {
                 let id3 = await conn.query(`SELECT id FROM compras WHERE id_user = ${Number(userId)} ORDER BY data DESC LIMIT ${size}`)
                 let purchaseId = id3[i]['id']
                 console.log('Este é o id da compra ' + purchaseId)
-                await conn.query(`UPDATE compras SET endereco = ${this.address}, presente = 1, preco_total = ${this.price}, forma_pag = 'credito' ORDER BY CAST(data AS INT) desc LIMIT ?`,[size])
+                await conn.query(`UPDATE compras SET endereco = ${this.address}, presente = ${this.gift ? '1' : '0'}, preco_total = ${this.price}, forma_pag = '${(this.paymentMethod)}' ORDER BY CAST(data AS INT) desc LIMIT ?`,[size])
                 await conn.query('INSERT INTO itens(id_disco, id_compra, quantidade) VALUES (?, ?, ?)', [discId, purchaseId, discQuantity])
                 console.log('FUNCIONOU')
             }
