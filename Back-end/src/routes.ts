@@ -61,12 +61,12 @@ routes.post('/login', (req, res) => {
 
 routes.post('/insertPurchase', checkToken, (req, res) => {
     const email = res.locals.email
-    let obj = new userPurchase('', '', email, '', '', '')
+    let obj = new userPurchase('', '', email, '', '', '','', '')
     obj.insertItem()
 })
 
 routes.post('/purchase', checkToken, (req, res) => {
-    let obj = new userPurchase(req.body.firstName, req.body.lastName, req.body.email, req.body.adress, parseFloat(req.body.price), req.body.discInfo)
+    let obj = new userPurchase(req.body.firstName, req.body.lastName, req.body.email, req.body.adress, parseFloat(req.body.price), req.body.discInfo, req.body.gift, req.body.paymentMethod)
     obj.purchaseItem()
     let emailObj = new userEmail(req.body.firstName, req.body.email)
     emailObj.sendEmail()

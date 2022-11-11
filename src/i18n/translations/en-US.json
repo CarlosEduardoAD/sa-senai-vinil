@@ -79,6 +79,13 @@
     "Endereco" : "Address",
     "Ano" : "Year",
     "DataDeCompra" : "Purchase date",
-    "AssistaAoVideo" : "Watch our video"
+    "AssistaAoVideo" : "Watch our video",
+    "Presente" : "Wrap up like a gift ?",
+    "CartaoDeCredito" : "Credit card",
+    "CartaoDeDebito" : "Debit card",
+    "NumeroCartao" : "Card number",
+    "NomeCartao" : "Name registered in the card",
+    "DataValidade" : "Expiration date",
+    "ColoqueEstaChave" : "Paste this pix key in the payment option of you prefered bank"
   }
 }
