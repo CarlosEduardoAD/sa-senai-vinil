@@ -8,12 +8,12 @@
     "imgSrc": "img/vigvam10.png"
   },
   {
-    "title": "Ultra Violence",
+    "title": "Black Bay",
     "price": 780,
     "articul": 1254,
-    "genre": "Pop",
-    "imgSrc": "img/vigvam1.jpeg",
-    "artist" : "Lana Del Rey"
+    "genre": "Vaporwave",
+    "imgSrc": "img/vigvam1.jpg",
+    "artist" : "Euan Ellis"
   },
   {
     "title": "The Name Of The Game",
@@ -67,7 +67,7 @@
     "title": "Put it down",
     "price": 920,
     "articul": 1342,
-    "genre": "Red",
+    "genre": "Rap; Trap",
     "imgSrc": "img/vigvam8.jpg",
     "artist" : "Tokimonsta"
   },
@@ -88,12 +88,12 @@
     "artist" : "Capital Inicial"
   },
   {
-    "title": "The Scotts",
+    "title": "Native",
     "price": 730,
     "articul": 1320,
-    "genre": "Rap; Hip Hop",
+    "genre": "Pop; Rock",
     "imgSrc": "img/vigvam00.jpg",
-    "artist" : "The Scotts"
+    "artist" : "One Republic"
   },
   {
     "title": "Shy way",

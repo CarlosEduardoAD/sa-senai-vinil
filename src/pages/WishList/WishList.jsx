@@ -40,6 +40,10 @@ const WishList = () => {
     if (!cookie) {
       navigate.push("/signin");
     }
+    let adminCookie = Cookies.get("admin_token")
+    if (adminCookie){
+      navigate.push("/admin-panel")
+    }
     const res = await axios.get("http://localhost:3000/user_email", {
       withCredentials: true,
     });
@@ -130,7 +134,7 @@ const WishList = () => {
         <div className={`${styles.list}`}>
           {wishes.map((value, key) => {
             return (
-              <div className="flex-col items-center justify-center bg-gradient-to-b dark:from-[#050026]/50 dark:to-emerald-900/50 bg-opacity-20 dark:text-white text-black p-12 rounded-lg font-inter">
+              <div className="flex-col items-center justify-center  bg-gradient-to-b from-violet-300 to-indigo-300 dark:from-[#050026]/50 dark:to-emerald-900/50 bg-opacity-20 dark:text-white text-black p-12 rounded-lg font-inter">
                 <div className="text-lg font-normal mt-1"><span className="font-bold">{t('Nome')}</span> : {value.disc_name}</div>
                 <div className="text-lg font-normal mt-1"><span className="font-bold">{t('Preco')}</span> : {value.price} UAH</div>
                 <div className="text-lg font-normal mt-1 mb-4"><span className="font-bold">{t('Artista')}</span> : {value.artist}</div>

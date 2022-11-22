@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 
-function SignIn() {
+export function SignInAdmin() {
   const navigate = useHistory();
   const { t } = useTranslation();
   const {
@@ -23,7 +23,7 @@ function SignIn() {
     sessionStorage.setItem("username", userData);
     axios
       .post(
-        "http://localhost:3000/login",
+        "http://localhost:3000/admin_login",
         {
           email: userData,
           password: userPassword,
@@ -35,10 +35,10 @@ function SignIn() {
       .catch((error) => {
         if(error.response){
           console.log(error.response)
-          navigate.push("/signin")
+          navigate.push("/login-admin")
         }
       });
-    navigate.push("/Catalog");
+    navigate.push("/admin-panel");
   };
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
@@ -50,7 +50,8 @@ function SignIn() {
               {/* Page header */}
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
                 <h1 className="h1 dark:text-white text-4xl font-bold">
-                  {t("AFestaEstaBombando")}
+                  Seja bem vindo administrador,
+                  confiamos em suas habilidades administrativas ;)
                 </h1>
               </div>
 
@@ -168,5 +169,3 @@ function SignIn() {
     </div>
   );
 }
-
-export default SignIn;

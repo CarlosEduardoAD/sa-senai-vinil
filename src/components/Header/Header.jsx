@@ -10,10 +10,14 @@ function Header(props) {
   const {t} = useTranslation()
 
   const [cookie, setCookie] = useState(null);
+  const [adminCookie, setAdminCookie] = useState(null);
   const [top, setTop] = useState(true);
   useEffect(() => {
     let userToken = Cookies.get("acess_token");
     setCookie(userToken);
+    let adminToken = Cookies.get("admin_token")
+    setAdminCookie(adminToken)
+    console.log(adminCookie)
     const scrollHandler = () => {
       window.pageYOffset > 10 ? setTop(false) : setTop(true);
     };

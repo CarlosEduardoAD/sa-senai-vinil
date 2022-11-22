@@ -7,7 +7,7 @@ import { increaseProductQuantity, decreaseProductQuantity } from '../../store/ca
 import CheckoutList from '../CheckoutList/CheckoutList.module.scss';
 
 const NOIMGSRC = 'img/notfound.png';
-const CardInCart = ({ articul, imgSrc, title, genre, price, isPriceShow, onClickHandler, onDeleteClickHandler, hasQuantityBtns, hasTrashIcon, orderModalStyles }) => {
+const CardInCart = ({ articul, imgSrc, title, price, isPriceShow, onClickHandler, hasQuantityBtns, hasTrashIcon, orderModalStyles }) => {
     const cardsInCart = useSelector(({ cardsInCart }) => cardsInCart);
     const currentCard = cardsInCart.find(({ id }) => id === articul);
     const dispatch = useDispatch();
@@ -24,8 +24,7 @@ const CardInCart = ({ articul, imgSrc, title, genre, price, isPriceShow, onClick
         <li className={`${orderModalStyles ? CheckoutList.item : styles.item} dark:bg-[#27216d] dark:text-white`}>
             <img src={imgSrc ? imgSrc : NOIMGSRC} alt={title} className={orderModalStyles ? CheckoutList.img : styles.img}/>
             <div className={orderModalStyles ? CheckoutList.itemInfo : styles.itemInfo}>
-                <h3 className={`${styles.itemTitle} dark:text-white`}>{title}</h3>
-                <p className={`${styles.color} dark:text-white`}>Genre: {genre}</p>
+                <h3 className={`${styles.itemTitle} dark:text-white text-xl font-semibold`}>{title}</h3>
                 <p className={`${styles.articul} dark:text-white`}>Articul: {articul}</p>
             </div>
             {isPriceShow ? <p className={styles.price}>{price} UAH</p> : ''}

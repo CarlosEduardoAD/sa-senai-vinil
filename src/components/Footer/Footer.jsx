@@ -116,6 +116,14 @@ function Footer() {
                   {t('EnviarFeedback')}
                 </Link>
               </li>
+              <li className="mb-2">
+                <Link
+                  to="/login-admin"
+                  className="text-gray-600 dark:text-neutral-300  hover:text-gray-900 transition duration-150 ease-in-out"
+                >
+                  Entrar como administrador
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-3">

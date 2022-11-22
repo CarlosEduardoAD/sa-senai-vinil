@@ -19,34 +19,27 @@ export const formDataFields = [
     },
     {
         id: 3,
-        name: 'email',
-        label: 'Email',
-        placeholder: translate('ExemploGmail'),
-        type: 'email',
-    },
-    {
-        id: 4,
         name: 'age',
         label: translate('Idade'),
         placeholder: 'Age',
         type: 'text',
     },
     {
-        id: 5,
+        id: 4,
         name: 'phone',
         label: translate('Telefone'),
         type: 'tel',
     }
     ,
     {
-        id: 6,
+        id: 5,
         name: 'address',
         label: translate('Endereco'),
         placeholder: translate('Endereco'),
         type: 'text',
     },
     {
-        id: 7,
+        id: 6,
         name: 'gift',
         label: translate('Presente'),
         placeholder: translate('Presente'),

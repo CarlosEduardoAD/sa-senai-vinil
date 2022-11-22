@@ -18,6 +18,7 @@ function SignUp() {
   });
 
   const onSubmit = (data) => {
+    sessionStorage.setItem('senha', data.customerPasswordSignUp)
     let userData = JSON.stringify(data.customerName);
     let userEmail = JSON.stringify(data.customerEmailSignUp);
     let userPassword = JSON.stringify(data.customerPasswordSignUp);
@@ -82,7 +83,7 @@ function SignUp() {
                         className="form-input w-full text-gray-800 dark:bg-neutral-700 dark:border-none dark:text-white rounded-md"
                         placeholder={t("ColoqueSeuEmail")}
                         required
-                        {...register("customerEmailSignUp", { required: true })}
+                        {...register("customerEmailSignUp", { required: true, pattern: /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i })}
                       />
                       {errors.customerEmailSignUp && (
                         <span className="text-red-600 mt-1">
@@ -103,10 +104,11 @@ function SignUp() {
                         id="password"
                         type="password"
                         className="form-input w-full text-gray-800 dark:bg-neutral-700 dark:border-none dark:text-white rounded-md"
-                        placeholder={t("ColoqueSeuEmail")}
+                        placeholder={t("ColoqueSuaSenha")}
                         required
                         {...register("customerPasswordSignUp", {
                           required: true,
+                          minLength : 8
                         })}
                       />
                       {errors.customerPasswordSignUp && (
