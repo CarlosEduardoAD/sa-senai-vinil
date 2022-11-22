@@ -6,15 +6,21 @@ import styles from "./Header/Header.module.scss";
 import Cookies from "js-cookie";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-import {I18n} from '../utils/I18n'
+import { I18n } from "../utils/I18n";
+import { useHistory } from "react-router-dom";
 
 function HeroHome() {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
   const [cookie, setCookie] = useState();
   const [discs, setDiscs] = useState([]);
   const { t } = useTranslation();
+  const navigate = useHistory();
 
   useEffect(async () => {
+    let adminCookie = Cookies.get("admin_token");
+    if (adminCookie) {
+      navigate.push("/admin-panel");
+    }
     let userToken = Cookies.get("acess_token");
     setCookie(userToken);
     await axios
@@ -23,14 +29,14 @@ function HeroHome() {
         let dados = res.data;
         console.log(res.data[0].nome);
         setDiscs(dados);
-        console.log(typeof dados)
+        console.log(typeof dados);
         console.log(dados);
       });
   }, []);
 
   return (
     <section className="relative dark:bg-[#151617]">
-      <I18n/>
+      <I18n />
       {/* Illustration behind hero content */}
       <div
         className="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none"
@@ -146,7 +152,7 @@ function HeroHome() {
                   <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm0 2C5.373 24 0 18.627 0 12S5.373 0 12 0s12 5.373 12 12-5.373 12-12 12z" />
                   <path d="M10 17l6-5-6-5z" />
                 </svg>
-                <span className="ml-3">{t('AssistaAoVideo')} (2 min)</span>
+                <span className="ml-3">{t("AssistaAoVideo")} (2 min)</span>
               </button>
             </div>
 
@@ -168,22 +174,25 @@ function HeroHome() {
             </Modal>
           </div>
           {cookie ? (
-            <div className="text-white flex items-center justify-center text-center">
+            <div className="text-white flex flex-col items-center justify-center text-center">
+              <span className="dark:text-white text-4xl my-12 font-inter font-bold text-black">
+                {t('MinhasCompras')}{" "}
+              </span>
               <div className="mt-12">
                 {discs.map((disc) => {
                   return (
                     <div className="flex items-center justify-center">
-                      <div className="border-b-4 rounded-xl border-black dark:border-blue-800 p-8 mt-14 text-black dark:text-white">
+                      <div className="border-b-4 rounded-xl border-black dark:border-blue-800 p-8 mt-8 text-black dark:text-white">
                         <ul>
                           <li className="lg:text-4xl font-bold">{disc.nome}</li>
                           <li className="lg:text-2xl font-semibold">
-                            {t('Ano')}: {disc.ano}
+                            {t("Ano")}: {disc.ano}
                           </li>
                           <li className="lg:text-2xl font-semibold">
-                            {t('Artista')}: {disc.cantor}
+                            {t("Artista")}: {disc.cantor}
                           </li>
                           <li className="lg:text-lg">
-                            {t('DataDeCompra')}:{" "}
+                            {t("DataDeCompra")}:{" "}
                             {new Date(parseInt(disc.data)).toLocaleDateString()}
                           </li>
                         </ul>
@@ -197,9 +206,9 @@ function HeroHome() {
             <div></div>
           )}
           <div className="flex flex-col items-center justify-center mt-24 max-x-md text-black dark:text-white font-inter sm:text-[2.4rem] text-2xl font-bold text-center ">
-            {t('Catalogo')}{" "}
+            {t("Catalogo")}{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r text-5xl sm:text-7xl py-8 sm:py-12 from-blue-700 to-teal-250 dark:from-blue-700 dark:to-indigo-900 animate-gradient-x">
-              &nbsp; {t('VariasOpcoes')} &nbsp;
+              &nbsp; {t("VariasOpcoes")} &nbsp;
             </span>
             <span className="relative mb-12">
               <ul className="flex flex-row gap-4">
@@ -226,12 +235,12 @@ function HeroHome() {
                 </li>
               </ul>
             </span>{" "}
-            {t('DeDiscos')}
+            {t("DeDiscos")}
           </div>
           <div className="flex flex-col items-center justify-center text-black dark:text-white text-2xl sm:text-[2.4rem] font-bold pt-24">
-           {t('TodosOs')}{" "}
+            {t("TodosOs")}{" "}
             <span className="sm:text-8xl text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-teal-250 dark:from-emerald-700 dark:to-indigo-900 animate-gradient-x">
-            {t('Generos')}
+              {t("Generos")}
             </span>
             <span className="relative mb-12 mt-12">
               <ul className="flex sm:flex-row flex-col gap-4 text-center">
@@ -276,13 +285,13 @@ function HeroHome() {
           </div>
           <div className="flex flex-col items-center justify-center pt-24 text-center">
             <p className="text-2xl sm:text-4xl text-black dark:text-white font-bold">
-              {t('Afinal')}
+              {t("Afinal")}
             </p>
             <p className="text-lg sm:text-2xl text-center text-black dark:text-white font-medium pt-24 px-12 md:px-48">
-              {t('Independente')}
+              {t("Independente")}
             </p>
             <p className="text-lg sm:text-2xl text-center text-black dark:text-white font-medium pt-16 px-12 md:px-48">
-              {t('AMusica')}
+              {t("AMusica")}
             </p>
             {cookie ? (
               <div></div>
@@ -290,7 +299,7 @@ function HeroHome() {
               <>
                 {" "}
                 <p className="sm:text-5xl text-center text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-teal-250 dark:from-rose-500 dark:to-blue-700 animate-gradient-xy font-bold mt-16">
-                  {t('EntaoColocaOSom')}
+                  {t("EntaoColocaOSom")}
                 </p>
                 <a>
                   {" "}
@@ -300,7 +309,7 @@ function HeroHome() {
                       to="/SignUp"
                       activeClassName={`${styles.active} dark:text-white`}
                     >
-                      {t('Entrar')}
+                      {t("Entrar")}
                     </NavLink>
                   </button>
                 </a>

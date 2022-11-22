@@ -14,8 +14,9 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: navigator.language,
-    fallbackLng: "pt-BR"
+    react : {
+      useSuspense : "false"
+    }
   });
 
 export default i18n;

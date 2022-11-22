@@ -32,6 +32,14 @@ const Catalog = () => {
 
   useEffect(() => {
     dispatch(fetchCardsList());
+    let cookie = Cookies.get("acess_token");
+    if (!cookie) {
+      navigate.push("/signin");
+    }
+    let adminCookie = Cookies.get("admin_token")
+    if (adminCookie){
+      navigate.push("/admin-panel")
+    }
   }, []);
 
   // Cart

@@ -86,6 +86,18 @@
     "NumeroCartao" : "Card number",
     "NomeCartao" : "Name registered in the card",
     "DataValidade" : "Expiration date",
-    "ColoqueEstaChave" : "Paste this pix key in the payment option of you prefered bank"
+    "ColoqueEstaChave" : "Paste this pix key in the payment option of you prefered bank",
+    "InformacoesDoCliente" : "Customer info",
+    "InformacoesDoProduto" : "Product info",
+    "EntrarAdministrador" : "Enter as admin",
+    "SejaBemVindoAdmin" : "Welcome admin, we trust your administrive skills ;)",
+    "MinhasCompras" : "My Purchases",
+    "IdCompra" : "IdPurchase",
+    "IdDisco" : "IdDisc",
+    "Enviado" : "Delivered ?",
+    "EnviadoTabela" : "Delivered",
+    "NaoEnviadoTabela" : "Not delivered",
+    "HallDaFama" : "Should we call it your Hall of Fame ?",
+    "Remover" : "Remove"
   }
 }

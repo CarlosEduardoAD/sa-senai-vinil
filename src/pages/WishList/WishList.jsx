@@ -40,6 +40,10 @@ const WishList = () => {
     if (!cookie) {
       navigate.push("/signin");
     }
+    let adminCookie = Cookies.get("admin_token");
+    if (adminCookie) {
+      navigate.push("/admin-panel");
+    }
     const res = await axios.get("http://localhost:3000/user_email", {
       withCredentials: true,
     });
@@ -66,9 +70,8 @@ const WishList = () => {
       .delete("http://localhost:8080/api/index.php", {
         params: { email: userEmail },
       })
-      .then((res) => console.log(res)
-      )
-      navigate.go(0);
+      .then((res) => console.log(res));
+    navigate.go(0);
   };
 
   // Cart
@@ -124,17 +127,32 @@ const WishList = () => {
       className={`${styles.wishsSection} dark:bg-[#151617] min-h-screen -mt-6`}
     >
       <div className={`${styles.container} dark:bg-[#151617]`}>
-        <h2 className={`${styles.wishsTitle} font-inter`}>
-          {t("Favoritos")}
-        </h2>
+        <h2 className={`${styles.wishsTitle} font-inter`}>{t("Favoritos")}</h2>
+        <div className="flex items-center justify-center">
+          <h1 className="dark:text-white text-4xl font-bold">{t("HallDaFama")}</h1>
+        </div>
         <div className={`${styles.list}`}>
           {wishes.map((value, key) => {
             return (
-              <div className="flex-col items-center justify-center bg-gradient-to-b dark:from-[#050026]/50 dark:to-emerald-900/50 bg-opacity-20 dark:text-white text-black p-12 rounded-lg font-inter">
-                <div className="text-lg font-normal mt-1"><span className="font-bold">{t('Nome')}</span> : {value.disc_name}</div>
-                <div className="text-lg font-normal mt-1"><span className="font-bold">{t('Preco')}</span> : {value.price} UAH</div>
-                <div className="text-lg font-normal mt-1 mb-4"><span className="font-bold">{t('Artista')}</span> : {value.artist}</div>
-                <button className='font-semibold text-xl' onClick={removeFromWishlist}>{t('Remover')} </button>
+                <div className="flex flex-col items-center justify-center bg-gradient-to-b from-violet-300 to-indigo-300 dark:from-[#050026]/50 dark:to-[#180a55] bg-opacity-20 dark:text-white text-black w-full rounded-lg font-inter text-center py-4">
+                <div className="text-lg font-normal mt-1">
+                  <span className="font-bold">{t("Nome")}</span> :{" "}
+                  {value.disc_name}
+                </div>
+                <div className="text-lg font-normal mt-1">
+                  <span className="font-bold">{t("Preco")}</span> :{" "}
+                  {value.price} UAH
+                </div>
+                <div className="text-lg font-normal mt-1 mb-4">
+                  <span className="font-bold">{t("Artista")}</span> :{" "}
+                  {value.artist}
+                </div>
+                <button
+                  className="font-semibold text-xl"
+                  onClick={removeFromWishlist}
+                >
+                  {t("Remover")}{" "}
+                </button>
               </div>
             );
           })}

@@ -88,6 +88,15 @@
     "NumeroCartao" : "Número do cartão",
     "NomeCartao" : "Nome no cartão",
     "DataValidade" : "Data de validade",
-    "ColoqueEstaChave" : "Cole esta chave pix na opção de pagamento do seu banco"
+    "ColoqueEstaChave" : "Cole esta chave pix na opção de pagamento do seu banco",
+    "EntrarAdministrador" : "Entrar como administrador",
+    "SejaBemVindoAdmin" : "Seja bem vindo administrador, confiamos em suas habilidades administrativas ;)",
+    "MinhasCompras" : "Minhas Compras",
+    "IdCompra" : "IdCompra",
+    "IdDisco" : "IdDisco",
+    "Enviado" : "Enviado ?",
+    "EnviadoTabela" : "Enviado",
+    "NaoEnviadoTabela" : "Não enviado",
+    "HallDaFama" : "Esses aqui são tipo seus campeões ?"
   }
 }

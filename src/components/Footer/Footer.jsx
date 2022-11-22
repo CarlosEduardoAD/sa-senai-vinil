@@ -18,6 +18,7 @@ function Footer() {
       email : request.newsletter
     }
     axios.post("http://localhost:3000/subscribe", userData)
+    alert("Obrigado pela inscrição !")
   }
 
   return (
@@ -114,6 +115,14 @@ function Footer() {
                   className="text-gray-600 dark:text-neutral-300  hover:text-gray-900 transition duration-150 ease-in-out"
                 >
                   {t('EnviarFeedback')}
+                </Link>
+              </li>
+              <li className="mb-2">
+                <Link
+                  to="/login-admin"
+                  className="text-gray-600 dark:text-neutral-300  hover:text-gray-900 transition duration-150 ease-in-out"
+                >
+                  {t('EntrarAdministrador')}
                 </Link>
               </li>
             </ul>

@@ -10,10 +10,14 @@ function Header(props) {
   const {t} = useTranslation()
 
   const [cookie, setCookie] = useState(null);
+  const [adminCookie, setAdminCookie] = useState(null);
   const [top, setTop] = useState(true);
   useEffect(() => {
     let userToken = Cookies.get("acess_token");
     setCookie(userToken);
+    let adminToken = Cookies.get("admin_token")
+    setAdminCookie(adminToken)
+    console.log(adminCookie)
     const scrollHandler = () => {
       window.pageYOffset > 10 ? setTop(false) : setTop(true);
     };
@@ -29,7 +33,7 @@ function Header(props) {
         <nav className={styles.nav}>
           <Link to="/">
             <img
-              className={styles.logo}
+              className={`${styles.logo} -mt-4`}
               src="img/logo2.png"
               alt="pets store logo"
             />
@@ -76,21 +80,21 @@ function Header(props) {
             <div></div>
           )}
           {cookie ? <div></div> : <ul className={`${styles.navList}`}>
-            <div className="hidden lg:flex">
-              <li className={`${styles.btn} font-inter`}>
+            <div className="hidden lg:flex pb-8">
+              <li className={`${styles.btn} font-inter border-2 border-blue-700 text-center`}>
                 <NavLink
                   exact
                   to="/SignIn"
-                  activeClassName={`${styles.active} dark:text-white `}
+                  activeClassName={`${styles.active} dark:text-white text-center`}
                 >
                   {t('Login')}
                 </NavLink>
               </li>
-              <li className={`${styles.btn} font-inter`}>
+              <li className={`${styles.btn} font-inter border-2 border-blue-700 text-center`}>
                 <NavLink
                   exact
                   to="/SignUp"
-                  activeClassName={`${styles.active}`}
+                  activeClassName={`${styles.active} text-center`}
                 >
                   {t('Cadastro')}
                 </NavLink>

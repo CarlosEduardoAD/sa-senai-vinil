@@ -23,6 +23,7 @@ import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import axios from "axios";
 import OrderTotals from "../OrderTotals/OrderTotals";
+import { Browser } from "phosphor-react";
 
 export const CartForm = (cards) => {
   const [paymentField, setField] = useState();
@@ -67,23 +68,23 @@ export const CartForm = (cards) => {
     let firstName = JSON.stringify(values.firstName);
     console.log(values.firstName);
     let lastName = JSON.stringify(values.lastName);
-    let email = JSON.stringify(values.email);
     let age = JSON.stringify(values.age);
     let adress = JSON.stringify(values.address);
     let gitfCheck = JSON.stringify(values.gift);
+    let phone = JSON.stringify(values.phone);
     console.log(gitfCheck);
     let price = sessionStorage.getItem("totalPrice".toString());
     console.log(JSON.stringify(price));
     const request = {
       firstName: firstName,
       lastName: lastName,
-      email: email,
       age: age,
       adress: adress,
       price: price,
       discInfo: filteredCart,
       gift: gitfCheck,
-      paymentMethod : paymentField
+      paymentMethod: paymentField,
+      phone: phone,
     };
     axios.post("http://localhost:3000/purchase", request, {
       withCredentials: true,
@@ -148,6 +149,11 @@ export const CartForm = (cards) => {
                         }}
                         className={`${styles.form} border-none dark:text-white shadow-none`}
                       >
+                        {" "}
+                        <option disabled defaultValue="">
+                          {" "}
+                          Selecione o seu método de pagamento{" "}
+                        </option>
                         <option value="credito">{t("CartaoDeCredito")}</option>
                         <option value="debito">{t("CartaoDeDebito")}</option>
                         <option value="pix">Pix</option>
@@ -207,14 +213,19 @@ export const CartForm = (cards) => {
                     )}
                     {paymentField === "pix" ? (
                       <div className="flex mb-2">
-                        <p className="dark:text-white font-semibold">Cole esta chave pix na opção <br></br> de pagamento do seu banco</p>
-                        <p className="dark:text-white ml-4 mt-1 font-medium text-xl whitespace-wrap">98213412123409</p>
+                        <p className="dark:text-white font-semibold">
+                          Cole esta chave Pix (Tipo: CNPJ) na opção <br></br> de
+                          pagamento do seu banco
+                        </p>
+                        <p className="dark:text-white ml-4 mt-1 font-medium text-xl whitespace-wrap">
+                          90.612.882/0001-39
+                        </p>
                       </div>
                     ) : (
                       <div></div>
                     )}
                     <button
-                      className={`${btnStyles.btn} ${styles.submitBtn}`}
+                      className={`${btnStyles.btn} ${styles.submitBtn} dark:bg-[#192b7a] dark:text-gray-300`}
                       disabled={isSubmitting}
                       type="submit"
                     >

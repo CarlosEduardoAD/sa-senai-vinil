@@ -10,12 +10,15 @@ import { useTranslation } from "react-i18next";
 
 export function Hamburguer() {
   const [cookie, setCookie] = useState();
+  const [cookieAdmin, setAdminCookie] = useState();
   const navigate = useHistory();
   const { t } = useTranslation();
 
   useEffect(() => {
     let userToken = Cookies.get("acess_token");
     setCookie(userToken);
+    let adminToken = Cookies.get("admin_token");
+    setAdminCookie(userToken);
   }, []);
 
   const logoutUser = async () => {
@@ -66,7 +69,7 @@ export function Hamburguer() {
           </ul>
           <div className="flex items-center gap-4 mt-12 ml-4">
             <div>
-              {cookie ? (
+              {cookie || cookieAdmin ? (
                 <div></div>
               ) : (
                 <li

@@ -57,10 +57,9 @@ $font-primary: muli, sans-serif;
   position: relative;
 }
 .btn {
-  margin-top: 0.5em;
-  margin-bottom: 1em;
   transition: 0.8s;
   border-radius: 2rem;
+  margin-right: 12px;
   padding: 1rem 3.9rem;
   border: none;
   cursor: pointer;
@@ -69,7 +68,6 @@ $font-primary: muli, sans-serif;
   height: auto;
   width: 12rem;
   &:not(:last-child) {
-    margin-right: 20px;
     transition: 0.8s;
     border-radius: 2rem;
     padding: 1rem 3.9rem;
@@ -79,9 +77,6 @@ $font-primary: muli, sans-serif;
     font-weight: 500;
     height: auto;
     width: 12rem;
-    &:not(:last-child) {
-      margin-right: 20px;
-    }
   }
 }
 .btn {
