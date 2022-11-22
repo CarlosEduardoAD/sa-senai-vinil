@@ -31,17 +31,18 @@ export function SignInAdmin() {
         { withCredentials: true }
       ).then((res) => {
         console.log(res)
+        navigate.push("/admin-panel");
       })
       .catch((error) => {
-        if(error.response){
+        if(error){
           console.log(error.response)
           navigate.push("/login-admin")
         }
       });
-    navigate.push("/admin-panel");
+
   };
   return (
-    <div className="flex flex-col min-h-screen overflow-hidden">
+    <div className="flex flex-col min-h-screen overflow-hidden -mt-12">
       {/*  Page content */}
       <main className="flex-grow">
         <section className="bg-gradient-to-b from-gray-100 to-white">
@@ -50,8 +51,7 @@ export function SignInAdmin() {
               {/* Page header */}
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
                 <h1 className="h1 dark:text-white text-4xl font-bold">
-                  Seja bem vindo administrador,
-                  confiamos em suas habilidades administrativas ;)
+                  {t('SejaBemVindoAdmin')}
                 </h1>
               </div>
 

@@ -175,8 +175,8 @@ function HeroHome() {
           </div>
           {cookie ? (
             <div className="text-white flex flex-col items-center justify-center text-center">
-              <span className="text-white text-4xl my-12 font-inter font-bold ">
-                Minhas compras{" "}
+              <span className="dark:text-white text-4xl my-12 font-inter font-bold text-black">
+                {t('MinhasCompras')}{" "}
               </span>
               <div className="mt-12">
                 {discs.map((disc) => {

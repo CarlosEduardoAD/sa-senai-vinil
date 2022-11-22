@@ -121,7 +121,7 @@ function Footer() {
                   to="/login-admin"
                   className="text-gray-600 dark:text-neutral-300  hover:text-gray-900 transition duration-150 ease-in-out"
                 >
-                  Entrar como administrador
+                  {t('EntrarAdministrador')}
                 </Link>
               </li>
             </ul>

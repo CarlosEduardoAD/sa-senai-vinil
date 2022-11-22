@@ -23,8 +23,14 @@ export const OrderModal = ({ header, closeButton, formValues, closeModalHandler 
     });
 
     const normalizeInputKeys = (key) => {
-        if (key === 'firstName') return 'First name';
-        if (key === 'lastName') return 'Last name';
+        if (key === 'firstName') return t('PrimeiroNome');
+        if (key === 'lastName') return t('Sobrenome');
+        if (key === 'age') return t('Idade');
+        if (key === 'phone') return t('Telefone');
+        if (key === 'address') return t('Endereco');
+        if (key === 'gift') return t('Presente');
+        if (key === 'nomeCartao') return t('NomeCartao');
+        if (key === 'numeroCartao') return t('NumeroCartao');
         return key[0].toUpperCase() + key.slice(1);
     }
 
@@ -47,15 +53,15 @@ export const OrderModal = ({ header, closeButton, formValues, closeModalHandler 
                 <div className={`${styles.header} ${orderModalStyles.header} dark:bg-[#312a86]`}>
                     <button onClick={() => { closeModalHandler() }} className={closeButton ? `${styles.closeBtn} ${orderModalStyles.closeBtn}` : ''}></button>
                     <CheckoutIcon />
-                    <h2 className={`${styles.headerTitle} ${orderModalStyles.headerTitle}`}>{header}</h2>
+                    <h2 className={`${styles.headerTitle} ${orderModalStyles.headerTitle} font-semibold`}>{header}</h2>
                 </div>
                 <div className={orderModalStyles.orderInfoBlock}>
-                    <p className={orderModalStyles.orderDetailsTitle}>{t('InformacoesDoCliente')}</p>
+                    <p className={`${orderModalStyles.orderDetailsTitle} font-inter`}>{t('InformacoesDoCliente')}</p>
 
                     <ul className={orderModalStyles.customerDataList}>
                         {[...dataArr]}
                     </ul>
-                    <p className={orderModalStyles.orderDetailsTitle}>{t('InformacoesDoProduto')}</p>
+                    <p className={`${orderModalStyles.orderDetailsTitle} font-inter`}>{t('InformacoesDoProduto')}</p>
                     <ul className={orderModalStyles.productsTitles}>
                         <li>{t('Produtos')}</li>
                         <li>{t('Quantidade')}</li>
@@ -65,8 +71,8 @@ export const OrderModal = ({ header, closeButton, formValues, closeModalHandler 
                         <CheckoutList cards={filteredCards} />
                     </div>
 
-                    <p className={orderModalStyles.discount}><span>Discount:</span><span>{discount ? discount : '0'}%</span></p>
-                    <p className={orderModalStyles.total}><span>Total:</span><span>{total} UAH</span></p>
+                    <p className={`${orderModalStyles.discount} font-inter`}><span>{t('Desconto')} :</span><span>{discount ? discount : '0'}%</span></p>
+                    <p className={`${orderModalStyles.total} font-inter`}><span>Total:</span><span>{total} UAH</span></p>
                 </div>
                 <button className={orderModalStyles.btn} onClick={() => { closeModalHandler() }}>Ok</button>
             </div>

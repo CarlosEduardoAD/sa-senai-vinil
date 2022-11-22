@@ -30,15 +30,16 @@ function SignIn() {
         },
         { withCredentials: true }
       ).then((res) => {
-        console.log(res)
+       navigate.push("/Catalog")
       })
       .catch((error) => {
-        if(error.response){
+        if(error){
+          alert("E-mail ou senha inválidos")
           console.log(error.response)
           navigate.push("/signin")
+          navigate.go(0)
         }
       });
-    navigate.push("/Catalog");
   };
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">

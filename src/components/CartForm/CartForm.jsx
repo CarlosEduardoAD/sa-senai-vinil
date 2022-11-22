@@ -214,7 +214,7 @@ export const CartForm = (cards) => {
                       <div></div>
                     )}
                     <button
-                      className={`${btnStyles.btn} ${styles.submitBtn}`}
+                      className={`${btnStyles.btn} ${styles.submitBtn} dark:bg-black dark:text-gray-300`}
                       disabled={isSubmitting}
                       type="submit"
                     >

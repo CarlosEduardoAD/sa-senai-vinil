@@ -58,7 +58,7 @@ const OrderTotals = () => {
                 type="text"
                 placeholder={t('CodigoPlaceholder')}
               />
-              <button className={`${styles.promocodeBtn} -mt-1 mr-1 dark:text-white`} type="submit">
+              <button className={`${styles.promocodeBtn} -mt-1 mr-1 dark:text-white dark:bg-indigo-500`} type="submit">
                 {(t('Aplicar'))}
               </button>
             </div>
