@@ -21,7 +21,7 @@ export const formDataFields = [
         id: 3,
         name: 'age',
         label: translate('Idade'),
-        placeholder: 'Age',
+        placeholder: translate('Idade'),
         type: 'text',
     },
     {

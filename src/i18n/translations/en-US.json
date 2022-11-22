@@ -94,6 +94,10 @@
     "MinhasCompras" : "My Purchases",
     "IdCompra" : "IdPurchase",
     "IdDisco" : "IdDisc",
-    "Enviado" : "Delivered ?"
+    "Enviado" : "Delivered ?",
+    "EnviadoTabela" : "Delivered",
+    "NaoEnviadoTabela" : "Not delivered",
+    "HallDaFama" : "Should we call it your Hall of Fame ?",
+    "Remover" : "Remove"
   }
 }

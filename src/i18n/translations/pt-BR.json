@@ -94,6 +94,9 @@
     "MinhasCompras" : "Minhas Compras",
     "IdCompra" : "IdCompra",
     "IdDisco" : "IdDisco",
-    "Enviado" : "Enviado ?"
+    "Enviado" : "Enviado ?",
+    "EnviadoTabela" : "Enviado",
+    "NaoEnviadoTabela" : "Não enviado",
+    "HallDaFama" : "Esses aqui são tipo seus campeões ?"
   }
 }

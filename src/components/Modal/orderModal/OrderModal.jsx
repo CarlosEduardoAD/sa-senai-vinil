@@ -31,6 +31,8 @@ export const OrderModal = ({ header, closeButton, formValues, closeModalHandler 
         if (key === 'gift') return t('Presente');
         if (key === 'nomeCartao') return t('NomeCartao');
         if (key === 'numeroCartao') return t('NumeroCartao');
+        if (key === 'validade') return t('DataValidade');
+        if (key === 'email') return;
         return key[0].toUpperCase() + key.slice(1);
     }
 
@@ -39,7 +41,7 @@ export const OrderModal = ({ header, closeButton, formValues, closeModalHandler 
         let i = 0;
         for (const [key, value] of Object.entries(formValues)) {
             dataArr.push(<li key={i++}>
-                <span className={orderModalStyles.filedName}>{normalizeInputKeys(key)}</span>: {value}
+                <span className={orderModalStyles.filedName}>{normalizeInputKeys(key)}</span>{key === "email" ? "" : ":"} {value}
             </li>)
         }
     };
@@ -63,7 +65,7 @@ export const OrderModal = ({ header, closeButton, formValues, closeModalHandler 
                     </ul>
                     <p className={`${orderModalStyles.orderDetailsTitle} font-inter`}>{t('InformacoesDoProduto')}</p>
                     <ul className={orderModalStyles.productsTitles}>
-                        <li>{t('Produtos')}</li>
+                        <li>{t('produtos')}</li>
                         <li>{t('Quantidade')}</li>
                         <li>Subtotal</li>
                     </ul>

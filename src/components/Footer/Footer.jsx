@@ -18,6 +18,7 @@ function Footer() {
       email : request.newsletter
     }
     axios.post("http://localhost:3000/subscribe", userData)
+    alert("Obrigado pela inscrição !")
   }
 
   return (

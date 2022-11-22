@@ -11,7 +11,7 @@ export const NumberFormatInputBlock = ({ name, label, id, placeholder, type }) =
         <NumberFormat
             {...field}
             className={`${styles.orderInput} rounded-lg dark:bg-neutral-800 dark:border-neutral-800 dark:text-white`}
-            format="+38 (###) ###-##-##"
+            format={"+55 (##) #####-####"}
             allowEmptyFormatting mask="_"
             name={name}
             placeholder={placeholder}

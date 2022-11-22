@@ -19,7 +19,7 @@ export const BasicFormSchema = Yup.object().shape({
     .required("Required field"),
   phone: Yup.string()
     .matches(
-      /^[+]?38\s[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{2}[-\s.]?[0-9]{2}$/im,
+      /^(?:\+)[0-9]{2}\s?(?:\()[0-9]{2}(?:\))\s?[0-9]{4,5}(?:-)[0-9]{4}$/,
       "Invalid phone number format"
     )
     .required("Required field"),
@@ -37,5 +37,5 @@ export const BasicFormSchema = Yup.object().shape({
     .min(3, "Min chars are 3")
     .max(3, "Max chars are 3"),
   validade: Yup.string()
-    .matches(/^(0[1-9]|1[0-2])\/?([0-9]{2})$/, "Data de validade inválida"),
+    .matches(/^(0[1-9]|1[0-2])\/?([0-9]{2})$/, "Data de validade inválida")
 });
