@@ -33,13 +33,6 @@ const App = () => {
     setAdminCookie(adminToken)
   }, []);
 
-  const logoutUser = async () => {
-    Cookies.remove("acess_token");
-    Cookies.remove("admin_token")
-    navigate.push("/");
-    navigate.go(0)
-  };
-
   return (
     <>
 <CookieConsent
@@ -58,15 +51,6 @@ const App = () => {
       <div className="z-10 flex fixed bottom-4 right-0 lg:hidden">
         <Hamburguer></Hamburguer>
       </div>
-      {cookie || adminCookie ? (
-        <button onClick={() => logoutUser()}>
-          <div className="z-10 lg:flex lg:items-center lg:gap-4 lg:fixed lg:bottom-12 lg:right-12 lg:rounded-lg lg:dark:bg-indigo-900 bg-blue-700 lg:hover:scale-105 lg:p-4 text-white transition-all duration-200 ease-in-out hidden">
-            <ArrowArcLeft></ArrowArcLeft>{t('Logout')}
-          </div>
-        </button>
-      ) : (
-        <div></div>
-      )}
       <main>
         <Switch>
           <Route exact path="/" component={Home} />
