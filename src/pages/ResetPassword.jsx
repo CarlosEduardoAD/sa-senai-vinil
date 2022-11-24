@@ -1,9 +1,11 @@
 import React from 'react';
 import axios from 'axios'
 import { FormEvent } from 'react'
+import {useTranslation} from 'react-i18next'
 
 function ResetPassword() {
 
+  const {t} = useTranslation()
 
   function resetUserPassword(e){
     e.preventDefault()
@@ -30,8 +32,8 @@ function ResetPassword() {
 
               {/* Page header */}
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-                <h1 className="h1 mb-4 text-4xl dark:text-white font-inter font-bold">Let’s get you back up on your feet</h1>
-                <p className="text-xl text-gray-600 font-inter font-semibold">Enter the email address you used when you signed up for your account, and we’ll email you a link to reset your password.</p>
+                <h1 className="h1 mb-4 text-4xl dark:text-white font-inter font-bold">{t("VamosTeColocar")}</h1>
+                <p className="text-xl text-gray-600 font-inter font-semibold">{t("ColoqueSeuEmailENovaSenha")}</p>
               </div>
 
               {/* Form */}
@@ -40,16 +42,16 @@ function ResetPassword() {
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="email">Email <span className="text-red-600">*</span></label>
-                      <input id="email" name='email' type="email" className="form-input w-full text-gray-800 dark:text-gray-200 dark:bg-neutral-700 " placeholder="Enter your email address" required />
+                      <input id="email" name='email' type="email" className="form-input w-full text-gray-800 dark:text-gray-200 dark:bg-neutral-700 " placeholder={t("ColoqueSeuEmail")} required />
                     </div>
                     <div className="w-full px-3">
-                      <label className="block text-gray-800 text-sm font-medium mb-1 mt-4" htmlFor="email">Password<span className="text-red-600">*</span></label>
-                      <input id="password" name='password' type="password" className="form-input w-full text-gray-800 dark:text-gray-200 dark:bg-neutral-700 " placeholder="Enter your new password" required />
+                      <label className="block text-gray-800 text-sm font-medium mb-1 mt-4" htmlFor="email">{t("Senha")}<span className="text-red-600">*</span></label>
+                      <input id="password" name='password' type="password" className="form-input w-full text-gray-800 dark:text-gray-200 dark:bg-neutral-700 " placeholder={t('ColoqueSuaSenha')} required />
                     </div>
                   </div>
                   <div className="flex flex-wrap -mx-3 mt-6">
                     <div className="w-full px-3">
-                      <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full py-3 rounded-lg text-xl font-semibold">Reset password</button>
+                      <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full py-3 rounded-lg text-xl font-semibold">{t("ResetarSenha")}</button>
                     </div>
                   </div>
                 </form>

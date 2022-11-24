@@ -42,7 +42,7 @@ export function SignInAdmin() {
 
   };
   return (
-    <div className="flex flex-col min-h-screen overflow-hidden -mt-12">
+    <div className="flex flex-col min-h-screen overflow-hidden -mt-8">
       {/*  Page content */}
       <main className="flex-grow">
         <section className="bg-gradient-to-b from-gray-100 to-white">
@@ -74,7 +74,7 @@ export function SignInAdmin() {
                         required
                         {...register("customerEmail", {
                           required: true,
-                          pattern: /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i,
+                          pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i,
                         })}
                       />
                       {errors.customerEmail && (

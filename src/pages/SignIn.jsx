@@ -74,7 +74,7 @@ function SignIn() {
                         required
                         {...register("customerEmail", {
                           required: true,
-                          pattern: /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i,
+                          pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i,
                         })}
                       />
                       {errors.customerEmail && (

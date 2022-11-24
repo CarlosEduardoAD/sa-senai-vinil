@@ -83,11 +83,11 @@ function SignUp() {
                         className="form-input w-full text-gray-800 dark:bg-neutral-700 dark:border-none dark:text-white rounded-md"
                         placeholder={t("ColoqueSeuEmail")}
                         required
-                        {...register("customerEmailSignUp", { required: true, pattern: /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i })}
+                        {...register("customerEmailSignUp", { required: true, pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i })}
                       />
                       {errors.customerEmailSignUp && (
                         <span className="text-red-600 mt-1">
-                          Digite seu e-mail
+                          Digite seu e-mail corretamente
                         </span>
                       )}
                     </div>
@@ -113,7 +113,7 @@ function SignUp() {
                       />
                       {errors.customerPasswordSignUp && (
                         <span className="text-red-600 mt-1">
-                          Digite sua senha
+                          Digite sua senha corretamente (8 caractéres no mínimo)
                         </span>
                       )}
                     </div>

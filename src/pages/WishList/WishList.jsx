@@ -44,6 +44,9 @@ const WishList = () => {
     if (adminCookie) {
       navigate.push("/admin-panel");
     }
+
+    const uniqueArray = []
+
     const res = await axios.get("http://localhost:3000/user_email", {
       withCredentials: true,
     });
@@ -60,7 +63,7 @@ const WishList = () => {
       });
   }, []);
 
-  const removeFromWishlist = async () => {
+  const removeFromWishlist = async (userId) => {
     const res = await axios.get("http://localhost:3000/user_email", {
       withCredentials: true,
     });
@@ -68,10 +71,11 @@ const WishList = () => {
     console.log("Este é o email: " + userEmail);
     await axios
       .delete("http://localhost:8080/api/index.php", {
-        params: { email: userEmail },
+        params: { id: userId, email : userEmail},
       })
-      .then((res) => console.log(res));
-    navigate.go(0);
+      .then((res) => {
+        navigate.go(0)
+      });
   };
 
   // Cart
@@ -135,7 +139,7 @@ const WishList = () => {
           {wishes.map((value, key) => {
             return (
                 <div className="flex flex-col items-center justify-center bg-gradient-to-b from-violet-300 to-indigo-300 dark:from-[#050026]/50 dark:to-[#180a55] bg-opacity-20 dark:text-white text-black w-full rounded-lg font-inter text-center py-4">
-                <div className="text-lg font-normal mt-1">
+                <div className="text-lg font-normal mt-1" key={key}>
                   <span className="font-bold">{t("Nome")}</span> :{" "}
                   {value.disc_name}
                 </div>
@@ -149,7 +153,9 @@ const WishList = () => {
                 </div>
                 <button
                   className="font-semibold text-xl"
-                  onClick={removeFromWishlist}
+                  onClick={() => {
+                    removeFromWishlist(value.disc_name)}
+                  }
                 >
                   {t("Remover")}{" "}
                 </button>

@@ -20,8 +20,9 @@ export class admin {
     public async getAllItems() {
         try {
             const conn = pool.getConnection()
-            let result = await (await conn).query('SELECT * FROM itens')
+            let result = await (await conn).query('SELECT disco.nome, itens.id, itens.id_disco, itens.id_compra, compras.preco_total, compras.data, itens.quantidade, itens.enviado FROM itens INNER JOIN disco on itens.id_disco = disco.id INNER JOIN compras on itens.id_compra = compras.id')
             ;(await conn).end()
+            console.log(result)
             return result
         } catch (err) {
             console.log(err)

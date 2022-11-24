@@ -19,7 +19,7 @@ class createFeedback
     public function create_feedback()
     {
         try {
-            $sql = "INSERT INTO " . $this->db_table . "(user_email, disc_name, price, artist) VALUES ('" . $this->userEmail . "','" . $this->discName . "', '" . $this->price . "', '" . $this->artist . "')";
+            $sql = "INSERT IGNORE " . $this->db_table . "(user_email, disc_name, price, artist) VALUES ('" . $this->userEmail . "','" . $this->discName . "', '" . $this->price . "', '" . $this->artist . "')";
             $query = $this->conn->prepare($sql);
             $query->execute();
             return $query;
