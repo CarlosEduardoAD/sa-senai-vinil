@@ -93,12 +93,6 @@ export function SignInAdmin() {
                         >
                           {t("Senha")}
                         </label>
-                        <Link
-                          to="reset-password"
-                          className="text-sm font-medium text-blue-600 hover:underline"
-                        >
-                          {t("EsqueceuASenha")}
-                        </Link>
                       </div>
                       <input
                         id="password"
@@ -141,26 +135,6 @@ export function SignInAdmin() {
                     </div>
                   </div>
                 </form>
-                <div className="flex items-center my-6">
-                  <div
-                    className="border-t border-gray-300 flex-grow mr-3"
-                    aria-hidden="true"
-                  ></div>
-                  <div className="text-gray-600 italic">{t("Ou")}</div>
-                  <div
-                    className="border-t border-gray-300 flex-grow ml-3"
-                    aria-hidden="true"
-                  ></div>
-                </div>
-                <div className="text-gray-600 text-center mt-6">
-                  {t("NaoTemConta")}{" "}
-                  <Link
-                    to="/signup"
-                    className="text-blue-600 hover:underline transition duration-150 ease-in-out"
-                  >
-                    {t("Cadastro")}
-                  </Link>
-                </div>
               </div>
             </div>
           </div>

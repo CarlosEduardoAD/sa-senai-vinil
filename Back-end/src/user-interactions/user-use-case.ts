@@ -24,7 +24,7 @@ export class user {
 
     public registerUser() {
         pool.getConnection().then(() => {
-            pool.query(`INSERT INTO usuario (nome, endereco, email, fone, senha) VALUES (${this.name}, 'rua dos sussy bakas', ${this.email}, '00 12345-1234', '${this.password.toString()}')`)
+            pool.query(`INSERT INTO usuario (nome, email, senha) VALUES (${this.name}, ${this.email}, '${this.password.toString()}')`)
                 .then(() => { console.log('Data inserted sucessfully'); })
                 .catch((e) => { console.log(e) })
         })
@@ -42,7 +42,7 @@ export class user {
             let result = rows[0]['senha']
             let id = rows[0]['id']
             console.log('Essa é a senha que retornei: ' + result)
-            const pwCheck = await bcrypt.compare(this.password, String(result))
+            const pwCheck = await bcrypt.compare(this.password, (result))
             console.log(pwCheck)
             ;(await conn).end()
             if (!pwCheck) {
