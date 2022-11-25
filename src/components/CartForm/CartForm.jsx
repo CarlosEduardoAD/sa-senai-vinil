@@ -147,16 +147,15 @@ export const CartForm = (cards) => {
                           setField(e.target.value);
                           console.log(paymentField);
                         }}
-                        className={`${styles.form} border-none dark:text-white shadow-none`}
+                        className={`${styles.form} border-none dark:text-white shadow-none dark:bg-neutral-800`}
                       >
                         {" "}
-                        <option disabled defaultValue="">
+                        <option  defaultValue="">
                           {" "}
-                          Selecione o seu método de pagamento{" "}
+                          {t("SelecioneOMetodo")}{" "}
                         </option>
                         <option value="credito">{t("CartaoDeCredito")}</option>
                         <option value="debito">{t("CartaoDeDebito")}</option>
-                        <option value="pix">Pix</option>
                       </Field>
                     </div>
                     {paymentField === "credito" ? (
@@ -211,19 +210,7 @@ export const CartForm = (cards) => {
                     ) : (
                       <div></div>
                     )}
-                    {paymentField === "pix" ? (
-                      <div className="flex mb-2">
-                        <p className="dark:text-white font-semibold">
-                          Cole esta chave Pix (Tipo: CNPJ) na opção <br></br> de
-                          pagamento do seu banco
-                        </p>
-                        <p className="dark:text-white ml-4 mt-1 font-medium text-xl whitespace-wrap">
-                          90.612.882/0001-39
-                        </p>
-                      </div>
-                    ) : (
-                      <div></div>
-                    )}
+
                     <button
                       className={`${btnStyles.btn} ${styles.submitBtn} dark:bg-[#192b7a] dark:text-gray-300`}
                       disabled={isSubmitting}

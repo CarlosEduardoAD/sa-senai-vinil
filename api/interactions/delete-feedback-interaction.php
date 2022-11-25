@@ -4,8 +4,8 @@ class deleteFeedback
 {
 
     private $conn;
-    public $userEmail;
-    public $discName;
+    public $id;
+    public $email;
     public $price;
 
 
@@ -17,9 +17,10 @@ class deleteFeedback
     public function delete_feedback()
     {
         try {
-            $sql = 'DELETE FROM user_wishes WHERE user_email = :email ORDER BY id DESC LIMIT 1';
+            $sql = 'DELETE FROM user_wishes WHERE disc_name = :id AND user_email = :email';
             $query = $this->conn->prepare($sql);
-            $query->bindValue(':email', $this -> userEmail, PDO::PARAM_STR);
+            $query->bindValue(':id', $this -> id, PDO::PARAM_STR);
+            $query->bindValue(':email', $this -> email, PDO::PARAM_STR);
             $query->execute();
             return $query;
         } catch (PDOException $exception) {
