@@ -26,7 +26,15 @@ function SignUp() {
       nome: userData,
       email: userEmail,
       password: userPassword,
-    });
+    }).catch((error) => {
+      if(error){
+        alert("E-mail já cadastrado")
+        console.log(error.response)
+        navigation.push("/signup")
+        navigation.go(0)
+      }
+    })
+    ;
     navigation.push('/signin')
     console.log(JSON.stringify(data));
   };

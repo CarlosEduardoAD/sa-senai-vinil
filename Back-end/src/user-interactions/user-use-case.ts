@@ -22,12 +22,23 @@ export class user {
         this.password = password
     }
 
-    public registerUser() {
-        pool.getConnection().then(() => {
-            pool.query(`INSERT INTO usuario (nome, email, senha) VALUES (${this.name}, ${this.email}, '${this.password.toString()}')`)
-                .then(() => { console.log('Data inserted sucessfully'); })
-                .catch((e) => { console.log(e) })
-        })
+    public async registerUser() {
+        try{
+        let conn = pool.getConnection()
+        const rows = await (await conn).query(`INSERT INTO usuario (nome, email, senha) VALUES (${this.name}, ${this.email}, '${this.password.toString()}')`)
+        console.log("Usuário cadastrado com sucesso")
+        }catch(err){
+            console.log(err)
+            return null
+        }
+        // pool.getConnection().then(() => {
+        //     pool.query(`INSERT INTO usuario (nome, email, senha) VALUES (${this.name}, ${this.email}, '${this.password.toString()}')`)
+        //         .then(() => { console.log('Data inserted sucessfully'); return true })
+        //         .catch((e) => {
+        //             console.log(e)
+        //             return null
+        //         })
+
     }
 
     public async loginUser() {
@@ -44,11 +55,11 @@ export class user {
             console.log('Essa é a senha que retornei: ' + result)
             const pwCheck = await bcrypt.compare(this.password, (result))
             console.log(pwCheck)
-            ;(await conn).end()
+                ; (await conn).end()
             if (!pwCheck) {
                 return null
             }
-             else {
+            else {
                 return true
             }
         } catch (err) {
@@ -63,7 +74,7 @@ export class user {
             const id = idQuery[0]['id']
             const result = await conn.query('select disco.id, nome, cantor, ano, data from disco inner join itens on itens.id_disco = disco.id inner join compras on itens.id_compra = compras.id where id_user = ?', [id])
             console.log(JSON.stringify(result))
-            ;(await conn).end()
+                ; (await conn).end()
             return result
         }
         catch (err) {
@@ -78,7 +89,7 @@ export class user {
             const conn = pool.getConnection()
             let query = await (await conn).query('UPDATE usuario SET senha = ? WHERE email = ?', [this.password, this.email])
             console.log(query)
-            ;(await conn).end()
+                ; (await conn).end()
         } catch (err) {
             console.log(err)
         }

@@ -64,8 +64,13 @@ routes.post('/register', async (req, res) => {
     let obj = new userHash(password)
     let result = obj.hashPassword()
     let registerInteraction = new user(nome, email, await result)
-    registerInteraction.registerUser()
-    res.status(200)
+    const status = await registerInteraction.registerUser()
+    console.log("Este é o Status : " + status)
+    if (status === null) {
+        res.status(403).send("The e-mail already exists")
+    } else {
+        res.status(200)
+    }
 })
 
 routes.post('/login', async (req, res) => {
