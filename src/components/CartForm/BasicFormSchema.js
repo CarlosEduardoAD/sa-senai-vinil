@@ -40,7 +40,7 @@ export const BasicFormSchema = Yup.object().shape({
   cvv: Yup.string()
     .min(3, translate("MinCVV"))
     .max(3, translate("MaxCVV"))
-    .required("CampoObrigatorio"),
+    .required(translate("CampoObrigatorio")),
   validade: Yup.string()
     .matches(/^(0[1-9]|1[0-2])\/?([0-9]{2})$/, translate("DataValidadeInvalida"))
     .required(translate("CampoObrigatorio")),
