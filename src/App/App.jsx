@@ -17,22 +17,21 @@ import { useHistory } from "react-router-dom";
 import { ArrowArcLeft } from "phosphor-react";
 import CookieConsent from "react-cookie-consent";
 import { useTranslation } from "react-i18next";
+import {AdminPanel} from '../pages/AdminPage'
+import {SignInAdmin} from '../pages/SignInAdmin'
 
 const App = () => {
   const {t} = useTranslation()
   const navigate = useHistory();
   const [cookie, setCookie] = useState();
+  const [adminCookie, setAdminCookie] = useState();
 
   useEffect(() => {
     let userToken = Cookies.get("acess_token");
     setCookie(userToken);
+    let adminToken = Cookies.get("admin_token")
+    setAdminCookie(adminToken)
   }, []);
-
-  const logoutUser = async () => {
-    Cookies.remove("acess_token");
-    navigate.push("/");
-    navigate.go(0)
-  };
 
   return (
     <>
@@ -52,15 +51,6 @@ const App = () => {
       <div className="z-10 flex fixed bottom-4 right-0 lg:hidden">
         <Hamburguer></Hamburguer>
       </div>
-      {cookie ? (
-        <button onClick={() => logoutUser()}>
-          <div className="z-10 lg:flex lg:items-center lg:gap-4 lg:fixed lg:bottom-12 lg:right-12 lg:rounded-lg lg:dark:bg-indigo-900 bg-blue-700 lg:hover:scale-105 lg:p-4 text-white transition-all duration-200 ease-in-out hidden">
-            <ArrowArcLeft></ArrowArcLeft>{t('Logout')}
-          </div>
-        </button>
-      ) : (
-        <div></div>
-      )}
       <main>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -71,6 +61,8 @@ const App = () => {
           <Route exact path="/signin" component={SignIn} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/reset-password" component={ResetPassword} />
+          <Route exact path="/admin-panel" component={AdminPanel} />
+          <Route exact path="/login-admin" component={SignInAdmin} />
           <Route path="/*" component={Error} />
         </Switch>
         <Footer />

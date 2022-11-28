@@ -1,29 +1,47 @@
-import * as Yup from 'yup';
+import * as Yup from "yup";
+import i18n from '../../i18n';
+
+const translate = i18n.t
 
 export const BasicFormSchema = Yup.object().shape({
-    firstName: Yup.string()
-        .matches(/^[a-zA-Zа-яА-я]+$/, "First name must contain only letters")
-        .min(2, 'First name must be longer than 2 characters')
-        .max(20, 'Too long first name')
-        .required('Required field'),
-    lastName: Yup.string()
-        .matches(/^[a-zA-Zа-яА-я]+$/, "Last name must contain only letters")
-        .min(2, 'Last name must be longer than 2 characters')
-        .max(20, 'Too long last name')
-        .required('Required field'),
-    email: Yup.string()
-        .email('Invalid email address')
-        .required('Required field'),
-    age: Yup.number()
-        .typeError('Age must be a number')
-        .integer('The age must be an integer')
-        .min(18, 'Min age is 18')
-        .max(110, 'Max age is 110')
-        .required('Required field'),
-    phone: Yup.string()
-        .matches(/^[+]?38\s[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{2}[-\s.]?[0-9]{2}$/im, "Invalid phone number format")
-        .required('Required field'),
-    address: Yup.string()
-        .min(3, 'The address must be longer than 3 characters')
-        .required('Required field')
+  firstName: Yup.string()
+    .matches(/^[a-zA-Zа-яА-я]+$/, translate("LetrasNome"))
+    .min(2, translate("MinPrimeiroNome"))
+    .max(20, translate("MaxPrimeiroNome"))
+    .required(translate("CampoObrigatorio")),
+  lastName: Yup.string()
+    .matches(/^[a-zA-Zа-яА-я]+$/, translate("LetrasNome"))
+    .min(2, translate("MinPrimeiroNome"))
+    .max(20, translate("MaxPrimeiroNome"))
+    .required(translate("CampoObrigatorio")),
+  age: Yup.number()
+    .typeError(translate("Número Idade"))
+    .integer("The age must be an integer")
+    .min(18, translate("MinNumero"))
+    .max(110, translate("MaxNumero"))
+    .required(translate("CampoObrigatorio")),
+  phone: Yup.string()
+    .matches(
+      /^(?:\+)[0-9]{2}\s?(?:\()[0-9]{2}(?:\))\s?[0-9]{4,5}(?:-)[0-9]{4}$/,
+      translate("TelefoneInvalido")
+    )
+    .required(translate("CampoObrigatorio")),
+  address: Yup.string()
+    .min(3, translate("MinEndereco")),
+  numeroCartao: Yup.string()
+    .min(10, translate("MinNumeroCartao"))
+    .max(16, translate("MaxNumeroCartao"))
+    .required(translate("CampoObrigatorio")),
+  nomeCartao: Yup.string()
+    .matches(/^[a-zA-Zа-яА-я]+$/, translate("LetrasNome"))
+    .min(2, translate("MinNomeCartao"))
+    .max(20, translate("MaxNomeCartao"))
+    .required(translate("CampoObrigatorio")),
+  cvv: Yup.string()
+    .min(3, translate("MinCVV"))
+    .max(3, translate("MaxCVV"))
+    .required(translate("CampoObrigatorio")),
+  validade: Yup.string()
+    .matches(/^(0[1-9]|1[0-2])\/?([0-9]{2})$/, translate("DataValidadeInvalida"))
+    .required(translate("CampoObrigatorio")),
 });

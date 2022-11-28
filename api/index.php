@@ -45,7 +45,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     $db = $database->get_connection();
     $feedback = new deleteFeedback($db);
     $data = json_decode(file_get_contents("php://input"));
-    $feedback->userEmail = $_GET['email'];
+    echo $_GET['id'];
+    $feedback->id = $_GET['id'];
+    $feedback->email = $_GET['email'];
     $feedback->delete_feedback();
     echo 'Ganhamo família';
 }

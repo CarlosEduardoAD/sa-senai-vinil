@@ -5,11 +5,12 @@ import { countSubtotal } from "../../helpers/countSubtotal";
 import { countTotalWithDiscount } from "../../helpers/countTotalWithDiscount";
 import { addDiscount } from "../../store/cart/actions";
 import React from "react";
-import { Formik, Form, FieldArray } from "formik";
+import { Formik, Form, FieldArray, Field } from "formik";
 import styles from "./CartForm.module.scss";
 import btnStyles from "../Button/Button.module.scss";
 import { BasicFormSchema } from "./BasicFormSchema";
 import { formDataFields } from "./formDataFields";
+import { cardFormDataFields } from "./cardFormDataFields";
 import { FormikInputBlock } from "./formFields/FormikInputBlock";
 import { NumberFormatInputBlock } from "./formFields/NumberFormatInputBlock";
 import { useDispatch } from "react-redux";
@@ -22,8 +23,10 @@ import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import axios from "axios";
 import OrderTotals from "../OrderTotals/OrderTotals";
+import { Browser } from "phosphor-react";
 
 export const CartForm = (cards) => {
+  const [paymentField, setField] = useState();
   const dispatch = useDispatch();
   const [values, setvalues] = useState(null);
   const { t } = useTranslation();
@@ -65,19 +68,23 @@ export const CartForm = (cards) => {
     let firstName = JSON.stringify(values.firstName);
     console.log(values.firstName);
     let lastName = JSON.stringify(values.lastName);
-    let email = JSON.stringify(values.email);
     let age = JSON.stringify(values.age);
     let adress = JSON.stringify(values.address);
+    let gitfCheck = JSON.stringify(values.gift);
+    let phone = JSON.stringify(values.phone);
+    console.log(gitfCheck);
     let price = sessionStorage.getItem("totalPrice".toString());
     console.log(JSON.stringify(price));
     const request = {
       firstName: firstName,
       lastName: lastName,
-      email: email,
       age: age,
       adress: adress,
       price: price,
       discInfo: filteredCart,
+      gift: gitfCheck,
+      paymentMethod: paymentField,
+      phone: phone,
     };
     axios.post("http://localhost:3000/purchase", request, {
       withCredentials: true,
@@ -91,7 +98,9 @@ export const CartForm = (cards) => {
   return (
     <>
       <div className={styles.formContainer}>
-        <h1 className={`${styles.cartTitle} font-inter`}>2. {t('InformacoesTransporte')}</h1>
+        <h1 className={`${styles.cartTitle} font-inter`}>
+          2. {t("InformacoesTransporte")}
+        </h1>
         <Formik
           initialValues={{
             firstName: "",
@@ -105,7 +114,7 @@ export const CartForm = (cards) => {
           onSubmit={handleFormSubmit}
         >
           {({ isSubmitting }) => (
-            <Form className={`${styles.form} backdrop-blur-lg dark:shadow-xl`}>
+            <Form className={`${styles.form}  dark:shadow-xl`}>
               <FieldArray
                 name="fields"
                 render={() => (
@@ -131,13 +140,83 @@ export const CartForm = (cards) => {
                           );
                         }
                       )}
+                      <Field
+                        as="select"
+                        name="paymentMethod"
+                        onChange={(e) => {
+                          setField(e.target.value);
+                          console.log(paymentField);
+                        }}
+                        className={`${styles.form} border-none dark:text-white shadow-none dark:bg-neutral-800`}
+                      >
+                        {" "}
+                        <option  defaultValue="">
+                          {" "}
+                          {t("SelecioneOMetodo")}{" "}
+                        </option>
+                        <option value="credito">{t("CartaoDeCredito")}</option>
+                        <option value="debito">{t("CartaoDeDebito")}</option>
+                      </Field>
                     </div>
+                    {paymentField === "credito" ? (
+                      <div className={styles.formInner}>
+                        {cardFormDataFields.map(
+                          ({ id, name, label, placeholder, type }) => {
+                            return name === "phone" ? (
+                              <NumberFormatInputBlock
+                                key={id}
+                                name={name}
+                                type={type}
+                                label={label}
+                              />
+                            ) : (
+                              <FormikInputBlock
+                                key={id}
+                                name={name}
+                                type={type}
+                                label={label}
+                                placeholder={placeholder}
+                              />
+                            );
+                          }
+                        )}
+                      </div>
+                    ) : (
+                      <div></div>
+                    )}
+                    {paymentField === "debito" ? (
+                      <div className={styles.formInner}>
+                        {cardFormDataFields.map(
+                          ({ id, name, label, placeholder, type }) => {
+                            return name === "phone" ? (
+                              <NumberFormatInputBlock
+                                key={id}
+                                name={name}
+                                type={type}
+                                label={label}
+                              />
+                            ) : (
+                              <FormikInputBlock
+                                key={id}
+                                name={name}
+                                type={type}
+                                label={label}
+                                placeholder={placeholder}
+                              />
+                            );
+                          }
+                        )}
+                      </div>
+                    ) : (
+                      <div></div>
+                    )}
+
                     <button
-                      className={`${btnStyles.btn} ${styles.submitBtn}`}
+                      className={`${btnStyles.btn} ${styles.submitBtn} dark:bg-[#192b7a] dark:text-gray-300`}
                       disabled={isSubmitting}
                       type="submit"
                     >
-                      {t('Finalizar')}
+                      {t("Finalizar")}
                     </button>
                   </>
                 )}
@@ -152,7 +231,7 @@ export const CartForm = (cards) => {
           closeModalHandler: () => {
             closeModalHandler();
           },
-          header: t('SeuPedido'),
+          header: t("SeuPedido"),
           closeButton: true,
           cards: { cards },
           formValues: values ? values : null,

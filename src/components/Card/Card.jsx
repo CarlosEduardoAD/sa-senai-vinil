@@ -80,7 +80,7 @@ const Card = ({
             }}
             className={`${styles.wishlistBox} dark:text-white flex items-center justify-center`}
           >
-            {heart ? <Heart size={25}/> : <HeartBreak size={25}/>}
+            {heart ? <Heart color={'white'} size={25}/> : <HeartBreak  color={'white'} size={25}/>}
           </button>
           <Button
             text={t("AdicionarAoCarrinho")}

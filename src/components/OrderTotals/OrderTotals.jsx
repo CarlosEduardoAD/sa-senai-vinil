@@ -50,15 +50,15 @@ const OrderTotals = () => {
       <Formik initialValues={{ promocode: "" }} onSubmit={handleSubmit}>
         {() => (
           <Form className={styles.promocodeForm}>
-            <p className={`${styles.promocodeFormTitle} font-inter`}>{t('ColocarCodigo')}</p>
+            <p className={`${styles.promocodeFormTitle} font-inter dark:text-white`}>{t('ColocarCodigo')}</p>
             <div className={styles.promocodeFieldContainer}>
               <Field
-                className={`${styles.promocodeField} dark:bg-transparent border-none dark:opacity-50 rounded-lg font-inter`}
+                className={`${styles.promocodeField} dark:bg-transparent border-none dark:opacity-100 rounded-lg font-inter dark:text-white`}
                 name="promocode"
                 type="text"
                 placeholder={t('CodigoPlaceholder')}
               />
-              <button className={styles.promocodeBtn} type="submit">
+              <button className={`${styles.promocodeBtn} -mt-1 mr-1 dark:text-white dark:bg-indigo-500`} type="submit">
                 {(t('Aplicar'))}
               </button>
             </div>

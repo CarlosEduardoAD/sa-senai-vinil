@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 
-function SignIn() {
+export function SignInAdmin() {
   const navigate = useHistory();
   const { t } = useTranslation();
   const {
@@ -23,26 +23,26 @@ function SignIn() {
     sessionStorage.setItem("username", userData);
     axios
       .post(
-        "http://localhost:3000/login",
+        "http://localhost:3000/admin_login",
         {
           email: userData,
           password: userPassword,
         },
         { withCredentials: true }
       ).then((res) => {
-       navigate.push("/Catalog")
+        console.log(res)
+        navigate.push("/admin-panel");
       })
       .catch((error) => {
         if(error){
-          alert("E-mail ou senha inválidos")
           console.log(error.response)
-          navigate.push("/signin")
-          navigate.go(0)
+          navigate.push("/login-admin")
         }
       });
+
   };
   return (
-    <div className="flex flex-col min-h-screen overflow-hidden">
+    <div className="flex flex-col min-h-screen overflow-hidden -mt-8">
       {/*  Page content */}
       <main className="flex-grow">
         <section className="bg-gradient-to-b from-gray-100 to-white">
@@ -51,7 +51,7 @@ function SignIn() {
               {/* Page header */}
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
                 <h1 className="h1 dark:text-white text-4xl font-bold">
-                  {t("AFestaEstaBombando")}
+                  {t('SejaBemVindoAdmin')}
                 </h1>
               </div>
 
@@ -93,12 +93,6 @@ function SignIn() {
                         >
                           {t("Senha")}
                         </label>
-                        <Link
-                          to="reset-password"
-                          className="text-sm font-medium text-blue-600 hover:underline"
-                        >
-                          {t("EsqueceuASenha")}
-                        </Link>
                       </div>
                       <input
                         id="password"
@@ -141,26 +135,6 @@ function SignIn() {
                     </div>
                   </div>
                 </form>
-                <div className="flex items-center my-6">
-                  <div
-                    className="border-t border-gray-300 flex-grow mr-3"
-                    aria-hidden="true"
-                  ></div>
-                  <div className="text-gray-600 italic">{t("Ou")}</div>
-                  <div
-                    className="border-t border-gray-300 flex-grow ml-3"
-                    aria-hidden="true"
-                  ></div>
-                </div>
-                <div className="text-gray-600 text-center mt-6">
-                  {t("NaoTemConta")}{" "}
-                  <Link
-                    to="/signup"
-                    className="text-blue-600 hover:underline transition duration-150 ease-in-out"
-                  >
-                    {t("Cadastro")}
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
@@ -169,5 +143,3 @@ function SignIn() {
     </div>
   );
 }
-
-export default SignIn;
