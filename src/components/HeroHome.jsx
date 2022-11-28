@@ -166,7 +166,7 @@ function HeroHome() {
               <div className="relative pb-9/16">
                 <iframe
                   className="absolute w-full h-full"
-                  src="https://player.vimeo.com/video/174002812"
+                  src="https://player.vimeo.com/video/769906157"
                   title="Video"
                   allowFullScreen
                 ></iframe>
