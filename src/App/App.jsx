@@ -48,7 +48,7 @@ const App = () => {
       <div className="hidden sm:block">
         <Header />
       </div>
-      <div className="z-10 flex fixed bottom-4 right-0 lg:hidden">
+      <div className="z-20 flex fixed bottom-4 right-0 lg:hidden">
         <Hamburguer></Hamburguer>
       </div>
       <main>

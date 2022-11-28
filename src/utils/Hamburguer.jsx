@@ -39,7 +39,7 @@ export function Hamburguer() {
         <Hamburger size={30} toggled={isOpen} toggle={setOpen} />
       </button>
       {isOpen ? (
-        <div className="flex flex-col items-center justify-center fixed top-0 backdrop-blur dark:bg-indigo-500/75 bg-slate-300/75 dark:text-white w-56 rounded-sm right-0 h-full ease-in-out transition-all duration-200">
+        <div className="flex flex-col items-center justify-center fixed top-0 backdrop-blur dark:bg-indigo-500/75 bg-slate-300/75 dark:text-white w-56 rounded-sm right-0 h-full ease-in-out transition-all duration-200 z-20">
           <ul className="flex flex-col items-center justify-center gap-12 text-xl">
             <li className="active:text-blue-600">
               <NavLink exact to="/" activeClassName="">
@@ -73,23 +73,23 @@ export function Hamburguer() {
                 <div></div>
               ) : (
                 <li
-                  className={`rounded-lg border-2 p-2 border-black dark:border-white mt-4`}
+                  className={`rounded-lg border-2 p-2 border-black dark:border-white mt-4 flex`}
                 >
-                  <NavLink exact to="/signin" activeClassName={styles.active}>
-                    {t('Cadastro')}
+                  <NavLink exact to="/signin" activeClassName={`${styles.active}`}>
+                    {t('Entrar')}
                   </NavLink>
                 </li>
               )}
             </div>
             <div>
-              {cookie ? (
+              {cookie || cookieAdmin ? (
                 <div></div>
               ) : (
                 <li
-                  className={`rounded-lg border-2 p-2 border-black dark:border-white mt-4`}
+                  className={`rounded-lg border-2 p-2 border-black dark:border-white mt-4 flex`}
                 >
                   <NavLink exact to="/signup" activeClassName={styles.active}>
-                    {t('Entrar')}
+                    {t('Cadastro')}
                   </NavLink>
                 </li>
               )}
@@ -98,7 +98,7 @@ export function Hamburguer() {
           </div>
           {cookie ? (
               <li
-                className={`rounded-lg border-2 p-2 border-black dark:border-white mt-4`}
+                className={`rounded-lg border-2 p-2 border-black dark:border-white mt-4 flex`}
               >
                 <button onClick={() => logoutUser()}>
                 <li exact to="/" activeClassName={styles.active}>
@@ -111,7 +111,7 @@ export function Hamburguer() {
           )}
 
           <div className="grid grid-cols-2 grid-flow-row">
-            <div className="absolute bottom-12 left-0 ml-[10px] sm:hidden ">
+            <div className="absolute top-16 left-0 ml-[8px] sm:hidden ">
               <ToggleButton></ToggleButton>
             </div>
             <button
